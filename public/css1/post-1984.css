@@ -1,0 +1,68 @@
+.elementor-1984 .elementor-element.elementor-element-6251156:not(.elementor-motion-effects-element-type-background),
+.elementor-1984 .elementor-element.elementor-element-6251156>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-image: url("https://demoapus1.com/freeio/wp-content/uploads/2022/09/bg-filter1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.elementor-1984 .elementor-element.elementor-element-6251156 {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 58px 0px 58px 0px;
+}
+
+.elementor-1984 .elementor-element.elementor-element-6251156>.elementor-background-overlay {
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-1984 .elementor-element.elementor-element-9d78cac>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute) {
+    margin-bottom: 15px;
+}
+
+.elementor-1984 .elementor-element.elementor-element-27b2413 .elementor-heading-title {
+    font-size: 32px;
+}
+
+.elementor-1984 .elementor-element.elementor-element-e0dab48 {
+    color: #222222;
+}
+
+.elementor-1984 .elementor-element.elementor-element-0022aba .video-wrapper-inner .title {
+    color: #0e666a;
+}
+
+.elementor-1984 .elementor-element.elementor-element-0022aba .video-wrapper-inner:hover .title {
+    color: #1fbec6;
+}
+
+.elementor-1984 .elementor-element.elementor-element-0022aba .video-wrapper-inner .video-icon {
+    color: #0e666a;
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.elementor-1984 .elementor-element.elementor-element-0022aba .video-wrapper-inner:hover .video-icon {
+    color: #FFFFFF;
+    background-color: #1fbec6;
+    border-color: #1fbec6;
+}
+
+.elementor-1984 .elementor-element.elementor-element-0022aba>.elementor-widget-container {
+    margin: 20px 0px 0px 0px;
+}
+
+.elementor-1984 .elementor-element.elementor-element-0022aba {
+    width: auto;
+    max-width: auto;
+}
+
+@media(max-width:1024px) {
+    .elementor-1984 .elementor-element.elementor-element-27b2413 .elementor-heading-title {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:767px) {
+    .elementor-1984 .elementor-element.elementor-element-27b2413 .elementor-heading-title {
+        font-size: 23px;
+    }
+}

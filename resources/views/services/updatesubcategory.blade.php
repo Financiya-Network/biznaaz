@@ -1,0 +1,1 @@
+{{Form::select('subcategory_id', $subcatList,null, ['class' => 'form-control required','placeholder' => 'Select sub category'])}}

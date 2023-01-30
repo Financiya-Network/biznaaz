@@ -1,0 +1,4 @@
+
+header{width: 100%; float: left; background: transparent; position: fixed; z-index: 9999999}
+.fixed-me{ background: #fff;}
+.fixed-me #cssmenu > ul > li > a {color: #000;}

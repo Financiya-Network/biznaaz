@@ -1,0 +1,1 @@
+<?php echo e(Form::select('subcategory_id', $subCatList,null, ['class' => 'form-control required','placeholder' => 'Select Sub Category'])); ?>
