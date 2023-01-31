@@ -602,49 +602,50 @@
                                     beforeSend: function() {
 
                                     },
-                                    success: function(data) {
-                                        //  $("#wrkr_srch_ldr").hide();
-                                        //NProgress.done();
+                                    // success: function(data) {
+                                    //     //  $("#wrkr_srch_ldr").hide();
+                                    //     //NProgress.done();
+                                    //     console.log(data);
+                                    //     $this.closest('.twitter-typeahead').removeClass('loading');
+                                    //     $this.closest('.has-suggestion').removeClass('active');
+                                    //     $(".searchgig").html('');
+                                    //     $(".searchgig").html(data);
+            
+                                    // },
+                                    // error: function(data) {
+                                    //     console.log("error");
+                                    //     console.log(data);
+                                    // }
+                                    dataType: 'json',
+                                    success: function (data) {
                                         console.log(data);
                                         $this.closest('.twitter-typeahead').removeClass('loading');
                                         $this.closest('.has-suggestion').removeClass('active');
-                                        $(".searchgig").html('');
-                                        $(".searchgig").html(data);
-            
-                                    },
-                                    error: function(data) {
-                                        console.log("error");
-                                        console.log(data);
+                                        // return processAsync(data);
                                     }
-                                    // dataType: 'json',
-                                    // success: function (json) {
-                                    //     $this.closest('.twitter-typeahead').removeClass('loading');
-                                    //     $this.closest('.has-suggestion').removeClass('active');
-                                    //     return processAsync(json);
-                                    // }
                                 });
                             },
-                            // templates: {
-                            //     empty : [
-                            //         '<div class="empty-message">',
-                            //         freeio_job_opts.empty_msg,
-                            //         '</div>'
-                            //     ].join('\n'),
-                            //     suggestion: function(data) {
+                            templates: {
+                                empty : [
+                                    '<div class="empty-message">',
+                                    freeio_job_opts.empty_msg,
+                                    '</div>'
+                                ].join('\n'),
+                                suggestion: function(data) {
                                    
-                            //         console.log(data);
+                                    console.log(data);
                                    
                                     
-                            //         return '<a href="" class="media autocompleate-media">\
-                            //         <div class="media-left media-middle">\
-                            //             <img src="'+ data.image +'" class="media-object" height="50" width="50">\
-                            //         </div>\
-                            //         <div class="media-body media-middle">\
-                            //             <h4>'+ data.slug +'</h4>\
-                            //             '+ data.salary +'\
-                            //         </div></a>';
-                            //     }
-                            // },
+                                    return '<a href="" class="media autocompleate-media">\
+                                    <div class="media-left media-middle">\
+                                        <img src="'+ data.image +'" class="media-object" height="50" width="50">\
+                                    </div>\
+                                    <div class="media-body media-middle">\
+                                        <h4>'+ data.slug +'</h4>\
+                                        '+ data.salary +'\
+                                    </div></a>';
+                                }
+                            },
                         }
                     );
                     $this.on('typeahead:selected', function (e, data) {

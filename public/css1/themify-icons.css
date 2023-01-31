@@ -16,7 +16,7 @@
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	line-height: 3;
+	/* line-height: 3; */
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;

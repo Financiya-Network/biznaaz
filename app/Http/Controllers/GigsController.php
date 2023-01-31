@@ -810,6 +810,7 @@ class GigsController extends Controller {
     }
 
     public function getkeyword(Request $request) {
+     
         //echo 1;exit;
         $pageTitle = 'View Gigs';
         //$query = new Searchkeyword();
@@ -868,9 +869,12 @@ class GigsController extends Controller {
         $allrecords = array_merge($gigextras, $skills, $searchkeywords, $categories);
        
         $alluserrecords = json_decode(json_encode($query1), true);
-
+        
         if ($request->ajax()) {
-            return view('elements.gigs.getkeyword', ['keyword' => $keyword, 'allrecords' => $allrecords, 'alluserrecords' => $alluserrecords, 'isajax' => 1]);
+                $status = 1;
+                $data = ['keyword' => $keyword, 'allrecords' => $allrecords, 'alluserrecords' => $alluserrecords, 'isajax' => 1];
+            return response()->json(['Success' => $status ,'data' => $data]);
+            // return view('elements.gigs.getkeyword', ['keyword' => $keyword, 'allrecords' => $allrecords, 'alluserrecords' => $alluserrecords, 'isajax' => 1]);
         }
         exit;
 

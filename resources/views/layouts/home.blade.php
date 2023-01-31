@@ -76,6 +76,7 @@
     {{ HTML::style('public/css1/post-3038.css') }}
     {{ HTML::style('public/css1/animations.min.css') }}
     {{ HTML::style('public/css1/style.css') }}
+  
 
     {{-- All js--------------------------------------------------------------------------------------------------------------- --}}
 

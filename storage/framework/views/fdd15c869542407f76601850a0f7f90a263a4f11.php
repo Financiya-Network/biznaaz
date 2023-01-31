@@ -535,10 +535,7 @@
 <link rel='stylesheet' id='freeio-theme-fonts-css'
     href='https://fonts.googleapis.com/css?family=DM+Sans:400,500,700,400,500,700&#038;subset=latin%2Clatin-ext%2Clatin%2Clatin-ext'
     type='text/css' media='all' />
-{{-- <link rel='stylesheet' id='perfect-scrollbar-jquery-css' href='../public/css1/perfect-scrollbar.css' type='text/css'
-        media='all' />
-    <link rel='stylesheet' id='perfect-scrollbar-css' href='../public/css1/perfect-scrollbar.css' type='text/css'
-        media='all' /> --}}
+
 <link rel='stylesheet' id='google-fonts-1-css'
     href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.1.1'
     type='text/css' media='all' />
@@ -592,20 +589,10 @@
 </style>
 
 
-{{-- <link rel="https://api.w.org/" href="https://demoapus1.com/freeio/wp-json/" />
-    <link rel="alternate" type="application/json" href="https://demoapus1.com/freeio/wp-json/wp/v2/pages/5186" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD"
-        href="https://demoapus1.com/freeio/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
-        href="https://demoapus1.com/freeio/wp-includes/wlwmanifest.xml" /> --}}
+
 <meta name="generator" content="WordPress 6.1.1" />
 <meta name="generator" content="WooCommerce 7.1.0" />
-{{-- <link rel="canonical" href="https://demoapus1.com/freeio/freelancers-layout-v1/" />
-    <link rel='shortlink' href='https://demoapus1.com/freeio/?p=5186' />
-    <link rel="alternate" type="application/json+oembed"
-        href="https://demoapus1.com/freeio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemoapus1.com%2Ffreeio%2Ffreelancers-layout-v1%2F" />
-    <link rel="alternate" type="text/xml+oembed"
-        href="https://demoapus1.com/freeio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemoapus1.com%2Ffreeio%2Ffreelancers-layout-v1%2F&#038;format=xml" /> --}}
+
 <noscript>
     <style>
         .woocommerce-product-gallery {
@@ -679,10 +666,10 @@
         overflow: visible !important
     }
 </style>
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> --}}
+
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 
@@ -842,15 +829,15 @@
                             <nav id="menu-main-menu-navbar" class="navbar navbar-offcanvas" role="navigation">
                                 <div id="mobile-menu-container" class="menu-primary-menu-container">
                                     <ul id="menu-primary-menu" class="">
-                                        @if (session()->has('user_id'))
+                                        <?php if(session()->has('user_id')): ?>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('gigs/create') }}" class=""
+                                                    href="<?php echo e(URL::to('gigs/create')); ?>" class=""
                                                     data-hover="dropdown" data-toggle="dropdown">Post
                                                     Gig
                                                     <b class="caret"></b></a>
                                             </li>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('gigs') }}" class="" data-hover="dropdown"
+                                                    href="<?php echo e(URL::to('gigs')); ?>" class="" data-hover="dropdown"
                                                     data-toggle="dropdown">Browse Gigs
                                                     <b class="caret"></b></a>
                                             </li>
@@ -860,13 +847,13 @@
                                                     <b class="caret"></b></a>
                                             </li>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('messages/message') }}" class=""
+                                                    href="<?php echo e(URL::to('messages/message')); ?>" class=""
                                                     data-hover="dropdown" data-toggle="dropdown">Message
                                                     <b class="caret"></b></a>
                                             </li>
-                                        @else
+                                        <?php else: ?>
                                             <li id="menu-item-61" class="has-submenu menu-item-61"><a
-                                                    href="{{ URL::to('index1') }}">Home</a>
+                                                    href="<?php echo e(URL::to('index1')); ?>">Home</a>
                                             </li>
                                             <li id="menu-item-5226" class="has-submenu menu-item-5226"><a
                                                     href="#">Browse
@@ -875,21 +862,21 @@
                                                     <li id="menu-item-5161" class="has-submenu menu-item-5161"><a
                                                             href="#">Services</a>
                                                         <ul class="sub-menu">
-                                                            @if ($globalCategories)
-                                                                @foreach ($globalCategories as $cat)
+                                                            <?php if($globalCategories): ?>
+                                                                <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                     <li id="menu-item-5162" class="menu-item-5162">
                                                                         <a
-                                                                            href="{{ URL::to('gigs/' . $cat->slug) }}">{!! $cat->name !!}</a>
+                                                                            href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"><?php echo $cat->name; ?></a>
                                                                     </li>
-                                                                @endforeach
-                                                            @endif
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php endif; ?>
                                                         </ul>
                                                     </li>
                                                     <li id="menu-item-5182" class="has-submenu menu-item-5182"><a
                                                             href="#">Projects</a>
                                                         <ul class="sub-menu">
                                                             <li id="menu-item-5183" class="menu-item-5183"><a
-                                                                    href="{{ URL::to('maintenance') }}">Project
+                                                                    href="<?php echo e(URL::to('maintenance')); ?>">Project
                                                                     &#8211; List</a></li>
                                                         </ul>
                                                     </li>
@@ -897,7 +884,7 @@
                                                             href="#">Jobs</a>
                                                         <ul class="sub-menu">
                                                             <li id="menu-item-5213" class="menu-item-5213"><a
-                                                                    href="{{ URL::to('job') }}">Layout
+                                                                    href="<?php echo e(URL::to('job')); ?>">Layout
                                                                     &#8211; v1</a></li>
                                                         </ul>
                                                     </li>
@@ -907,10 +894,10 @@
                                                     href="#">Users</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-5194" class="has-submenu menu-item-5194"><a
-                                                            href="{{ URL::to('maintenance') }}">Freelancers</a>
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">Freelancers</a>
                                                         <ul class="sub-menu">
                                                             <li id="menu-item-5195" class="menu-item-5195"><a
-                                                                    href="{{ URL::to('maintenance') }}">Layout
+                                                                    href="<?php echo e(URL::to('maintenance')); ?>">Layout
                                                                     &#8211; v1</a></li>
                                                         </ul>
                                                     </li>
@@ -918,12 +905,12 @@
                                                             href="#">Employers</a>
                                                         <ul class="sub-menu">
                                                             <li id="menu-item-5223" class="menu-item-5223"><a
-                                                                    href="{{ URL::to('maintenance') }}">Layout
+                                                                    href="<?php echo e(URL::to('maintenance')); ?>">Layout
                                                                     &#8211; v1</a></li>
                                                         </ul>
                                                     </li>
                                                     <li id="menu-item-1606" class="menu-item-1606"><a
-                                                            href="{{ URL::to('become-seller') }}">Become
+                                                            href="<?php echo e(URL::to('become-seller')); ?>">Become
                                                             Seller</a></li>
                                                 </ul>
                                             </li>
@@ -931,18 +918,18 @@
                                                     href="">Blog</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-5132" class="menu-item-5132"><a
-                                                            href="{{ URL::to('maintenance') }}">Blog
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                             &#8211; Grid</a></li>
                                                     <li id="menu-item-5130" class="menu-item-5130"><a
-                                                            href="{{ URL::to('maintenance') }}">Blog
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                             &#8211;
                                                             List V1</a></li>
                                                     <li id="menu-item-5131" class="menu-item-5131"><a
-                                                            href="{{ URL::to('maintenance') }}">Blog
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                             &#8211;
                                                             List V2</a></li>
                                                     <li id="menu-item-5133" class="menu-item-5133"><a
-                                                            href="{{ URL::to('maintenance') }}">Blog
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                             &#8211; Detail</a></li>
                                                 </ul>
                                             </li>
@@ -950,48 +937,48 @@
                                                     href="#">Pages</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-5137" class="menu-item-5137"><a
-                                                            href="{{ URL::to('maintenance') }}">Shop</a></li>
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">Shop</a></li>
                                                     <li id="menu-item-68" class="menu-item-68"><a
-                                                            href="{{ URL::to('contact-us') }}">Contact</a></li>
+                                                            href="<?php echo e(URL::to('contact-us')); ?>">Contact</a></li>
                                                     <li id="menu-item-66" class="menu-item-66"><a
-                                                            href="{{ URL::to('about-us') }}">About
+                                                            href="<?php echo e(URL::to('about-us')); ?>">About
                                                             v1</a></li>
                                                     <li id="menu-item-67" class="menu-item-67"><a
-                                                            href="{{ URL::to('maintenance') }}">About
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">About
                                                             v2</a></li>
                                                     <li id="menu-item-71" class="menu-item-71"><a
-                                                            href="{{ URL::to('maintenance') }}">Pricing</a></li>
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">Pricing</a></li>
                                                     <li id="menu-item-70" class="menu-item-70"><a
                                                             href="">Help</a>
                                                     </li>
                                                     <li id="menu-item-69" class="menu-item-69"><a
-                                                            href="{{ URL::to('faqs') }}">FAQ</a>
+                                                            href="<?php echo e(URL::to('faqs')); ?>">FAQ</a>
                                                     </li>
                                                     <li id="menu-item-72" class="menu-item-72"><a
-                                                            href="{{ URL::to('terms-and-condition') }}">Terms</a></li>
+                                                            href="<?php echo e(URL::to('terms-and-condition')); ?>">Terms</a></li>
                                                     <li id="menu-item-1754" class="menu-item-1754"><a
-                                                            href="{{ URL::to('maintenance') }}">404</a></li>
+                                                            href="<?php echo e(URL::to('maintenance')); ?>">404</a></li>
                                                 </ul>
                                             </li>
-                                        @endif
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                                 <ul class="menu-account-mobile">
-                                    @if (session()->has('user_id'))
+                                    <?php if(session()->has('user_id')): ?>
                                         <li>
-                                            <a href="{{ URL::to('logout') }}" title="Login">
+                                            <a href="<?php echo e(URL::to('logout')); ?>" title="Login">
                                                 Logout</a>
                                         </li>
-                                    @else
+                                    <?php else: ?>
                                         <li>
-                                            <a href="{{ URL::to('login') }}" title="Login">
+                                            <a href="<?php echo e(URL::to('login')); ?>" title="Login">
                                                 Login </a>
                                         </li>
                                         <li>
-                                            <a href="{{ URL::to('register') }}" title="Register">
+                                            <a href="<?php echo e(URL::to('register')); ?>" title="Register">
                                                 Register </a>
                                         </li>
-                                    @endif
+                                    <?php endif; ?>
                                 </ul>
                             </nav>
                         </div>
@@ -1004,21 +991,22 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-5">
                             <div class="logo logo-theme">
-                                <a href="{{ URL::to('index1') }}">
-                                    {{ HTML::image('public/images/logo.png', SITE_TITLE, ['style' => 'width:133px;height:40px']) }}
+                                <a href="<?php echo e(URL::to('index1')); ?>">
+                                    <?php echo e(HTML::image('public/images/logo.png', SITE_TITLE, ['style' => 'width:133px;height:40px'])); ?>
+
                                 </a>
                             </div>
                         </div>
                         <div class="col-7 d-flex align-items-center justify-content-end">
 
                             <div class="top-wrapper-menu ">
-                                @if (session()->has('user_id'))
-                                    <a href="{{ URL::to('logout') }}" title="Login">
+                                <?php if(session()->has('user_id')): ?>
+                                    <a href="<?php echo e(URL::to('logout')); ?>" title="Login">
                                         Logout</a>
-                                @else
-                                    <a class="btn-account btn-login " href="{{ URL::to('login') }}" title="Login">
+                                <?php else: ?>
+                                    <a class="btn-account btn-login " href="<?php echo e(URL::to('login')); ?>" title="Login">
                                         Login </a>
-                                @endif
+                                <?php endif; ?>
                             </div>
 
 
@@ -1046,7 +1034,8 @@
                                             <div class="logo ">
                                                 <a href="">
                                                     <span class="logo-main">
-                                                        {{ HTML::image('public/images/logo.png', SITE_TITLE, ['style' => 'width:133px;height:40px']) }}
+                                                        <?php echo e(HTML::image('public/images/logo.png', SITE_TITLE, ['style' => 'width:133px;height:40px'])); ?>
+
                                                     </span>
                                                 </a>
                                             </div>
@@ -1064,14 +1053,15 @@
                                                 </span>
                                                 <div class="content-vertical">
                                                     <ul id="vertical-menu" class="apus-vertical-menu nav">
-                                                        @if ($globalCategories)
-                                                            @foreach ($globalCategories as $cat)
+                                                        <?php if($globalCategories): ?>
+                                                            <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <li id="menu-item-5663"
                                                                     class="menu-item-5663 has-mega-menu aligned-left">
-                                                                    <a href="{{ URL::to('gigs/' . $cat->slug) }}"
+                                                                    <a href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"
                                                                         class="dropdown-toggle" data-hover="dropdown"
                                                                         data-toggle="dropdown">
-                                                                        {{ HTML::image('public/img/front/home/' . $cat->image, SITE_TITLE) }}{!! $cat->name !!}
+                                                                        <?php echo e(HTML::image('public/img/front/home/' . $cat->image, SITE_TITLE)); ?><?php echo $cat->name; ?>
+
                                                                         <b class="caret"></b></a>
                                                                     <div class="dropdown-menu development-it"
                                                                         style="width:500px">
@@ -1108,18 +1098,18 @@
                                                                                                                 class="widget-content">
                                                                                                                 <div
                                                                                                                     class="menu-top-jobs-container">
-                                                                                                                    @if (isset($globalSubCategories[$cat->id]))
+                                                                                                                    <?php if(isset($globalSubCategories[$cat->id])): ?>
                                                                                                                         <ul id="menu-top-jobs"
                                                                                                                             class="menu">
-                                                                                                                            @foreach ($globalSubCategories[$cat->id] as $subCat)
+                                                                                                                            <?php $__currentLoopData = $globalSubCategories[$cat->id]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                                                                                 <li id="menu-item-4338"
                                                                                                                                     class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-4338">
                                                                                                                                     <a
-                                                                                                                                        href="{{ URL::to('gigs/' . $cat->slug . '/' . $subCat->slug) }}">{!! $subCat->name !!}</a>
+                                                                                                                                        href="<?php echo e(URL::to('gigs/' . $cat->slug . '/' . $subCat->slug)); ?>"><?php echo $subCat->name; ?></a>
                                                                                                                                 </li>
-                                                                                                                            @endforeach
+                                                                                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                                                                         </ul>
-                                                                                                                    @endif
+                                                                                                                    <?php endif; ?>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
@@ -1133,8 +1123,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </li>
-                                                            @endforeach
-                                                        @endif
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php endif; ?>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -1150,16 +1140,16 @@
                                                     role="navigation">
                                                     <div class="collapse navbar-collapse no-padding">
                                                         <ul id="primary-menu" class="nav navbar-nav megamenu effect1">
-                                                            @if (session()->has('user_id'))
+                                                            <?php if(session()->has('user_id')): ?>
                                                                 <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="{{ URL::to('gigs/create') }}"
+                                                                        href="<?php echo e(URL::to('gigs/create')); ?>"
                                                                         class="" data-hover="dropdown"
                                                                         data-toggle="dropdown">Post
                                                                         Gig
                                                                         <b class="caret"></b></a>
                                                                 </li>
                                                                 <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="{{ URL::to('gigs') }}" class=""
+                                                                        href="<?php echo e(URL::to('gigs')); ?>" class=""
                                                                         data-hover="dropdown"
                                                                         data-toggle="dropdown">Browse Gigs
                                                                         <b class="caret"></b></a>
@@ -1171,14 +1161,14 @@
                                                                         <b class="caret"></b></a>
                                                                 </li>
                                                                 <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="{{ URL::to('messages/message') }}"
+                                                                        href="<?php echo e(URL::to('messages/message')); ?>"
                                                                         class="" data-hover="dropdown"
                                                                         data-toggle="dropdown">Message
                                                                         <b class="caret"></b></a>
                                                                 </li>
-                                                            @else
+                                                            <?php else: ?>
                                                                 <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="{{ URL::to('index1') }}" class=""
+                                                                        href="<?php echo e(URL::to('index1')); ?>" class=""
                                                                         data-hover="dropdown"
                                                                         data-toggle="dropdown">Home
                                                                         <b class="caret"></b></a>
@@ -1196,15 +1186,15 @@
                                                                                 data-toggle="dropdown">Services <b
                                                                                     class="caret"></b></a>
                                                                             <ul class="dropdown-menu">
-                                                                                @if ($globalCategories)
-                                                                                    @foreach ($globalCategories as $cat)
+                                                                                <?php if($globalCategories): ?>
+                                                                                    <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                                         <li
                                                                                             class="menu-item-5162 aligned-left">
                                                                                             <a
-                                                                                                href="{{ URL::to('gigs/' . $cat->slug) }}">{!! $cat->name !!}</a>
+                                                                                                href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"><?php echo $cat->name; ?></a>
                                                                                         </li>
-                                                                                    @endforeach
-                                                                                @endif
+                                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                                <?php endif; ?>
                                                                             </ul>
                                                                         </li>
                                                                         <li
@@ -1217,7 +1207,7 @@
                                                                                 <li
                                                                                     class="menu-item-5183 aligned-left">
                                                                                     <a
-                                                                                        href="{{ URL::to('maintenance') }}">Project
+                                                                                        href="<?php echo e(URL::to('maintenance')); ?>">Project
                                                                                         &#8211; List</a>
                                                                                 </li>
                                                                             </ul>
@@ -1231,7 +1221,7 @@
                                                                             <ul class="dropdown-menu">
                                                                                 <li
                                                                                     class="menu-item-5213 aligned-left">
-                                                                                    <a href="{{ URL::to('job') }}">Layout
+                                                                                    <a href="<?php echo e(URL::to('job')); ?>">Layout
                                                                                         &#8211; v1</a>
                                                                                 </li>
                                                                             </ul>
@@ -1254,7 +1244,7 @@
                                                                                 <li
                                                                                     class="menu-item-5195 aligned-left">
                                                                                     <a
-                                                                                        href="{{ URL::to('maintenance') }}">Layout
+                                                                                        href="<?php echo e(URL::to('maintenance')); ?>">Layout
                                                                                         &#8211; v1</a>
                                                                                 </li>
                                                                             </ul>
@@ -1269,13 +1259,13 @@
                                                                                 <li
                                                                                     class="menu-item-5223 aligned-left">
                                                                                     <a
-                                                                                        href="{{ URL::to('maintenance') }}">Layout
+                                                                                        href="<?php echo e(URL::to('maintenance')); ?>">Layout
                                                                                         &#8211; v1</a>
                                                                                 </li>
                                                                             </ul>
                                                                         </li>
                                                                         <li class="menu-item-1606 aligned-left"><a
-                                                                                href="{{ URL::to('become-seller') }}">Become
+                                                                                href="<?php echo e(URL::to('become-seller')); ?>">Become
                                                                                 Seller</a></li>
                                                                     </ul>
                                                                 </li>
@@ -1286,16 +1276,16 @@
                                                                         <b class="caret"></b></a>
                                                                     <ul class="dropdown-menu">
                                                                         <li class="menu-item-5132 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">Blog
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                                                 &#8211; Grid</a></li>
                                                                         <li class="menu-item-5130 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">Blog
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                                                 &#8211; List V1</a></li>
                                                                         <li class="menu-item-5131 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">Blog
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                                                 &#8211; List V2</a></li>
                                                                         <li class="menu-item-5133 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">Blog
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">Blog
                                                                                 &#8211; Detail</a></li>
                                                                     </ul>
                                                                 </li>
@@ -1306,35 +1296,35 @@
                                                                         <b class="caret"></b></a>
                                                                     <ul class="dropdown-menu">
                                                                         <li class="menu-item-5137 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">Shop</a>
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">Shop</a>
                                                                         </li>
                                                                         <li class="menu-item-68 aligned-left"><a
-                                                                                href="{{ URL::to('contact-us') }}">Contact</a>
+                                                                                href="<?php echo e(URL::to('contact-us')); ?>">Contact</a>
                                                                         </li>
                                                                         <li class="menu-item-66 aligned-left"><a
-                                                                                href="{{ URL::to('about-us') }}">About
+                                                                                href="<?php echo e(URL::to('about-us')); ?>">About
                                                                                 v1</a></li>
                                                                         <li class="menu-item-67 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">About
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">About
                                                                                 v2</a></li>
                                                                         <li class="menu-item-71 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">Pricing</a>
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">Pricing</a>
                                                                         </li>
                                                                         <li class="menu-item-70 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">Help</a>
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">Help</a>
                                                                         </li>
                                                                         <li class="menu-item-69 aligned-left"><a
-                                                                                href="{{ URL::to('faqs') }}">FAQ</a>
+                                                                                href="<?php echo e(URL::to('faqs')); ?>">FAQ</a>
                                                                         </li>
                                                                         <li class="menu-item-72 aligned-left"><a
-                                                                                href="{{ URL::to('terms-and-condition') }}">Terms</a>
+                                                                                href="<?php echo e(URL::to('terms-and-condition')); ?>">Terms</a>
                                                                         </li>
                                                                         <li class="menu-item-1754 aligned-left"><a
-                                                                                href="{{ URL::to('maintenance') }}">404</a>
+                                                                                href="<?php echo e(URL::to('maintenance')); ?>">404</a>
                                                                         </li>
                                                                     </ul>
                                                                 </li>
-                                                            @endif
+                                                            <?php endif; ?>
                                                         </ul>
                                                     </div>
                                                 </nav>
@@ -1420,7 +1410,7 @@
                                         data-widget_type="button.default">
                                         <div class="elementor-widget-container">
                                             <div class="elementor-button-wrapper">
-                                                <a href="{{ URL::to('become-seller') }}"
+                                                <a href="<?php echo e(URL::to('become-seller')); ?>"
                                                     class="elementor-button-link elementor-button elementor-size-sm"
                                                     role="button">
                                                     <span class="elementor-button-content-wrapper">
@@ -1436,11 +1426,11 @@
                                         <div class="elementor-widget-container">
 
                                             <div class="top-wrapper-menu ">
-                                                @if (session()->has('user_id'))
-                                                    <a class="btn-account btn-login" href="{{ URL::to('logout') }}"
+                                                <?php if(session()->has('user_id')): ?>
+                                                    <a class="btn-account btn-login" href="<?php echo e(URL::to('logout')); ?>"
                                                         title="Login">
                                                         Logout </a>
-                                                @else
+                                                <?php else: ?>
                                                     <a class="btn-account btn-login" data-toggle="modal"
                                                         data-target="#exampleModalCenter" style="cursor: pointer;margin-right: 1rem;">
                                                         Login </a>
@@ -1460,30 +1450,34 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    @include('elements.socialLogin')
-                                                                    <div class="ee er_msg">@include('elements.errorSuccessMessage')
+                                                                    <?php echo $__env->make('elements.socialLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                                                    <div class="ee er_msg"><?php echo $__env->make('elements.errorSuccessMessage', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                                                     </div>
                                                                     <div id="result" class="text-danger"></div>
                                                                     <div normal_login>
-                                                                        {{ Form::open(['method' => 'post', 'id' => 'loginform', 'class' => 'form form-signin']) }}
+                                                                        <?php echo e(Form::open(['method' => 'post', 'id' => 'loginform', 'class' => 'form form-signin'])); ?>
+
                                                                         <div class="login_fieldarea">
                                                                             <div class="inputt">
                                                                                 <span class="fieldd"><i
                                                                                         class="fa fa-envelope"></i>
-                                                                                    {{ Form::text('email_address', Cookie::get('user_email_address'), ['class' => 'form-control required email enterkey', 'placeholder' => 'Email address', 'autocomplete' => 'OFF', 'id' => 'email_address']) }}
+                                                                                    <?php echo e(Form::text('email_address', Cookie::get('user_email_address'), ['class' => 'form-control required email enterkey', 'placeholder' => 'Email address', 'autocomplete' => 'OFF', 'id' => 'email_address'])); ?>
+
                                                                                 </span>
                                                                             </div>
                                                                             <div class="inputt">
                                                                                 <span class="fieldd"><i
                                                                                         class="fa fa-key"></i>
-                                                                                    {{ Form::input('password', 'password', Cookie::get('user_password'), ['class' => 'required form-contro enterkeyl', 'placeholder' => 'Password', 'id' => 'user_password']) }}
+                                                                                    <?php echo e(Form::input('password', 'password', Cookie::get('user_password'), ['class' => 'required form-contro enterkeyl', 'placeholder' => 'Password', 'id' => 'user_password'])); ?>
+
                                                                                 </span>
                                                                             </div>
                                                                             <div class="clear"></div>
                                                                             <div class="inputt inputt_rev">
                                                                                 <div
                                                                                     class="col_tow_logns remember_secsd sdgsef">
-                                                                                    {{ Form::checkbox('user_remember', '1', Cookie::get('user_remember'), ['class' => 'css-checkbox in-checkbox', 'id' => 'remember_sec']) }}
+                                                                                    <?php echo e(Form::checkbox('user_remember', '1', Cookie::get('user_remember'), ['class' => 'css-checkbox in-checkbox', 'id' => 'remember_sec'])); ?>
+
                                                                                     <label for="remember_sec"
                                                                                         class="in-label">Remember
                                                                                         Me</label>
@@ -1491,7 +1485,7 @@
                                                                                 <div
                                                                                     class="col_tow_logns forgot_pass_sec">
                                                                                     <a
-                                                                                        href="{{ URL::to('forgot-password') }}"></i>Forgot
+                                                                                        href="<?php echo e(URL::to('forgot-password')); ?>"></i>Forgot
                                                                                         your Password?</a>
                                                                                 </div>
                                                                             </div>
@@ -1503,32 +1497,27 @@
                                                                                     In</button>
                                                                                 <div class="loginbtnloader"
                                                                                     id="btnloader">
-                                                                                    {{ HTML::image('public/img/loading.gif', SITE_TITLE) }}
+                                                                                    <?php echo e(HTML::image('public/img/loading.gif', SITE_TITLE)); ?>
+
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="sign_center ">
                                                                             <div class="always_btn"> Don't have an
                                                                                 account?
-                                                                                <a href="{{ URL::to('register') }}"></i>Sign
+                                                                                <a href="<?php echo e(URL::to('register')); ?>"></i>Sign
                                                                                     Up</a>
                                                                             </div>
                                                                         </div>
-                                                                        {{ Form::close() }}
+                                                                        <?php echo e(Form::close()); ?>
+
                                                                     </div>
                                                                 </div>
-                                                                {{-- <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save
-                                                                changes</button>
-                                                        </div> --}}
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <a class="btn-account btn-register"
-                                                        href="{{ URL::to('register') }}" title="Sign Up">
-                                                        Sign Up </a> --}}
+                                                    
                                                     <a class="btn-account btn-register" data-toggle="modal"
                                                         data-target="#register" style="cursor: pointer;">
                                                         Sign Up </a>
@@ -1547,8 +1536,8 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    @include('elements.socialLogin')
-                                                                    <div class="ee er_msg">@include('elements.errorSuccessMessage')
+                                                                    <?php echo $__env->make('elements.socialLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                                                    <div class="ee er_msg"><?php echo $__env->make('elements.errorSuccessMessage', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                                                     </div>
                                                                     <div id="message" class="text-success"></div>
                                                                     <div id="error" class="text-danger"></div>
@@ -1557,35 +1546,38 @@
                                                                         ?>
                                                                     </div>
                                                                     <div normal_login>
-                                                                        {{ Form::open(['method' => 'post', 'id' => 'signupform', 'class' => 'form form-signin']) }}
+                                                                        <?php echo e(Form::open(['method' => 'post', 'id' => 'signupform', 'class' => 'form form-signin'])); ?>
+
 
                                                                         <div class="login_fieldarea">
                                                                             <div class="inputt">
                                                                                 <span class="fieldd namehalf">
-                                                                                    {{ Form::text('first_name', null, ['class' => 'form-control required alphanumeric', 'placeholder' => 'First name', 'autocomplete' => 'OFF', 'id' => 'firstname']) }}
+                                                                                    <?php echo e(Form::text('first_name', null, ['class' => 'form-control required alphanumeric', 'placeholder' => 'First name', 'autocomplete' => 'OFF', 'id' => 'firstname'])); ?>
+
                                                                                 </span>
                                                                                 <span class="fieldd namehalf">
-                                                                                    {{ Form::text('last_name', null, ['class' => 'form-control required alphanumeric', 'placeholder' => 'Last name', 'autocomplete' => 'OFF', 'id' => 'lastname']) }}
+                                                                                    <?php echo e(Form::text('last_name', null, ['class' => 'form-control required alphanumeric', 'placeholder' => 'Last name', 'autocomplete' => 'OFF', 'id' => 'lastname'])); ?>
+
                                                                                 </span>
                                                                             </div>
                                                                             <div class="inputt">
                                                                                 <span class="fieldd">
-                                                                                    {{ Form::text('email_address', Cookie::get('user_email_address'), ['class' => 'form-control required email', 'placeholder' => 'Email Address', 'autocomplete' => 'OFF', 'id' => 'emailaddress']) }}
+                                                                                    <?php echo e(Form::text('email_address', Cookie::get('user_email_address'), ['class' => 'form-control required email', 'placeholder' => 'Email Address', 'autocomplete' => 'OFF', 'id' => 'emailaddress'])); ?>
+
 
                                                                                 </span>
                                                                             </div>
                                                                             <div class="inputt">
                                                                                 <span class="fieldd namehalf">
-                                                                                    {{ Form::password('password', ['class' => 'form-control required passworreq', 'placeholder' => 'Password', 'minlength' => 8, 'id' => 'password']) }}
+                                                                                    <?php echo e(Form::password('password', ['class' => 'form-control required passworreq', 'placeholder' => 'Password', 'minlength' => 8, 'id' => 'password'])); ?>
+
                                                                                 </span>
                                                                                 <span class="fieldd namehalf">
-                                                                                    {{ Form::password('confirm_password', ['class' => 'form-control required', 'placeholder' => 'Confirm password', 'equalTo' => '#password']) }}
+                                                                                    <?php echo e(Form::password('confirm_password', ['class' => 'form-control required', 'placeholder' => 'Confirm password', 'equalTo' => '#password'])); ?>
+
                                                                                 </span>
                                                                             </div>
-                                                                            {{-- <div class="inputt gcpaatcha">
-                                                                        <div id="recaptchaQ" class="g-recaptcha"
-                                                                            data-sitekey="{{ CAPTCHA_KEY }}"
-                                                                            style="transform:scale(0.2);-webkit-transform:scale(1);transform-origin:0 0;-webkit-transform-origin:0 0;"> --}}
+                                                                            
                                                                         </div>
                                                                         <div class="gcpc" id="captcha_msg">
                                                                         </div>
@@ -1598,34 +1590,31 @@
                                                                             class="btn  loginbtn"
                                                                             onclick="submitform()">Sign up</button>
                                                                         <div class="loginbtnloader" id="btnloader">
-                                                                            {{ HTML::image('public/img/loading.gif', SITE_TITLE) }}
+                                                                            <?php echo e(HTML::image('public/img/loading.gif', SITE_TITLE)); ?>
+
                                                                         </div>
-                                                                        {{-- {{ Form::submit('Sign up', ['class' => 'btn btn-primary btn-block btn-flat', 'onclick' => 'submitform()']) }} --}}
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 <div class="sign_center">
                                                                     <div class="always_btn">Already Have an
                                                                         Account? <a
-                                                                            href="{{ URL::to('login') }}"></i>Login</a>
+                                                                            href="<?php echo e(URL::to('login')); ?>"></i>Login</a>
                                                                     </div>
                                                                 </div>
-                                                                {{ Form::close() }}
+                                                                <?php echo e(Form::close()); ?>
+
                                                             </div>
                                                         </div>
-                                                        {{-- <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save
-                                                                changes</button>
-                                                        </div> --}}
+                                                        
                                                     </div>
-                                                @endif
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @if (session()->has('user_id'))
+                            <?php if(session()->has('user_id')): ?>
                                 <div class="elementor-element elementor-element-b90628b elementor-widget__width-auto elementor-widget elementor-widget-apus_element_user_info"
                                     data-id="b90628b" data-element_type="widget" style="margin-top: 0.75rem;"
                                     data-widget_type="apus_element_user_info.default">
@@ -1636,29 +1625,23 @@
                                                     <?php $userHInfo = DB::table('users')
                                                         ->where('id', session()->get('user_id'))
                                                         ->first(); ?>
-                                                    @if (isset($userHInfo->profile_image) && file_exists(PROFILE_SMALL_UPLOAD_PATH . $userHInfo->profile_image))
-                                                        {{ HTML::image(PROFILE_SMALL_DISPLAY_PATH . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage']) }}
-                                                    @else
-                                                        {{ HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage']) }}
-                                                    @endif
+                                                    <?php if(isset($userHInfo->profile_image) && file_exists(PROFILE_SMALL_UPLOAD_PATH . $userHInfo->profile_image)): ?>
+                                                        <?php echo e(HTML::image(PROFILE_SMALL_DISPLAY_PATH . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage'])); ?>
+
+                                                    <?php else: ?>
+                                                        <?php echo e(HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage'])); ?>
+
+                                                    <?php endif; ?>
                                                 </div>
-                                                {{-- <div class="name-acount d-flex align-items-center">
-                                                    <div class="name-wrapper">
-                                                        renisskyline <div class="balance-available">
-                                                            Freelancer (<span
-                                                                class="woocommerce-Price-amount amount"><bdi><span
-                                                                        class="woocommerce-Price-currencySymbol">&#36;</span>0</bdi></span>)
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
+                                                
                                             </div>
                                             <div class="inner-top-menu">
                                                 <ul id="menu-freelancer-1" class="nav navbar-nav topmenu-menu">
                                                     <li class="menu-item-5285 aligned-left"><a
-                                                            href="{{ URL::to('users/settings') }}"><i
+                                                            href="<?php echo e(URL::to('users/settings')); ?>"><i
                                                                 class="flaticon-home"></i>Settings</a></li>
                                                     <li class="menu-item-5345 aligned-left"><a
-                                                            href="{{ URL::to('users/dashboard') }}"><i
+                                                            href="<?php echo e(URL::to('users/dashboard')); ?>"><i
                                                                 class="flaticon-briefcase"></i>Dashboard</a></li>
                                                     <ul id="menu-primary-menu" class="">
                                                         <li id="menu-item-65" class="has-submenu menu-item-65"><a
@@ -1667,13 +1650,13 @@
                                                                 <li id="menu-item-5137" class="menu-item-5137"><a
                                                                         href="">Shop</a></li>
                                                                 <li id="menu-item-68" class="menu-item-68"><a
-                                                                        href="{{ URL::to('contact-us') }}">Contact</a>
+                                                                        href="<?php echo e(URL::to('contact-us')); ?>">Contact</a>
                                                                 </li>
                                                                 <li id="menu-item-66" class="menu-item-66"><a
-                                                                        href="{{ URL::to('about-us') }}">About
+                                                                        href="<?php echo e(URL::to('about-us')); ?>">About
                                                                         v1</a></li>
                                                                 <li id="menu-item-67" class="menu-item-67"><a
-                                                                        href="{{ URL::to('about-us') }}">About
+                                                                        href="<?php echo e(URL::to('about-us')); ?>">About
                                                                         v2</a></li>
                                                                 <li id="menu-item-71" class="menu-item-71"><a
                                                                         href="">Pricing</a></li>
@@ -1681,10 +1664,10 @@
                                                                         href="">Help</a>
                                                                 </li>
                                                                 <li id="menu-item-69" class="menu-item-69"><a
-                                                                        href="{{ URL::to('faqs') }}">FAQ</a>
+                                                                        href="<?php echo e(URL::to('faqs')); ?>">FAQ</a>
                                                                 </li>
                                                                 <li id="menu-item-72" class="menu-item-72"><a
-                                                                        href="{{ URL::to('terms-and-condition') }}">Terms</a>
+                                                                        href="<?php echo e(URL::to('terms-and-condition')); ?>">Terms</a>
                                                                 </li>
                                                                 <li id="menu-item-1754" class="menu-item-1754"><a
                                                                         href="">404</a></li>
@@ -1692,57 +1675,57 @@
                                                         </li>
                                                     </ul>
                                                     <li class="dropdown menu-item-5287  aligned-left"><a
-                                                            href="{{ URL::to('gigs/management') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
                                                                 class="flaticon-dollar"></i>Selling</a></li>
                                                     <li class="menu-item-5290 aligned-left"><a
-                                                            href="{{ URL::to('gigs/management') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
                                                                 class="flaticon-sand-clock"></i>Manage Gigs</a></li>
                                                     <li class="menu-item-5294 aligned-left"><a
-                                                            href="{{ URL::to('gigs/create') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>"><i
                                                                 class="flaticon-notification"></i>Create New Gig</a>
                                                     </li>
                                                     <li class="menu-item-5784 aligned-left"><a
-                                                            href="{{ URL::to('gigs/myofferedgig') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/myofferedgig')); ?>"><i
                                                                 class="flaticon-like"></i>My Offered Gigs</a></li>
                                                     <li class="menu-item-5301 aligned-left"><a
-                                                            href="{{ URL::to('services/management') }}"><i
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
                                                                 class="flaticon-target"></i>Buying</a></li>
                                                     <li class="menu-item-5352 aligned-left"><a
-                                                            href="{{ URL::to('services/management') }}"><i
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
                                                                 class="flaticon-chat"></i>Manage Requests</a></li>
                                                     <li class="menu-item-5302 aligned-left"><a
-                                                            href="{{ URL::to('services/create-request') }}"><i
+                                                            href="<?php echo e(URL::to('services/create-request')); ?>"><i
                                                                 class="flaticon-web"></i>Post Request</a></li>
                                                     <li class="menu-item-5303 aligned-left"><a
-                                                            href="{{ URL::to('my-saved-gigs') }}"><i
+                                                            href="<?php echo e(URL::to('my-saved-gigs')); ?>"><i
                                                                 class="flaticon-money"></i>My Saved Gigs</a></li>
                                                     <li class="menu-item-5314 aligned-left"><a
-                                                            href="{{ URL::to('gigs/offeredgig') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/offeredgig')); ?>"><i
                                                                 class="flaticon-button"></i>Offered Gigs</a></li>
                                                     <li class="menu-item-5313 aligned-left"><a
-                                                            href="{{ URL::to('selling-orders') }}"><i
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
                                                                 class="flaticon-button"></i>Orders</a></li>
                                                     <li class="menu-item-5687 aligned-left"><a
-                                                            href="{{ URL::to('selling-orders') }}"><i
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
                                                                 class="flaticon-badge"></i>Selling Orders</a></li>
                                                     <li class="menu-item-5284 aligned-left"><a
-                                                            href="{{ URL::to('buying-orders') }}"><i
+                                                            href="<?php echo e(URL::to('buying-orders')); ?>"><i
                                                                 class="flaticon-photo"></i>Buying Orders</a></li>
                                                     <li class="menu-item-5342 aligned-left"><a
-                                                            href="{{ URL::to('earnings') }}"><i
+                                                            href="<?php echo e(URL::to('earnings')); ?>"><i
                                                                 class="flaticon-delete"></i>Earnings</a></li>
                                                     <li class="menu-item-5283 aligned-left"><a
-                                                            href="{{ URL::to('payments/history') }}">PayPal
+                                                            href="<?php echo e(URL::to('payments/history')); ?>">PayPal
                                                             History</a></li>
                                                     <li class="menu-item-5286 aligned-left"><a
-                                                            href="{{ URL::to('logout') }}"><i
+                                                            href="<?php echo e(URL::to('logout')); ?>"><i
                                                                 class="flaticon-logout"></i>Logout</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                            <?php endif; ?>
                         </div>
                     </section>
                 </div>
@@ -1785,7 +1768,7 @@
                     email_address: $("#email_address").val(),
                     password: $("#user_password").val(),
 
-                    "_token": "{{ csrf_token() }}",
+                    "_token": "<?php echo e(csrf_token()); ?>",
                 };
 
                 $.ajax({
@@ -1842,7 +1825,7 @@
                     password: $("#password").val(),
                     confirm_password: $("#password").val(),
                     countryname: $("#countryname").val(),
-                    "_token": "{{ csrf_token() }}",
+                    "_token": "<?php echo e(csrf_token()); ?>",
                 };
                 console.log(formData);
                 $.ajax({
@@ -1898,37 +1881,5 @@
 
             }, 'jsonp');
         </script>
-        {{-- <script type="text/javascript">
-        $(document).ready(function() {
-            $.validator.addMethod("alphanumeric", function(value, element) {
-                return this.optional(element) || /^[\w.]+$/i.test(value);
-            }, "Only letters, numbers and underscore allowed.");
-            $.validator.addMethod("passworreq", function(input) {
-                var reg = /[0-9]/; //at least one number
-                var reg2 = /[a-z]/; //at least one small character
-                var reg3 = /[A-Z]/; //at least one capital character
-                //var reg4 = /[\W_]/; //at least one special character
-                return reg.test(input) && reg2.test(input) && reg3.test(input);
-            }, "Password must be a combination of Numbers, Uppercase & Lowercase Letters.");
-            $("#signupform").validate();
-        });
-
-        function checkForm() {
-            $('#captcha_msg').html("").removeClass('gcerror');
-            if ($("#signupform").valid()) {
-                var captchaTick = grecaptcha.getResponse();
-                if (captchaTick == "" || captchaTick == undefined || captchaTick.length == 0) {
-                    $('#captcha_msg').html("Please confirm captcha to proceed").addClass('gcerror');
-                    $('#captcha_msg').addClass('gcerror');
-                    return false;
-                }
-            } else {
-                var captchaTick = grecaptcha.getResponse();
-                if (captchaTick == "" || captchaTick == undefined || captchaTick.length == 0) {
-                    $('#captcha_msg').html("Please confirm captcha to proceed").addClass('gcerror');
-                    return false;
-                }
-            }
-        };
-    </script> --}}
+        
         </section>

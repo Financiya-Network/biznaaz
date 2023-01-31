@@ -56,30 +56,30 @@
 
                                         <div class="widget-socials  ">
                                             <ul class="social list-inline">
-                                                @if ($siteSettings->facebook_link)
+                                                <?php if($siteSettings->facebook_link): ?>
                                                     <li>
-                                                        <a href="{!! $siteSettings->facebook_link !!}" target="_blank">
+                                                        <a href="<?php echo $siteSettings->facebook_link; ?>" target="_blank">
                                                             <i class="fab fa-facebook-f"></i> </a>
                                                     </li>
-                                                @endif
-                                                @if ($siteSettings->twitter_link)
+                                                <?php endif; ?>
+                                                <?php if($siteSettings->twitter_link): ?>
                                                     <li>
-                                                        <a href="{!! $siteSettings->twitter_link !!}" target="_blank">
+                                                        <a href="<?php echo $siteSettings->twitter_link; ?>" target="_blank">
                                                             <i class="fab fa-twitter"></i> </a>
                                                     </li>
-                                                @endif
-                                                @if ($siteSettings->instagram_link)
+                                                <?php endif; ?>
+                                                <?php if($siteSettings->instagram_link): ?>
                                                     <li>
-                                                        <a href="{!! $siteSettings->instagram_link !!}" target="_blank">
+                                                        <a href="<?php echo $siteSettings->instagram_link; ?>" target="_blank">
                                                             <i class="fab fa-instagram"></i> </a>
                                                     </li>
-                                                @endif
-                                                @if ($siteSettings->linkedin_link)
+                                                <?php endif; ?>
+                                                <?php if($siteSettings->linkedin_link): ?>
                                                     <li>
-                                                        <a href="{!! $siteSettings->linkedin_link !!}" target="_blank">
+                                                        <a href="<?php echo $siteSettings->linkedin_link; ?>" target="_blank">
                                                             <i class="fab fa-linkedin-in"></i> </a>
                                                     </li>
-                                                @endif
+                                                <?php endif; ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -162,33 +162,29 @@
                                                     <ul id="menu-about" class="menu">
                                                         <li id="menu-item-2981"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2981">
-                                                            <a href="{{ URL::to('about-us') }}">About
+                                                            <a href="<?php echo e(URL::to('about-us')); ?>">About
                                                                 Us</a>
                                                         </li>
                                                         <li id="menu-item-2982"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2982">
-                                                            <a href="{{ URL::to('how-it-works') }}">How it works</a>
+                                                            <a href="<?php echo e(URL::to('how-it-works')); ?>">How it works</a>
                                                         </li>
                                                         <li id="menu-item-2983"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2983">
-                                                            <a href="{{ URL::to('privacy-policy') }}">Privacy
+                                                            <a href="<?php echo e(URL::to('privacy-policy')); ?>">Privacy
                                                                 policy</a>
                                                         </li>
                                                         <li id="menu-item-2984"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2984">
-                                                            <a href="{{ URL::to('terms-and-condition') }}">Terms of
+                                                            <a href="<?php echo e(URL::to('terms-and-condition')); ?>">Terms of
                                                                 service</a>
                                                         </li>
                                                         <li id="menu-item-2985"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2985">
-                                                            <a href="{{ URL::to('press-and-news') }}">Press &
+                                                            <a href="<?php echo e(URL::to('press-and-news')); ?>">Press &
                                                                 News</a>
                                                         </li>
-                                                        {{-- <li id="menu-item-2986"
-                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2986">
-                                                            <a href="https://demoapus1.com/freeio/terms/">Terms of
-                                                                Service</a>
-                                                        </li> --}}
+                                                        
                                                     </ul>
                                                 </div>
                                             </div>
@@ -212,18 +208,18 @@
                                             <div class="widget-content">
                                                 <div class="menu-categories-container">
                                                     <ul id="menu-categories-2" class="menu">
-                                                        @if ($globalCategories)
-                                                            @foreach ($globalCategories as $cat)
+                                                        <?php if($globalCategories): ?>
+                                                            <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <li
                                                                     class="menu-item menu-item-type-taxonomy menu-item-object-service_category menu-item-2988">
                                                                     <a
-                                                                        href="{{ URL::to('gigs/' . $cat->slug) }}">{!! $cat->name !!}</a>
+                                                                        href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"><?php echo $cat->name; ?></a>
                                                                 </li>
-                                                                @if ($loop->iteration == 10)
-                                                                @break
-                                                            @endif
-                                                        @endforeach
-                                                    @endif
+                                                                <?php if($loop->iteration == 10): ?>
+                                                                <?php break; ?>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php endif; ?>
                                                 </ul>
                                             </div>
                                         </div>
@@ -249,16 +245,16 @@
                                                 <ul id="menu-support" class="menu">
                                                     <li id="menu-item-2978"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2978">
-                                                        <a href="{{ URL::to('contact-us') }}">Contact us</a>
+                                                        <a href="<?php echo e(URL::to('contact-us')); ?>">Contact us</a>
                                                     </li>
                                                     <li id="menu-item-2977"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977">
-                                                        <a href="{{ URL::to('trust-and-safety') }}">Trust &
+                                                        <a href="<?php echo e(URL::to('trust-and-safety')); ?>">Trust &
                                                             safety</a>
                                                     </li>
                                                     <li id="menu-item-2976"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2976">
-                                                        <a href="{{ URL::to('faqs') }}">FAQ</a>
+                                                        <a href="<?php echo e(URL::to('faqs')); ?>">FAQ</a>
                                                 </ul>
                                             </div>
                                         </div>
@@ -390,7 +386,7 @@
                                 data-id="8d9529a" data-element_type="widget"
                                 data-widget_type="text-editor.default">
                                 <div class="elementor-widget-container">
-                                    © Copyright @ {!! date('Y') !!} &nbsp;|&nbsp; <a
+                                    © Copyright @ <?php echo date('Y'); ?> &nbsp;|&nbsp; <a
                                         href="https://biznaaz.com" target="_blank">Biznaaz Dev Portal</a> by
                                     Biznaaz.com. All Rights Reserved </div>
                             </div>

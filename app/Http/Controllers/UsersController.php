@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -24,22 +25,19 @@ use App\Models\Notification;
 
 class UsersController extends Controller {
     public function __construct() {
-        $this->middleware('userlogedin', ['only' => ['chklogin','login', 'forgotPassword', 'resetPassword', 'register']]);
-        $this->middleware('is_userlogin', ['except' => ['chklogin','logout', 'login','forgotPassword', 'resetPassword', 'redirectToGoogle', 'handleGoogleCallback', 'redirectToFacebook', 'handleFacebookCallback', 'redirectToLinkedin', 'handleLinkedinCallback', 'register', 'sociallogin','emailConfirmation', 'publicprofile']]);
+        $this->middleware('userlogedin', ['only' => ['chklogin', 'login', 'forgotPassword', 'resetPassword', 'register']]);
+        $this->middleware('is_userlogin', ['except' => ['chklogin', 'logout', 'login', 'forgotPassword', 'resetPassword', 'redirectToGoogle', 'handleGoogleCallback', 'redirectToFacebook', 'handleFacebookCallback', 'redirectToLinkedin', 'handleLinkedinCallback', 'register', 'sociallogin', 'emailConfirmation', 'publicprofile']]);
     }
-    
+
     public function login(Request $request) {
-      
+
         $pageTitle = 'Login';
         // $input = Input::all();
         $email = $request->email_address;
         $pass = $request->password;
-      echo "<pre>";
-      print_r($request->all());
-      echo "</pre>";
-      die;  
 
-        if (!empty($email) && !empty($pass) ) {
+
+        if (!empty($email) && !empty($pass)) {
             $validator = Validator::make(array(
                 'email_address' => $email,
                 'password' => $pass
@@ -47,21 +45,20 @@ class UsersController extends Controller {
                 'email_address' => 'required|email',
                 'password' => 'required'
             ));
-           
-           
-            if ($validator->fails()) {
-              
-                return Redirect::to('/login')->withErrors($validator)->withInput(Input::except('password'));
 
+
+            if ($validator->fails()) {
+
+                return Redirect::to('/login')->withErrors($validator)->withInput(Input::except('password'));
             } else {
                 $userInfo = User::where('email_address', $email)->first();
-               
-                
+
+
                 if (!empty($userInfo)) {
                     if (password_verify($pass, $userInfo->password)) {
                         if ($userInfo->status == 1 && $userInfo->activation_status == 1) {
                             if (isset($input['user_remember']) && $input['user_remember'] == '1') {
-                            die;
+                                die;
                                 Cookie::queue('user_email_address', $userInfo->email_address, time() + 60 * 60 * 24 * 7, "/");
                                 Cookie::queue('user_password', $input['password'], time() + 60 * 60 * 24 * 7, "/");
                                 Cookie::queue('user_remember', '1', time() + 60 * 60 * 24 * 100, "/");
@@ -73,26 +70,26 @@ class UsersController extends Controller {
                             Session::put('user_id', $userInfo->id);
                             Session::put('user_name', ucwords($userInfo->first_name . ' ' . $userInfo->last_name));
                             Session::put('email_address', $userInfo->email_address);
-                            if (Session::has('redirecturl')){
-              $redirecturl =  Session::get('redirecturl');
-              return Redirect::to($redirecturl);
-            }else{
-               
-                // return Redirect::to('users/dashboard');
-                return response()->json('success');
-            }                
+                            if (Session::has('redirecturl')) {
+                                $redirecturl =  Session::get('redirecturl');
+                                return Redirect::to($redirecturl);
+                            } else {
+
+                                // return Redirect::to('users/dashboard');
+                                return response()->json('success');
+                            }
                         } else if ($userInfo->status == 1 && $userInfo->activation_status == 0) {
                             $error = 'You need to activate your account before login.';
                         } else if ($userInfo->status == 0 && $userInfo->activation_status == 0) {
                             $error = 'Your account might have been temporarily disabled. Please contact us for more details.';
-                        }else if ($userInfo->status == 0 && $userInfo->activation_status == 1) { 
+                        } else if ($userInfo->status == 0 && $userInfo->activation_status == 1) {
                             $error = 'Your account might have been temporarily disabled. Please contact us for more details.';
                         }
                     } else {
                         $error = 'Invalid email or password.';
                     }
                 } else {
-                   
+
                     $error = 'Invalid email or password.';
                 }
                 return response()->json($error);
@@ -108,19 +105,19 @@ class UsersController extends Controller {
         $pageTitle = 'Login';
         $input = Input::all();
 
-      
+
         if (!empty($input)) {
             $rules = array(
                 'email_address' => 'required|email',
                 'password' => 'required'
             );
             $validator = Validator::make($input, $rules);
-            
+
             if ($validator->fails()) {
                 return Redirect::to('/login')->withErrors($validator)->withInput(Input::except('password'));
             } else {
                 $userInfo = User::where('email_address', $input['email_address'])->first();
-                
+
                 if (!empty($userInfo)) {
                     if (password_verify($input['password'], $userInfo->password)) {
                         if ($userInfo->status == 1 && $userInfo->activation_status == 1) {
@@ -136,19 +133,18 @@ class UsersController extends Controller {
                             Session::put('user_id', $userInfo->id);
                             Session::put('user_name', ucwords($userInfo->first_name . ' ' . $userInfo->last_name));
                             Session::put('email_address', $userInfo->email_address);
-                            if (Session::has('redirecturl')){
-              $redirecturl =  Session::get('redirecturl');
-              return Redirect::to($redirecturl);
-            }else{
-                return Redirect::to('users/dashboard');
-                // return response()->json($userInfo);
-            }
-                            
+                            if (Session::has('redirecturl')) {
+                                $redirecturl =  Session::get('redirecturl');
+                                return Redirect::to($redirecturl);
+                            } else {
+                                return Redirect::to('users/dashboard');
+                                // return response()->json($userInfo);
+                            }
                         } else if ($userInfo->status == 1 && $userInfo->activation_status == 0) {
                             $error = 'You need to activate your account before login.';
                         } else if ($userInfo->status == 0 && $userInfo->activation_status == 0) {
                             $error = 'Your account might have been temporarily disabled. Please contact us for more details.';
-                        }else if ($userInfo->status == 0 && $userInfo->activation_status == 1) { 
+                        } else if ($userInfo->status == 0 && $userInfo->activation_status == 1) {
                             $error = 'Your account might have been temporarily disabled. Please contact us for more details.';
                         }
                     } else {
@@ -212,10 +208,10 @@ class UsersController extends Controller {
                 );
                 $validator = Validator::make($input, $rules);
                 if ($validator->fails()) {
-                    return Redirect::to('/reset-password/'.$ukey)->withErrors($validator);
-                }elseif(password_verify($input['password'], $userInfo->password)){
-                    return Redirect::to('/reset-password/'.$ukey)->withErrors('You cannot put your old password as new password, please another password.');
-                } else {   
+                    return Redirect::to('/reset-password/' . $ukey)->withErrors($validator);
+                } elseif (password_verify($input['password'], $userInfo->password)) {
+                    return Redirect::to('/reset-password/' . $ukey)->withErrors('You cannot put your old password as new password, please another password.');
+                } else {
                     $new_password = $this->encpassword($input['password']);
                     User::where('id', $userInfo->id)->update(array('forget_password_status' => 0, 'password' => $new_password));
                     Session::flash('success_message', "A link to reset your password was sent to your email address.");
@@ -228,12 +224,101 @@ class UsersController extends Controller {
             return Redirect::to('/login');
         }
     }
+    public function register(Request $request) {
 
-    public function register() {
-       
+        $pageTitle = 'Register';
+        // $input = Input::all();
+        $first_name = $request->first_name;
+        $last_name = $request->last_name;
+        $email_address = $request->email_address;
+        $password = $request->password;
+        $cpassword = $request->confirm_password;
+        $countryname = $request->countryname;
+
+        if (!empty($first_name) && !empty($last_name) && !empty($email_address) && !empty($password)) {
+
+            $validator = Validator::make(array(
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email_address' => $email_address,
+                'password' => $password,
+                'confirm_password' => $cpassword
+            ), array(
+                'first_name' => 'required|max:20',
+                'last_name' => 'required|max:30',
+                'email_address' => 'required|email|unique:users',
+                'password' => 'required|min:8',
+                'confirm_password' => 'required|same:password'
+            ));
+
+            if ($validator->fails()) {
+             
+                return Redirect::to('/register')->withErrors($validator)->withInput(Input::except('password'));
+            } else {
+
+                $input['country_id'] = 2;
+                $countryInfo = DB::table('countries')->where('name', $countryname)->first();
+
+                if (!empty($countryInfo)) {
+                    $input['country_id'] = $countryInfo->id;
+                }
+                unset($input['g-recaptcha-response']);
+                unset($input['countryname']);
+                $input['first_name'] = ucfirst(trim($request['first_name']));
+                $input['last_name'] = ucfirst(trim($request['last_name']));
+                $serialisedData = $this->serialiseFormData($input);
+                $serialisedData['slug'] = $this->createSlug($request['first_name'] . ' ' . $request['last_name'], 'users');
+                $serialisedData['status'] =  0;
+                $serialisedData['password'] =  $this->encpassword($request['password']);
+                $serialisedData['email_address'] =  ($request['email_address']);
+                $uniqueKey = bin2hex(openssl_random_pseudo_bytes(25));
+                $serialisedData['unique_key'] = $uniqueKey;
+                User::insert($serialisedData);
+
+                $link = HTTP_PATH . "/email-confirmation/" . $uniqueKey;
+                $name = $request['first_name'] . ' ' . $request['last_name'];
+                $emailId = $request['email_address'];
+                $new_password = $request['password'];
+
+
+                $emailTemplate = DB::table('emailtemplates')->where('id', 3)->first();
+                $toRepArray = array('[!email!]', '[!username!]', '[!password!]', '[!link!]', '[!HTTP_PATH!]', '[!SITE_TITLE!]');
+                $fromRepArray = array($emailId, $name, $new_password, $link, HTTP_PATH, SITE_TITLE);
+                $emailSubject = str_replace($toRepArray, $fromRepArray, $emailTemplate->subject);
+                $emailBody = str_replace($toRepArray, $fromRepArray, $emailTemplate->template);
+
+                Mail::to($emailId)->send(new SendMailable($emailBody, $emailSubject));
+
+                Session::flash('success_message', "We have sent you an account activation link by email. Please check your spam folder if you do not receive the email within the next few minutes.");
+
+                $success = 'Your account has been created!,We have sent you an account activation link by email. Please check your spam folder if you do not receive the email within the next few minutes.';
+                return response()->json(['Success', $success]);
+                // return Redirect::to('/login');
+            }
+        }
+        
+        if (empty($first_name)) {
+            $error = 'Please enter your first name.';
+        } else if (empty($last_name)) {
+            $error = 'Please enter your last name.';
+        } else if (empty($email_address)) {
+            $error = 'Please enter your email address.';
+        } else if (empty($password)) {
+            $error = 'Please enter your password.';
+        }else{
+            $error = 'Please enter currect detail.';
+        }
+
+        return response()->json($error);
+        // return view('index1', ['title' => $pageTitle]);
+        // return view('users.register', ['title' => $pageTitle]);
+    }
+
+    public function register1() {
+
         $pageTitle = 'Register';
         $input = Input::all();
-      
+
         if (!empty($input)) {
             $rules = array(
                 'first_name' => 'required|max:20',
@@ -246,67 +331,66 @@ class UsersController extends Controller {
             if ($validator->fails()) {
                 return Redirect::to('/register')->withErrors($validator)->withInput(Input::except('password'));
             } else {
-                
+
                 $input['country_id'] = 2;
                 $countryInfo = DB::table('countries')->where('name', $input['countryname'])->first();
-                
-                if(!empty($countryInfo)){
+
+                if (!empty($countryInfo)) {
                     $input['country_id'] = $countryInfo->id;
                 }
                 unset($input['g-recaptcha-response']);
-                 unset($input['countryname']);
+                unset($input['countryname']);
                 $input['first_name'] = ucfirst(trim($input['first_name']));
                 $input['last_name'] = ucfirst(trim($input['last_name']));
                 $serialisedData = $this->serialiseFormData($input);
-                $serialisedData['slug'] = $this->createSlug($input['first_name'].' '.$input['last_name'], 'users');
+                $serialisedData['slug'] = $this->createSlug($input['first_name'] . ' ' . $input['last_name'], 'users');
                 $serialisedData['status'] =  0;
                 $serialisedData['password'] =  $this->encpassword($input['password']);
                 $uniqueKey = bin2hex(openssl_random_pseudo_bytes(25));
                 $serialisedData['unique_key'] = $uniqueKey;
-                User::insert($serialisedData); 
-                
+                User::insert($serialisedData);
+
                 $link = HTTP_PATH . "/email-confirmation/" . $uniqueKey;
                 $name = $input['first_name'] . ' ' . $input['last_name'];
                 $emailId = $input['email_address'];
                 $new_password = $input['password'];
-               
+
                 $emailTemplate = DB::table('emailtemplates')->where('id', 3)->first();
                 $toRepArray = array('[!email!]', '[!username!]', '[!password!]', '[!link!]', '[!HTTP_PATH!]', '[!SITE_TITLE!]');
                 $fromRepArray = array($emailId, $name, $new_password, $link, HTTP_PATH, SITE_TITLE);
                 $emailSubject = str_replace($toRepArray, $fromRepArray, $emailTemplate->subject);
                 $emailBody = str_replace($toRepArray, $fromRepArray, $emailTemplate->template);
-                Mail::to($emailId)->send(new SendMailable($emailBody,$emailSubject));
-                
+                Mail::to($emailId)->send(new SendMailable($emailBody, $emailSubject));
+
                 Session::flash('success_message', "We have sent you an account activation link by email. Please check your spam folder if you do not receive the email within the next few minutes.");
-               
+
                 return Redirect::to('/login');
             }
         }
-       
+
         return view('users.register', ['title' => $pageTitle]);
     }
-    
-    public function chklogin(Request $request){ 
+
+    public function chklogin(Request $request) {
         $slug = $request->get('slug');
-        Session::put('redirecturl', "gig-details/".$slug);
+        Session::put('redirecturl', "gig-details/" . $slug);
         return $slug;
-      
     }
-    
+
     public function emailConfirmation($ukey = null) {
         $userInfo = User::where('unique_key', $ukey)->first();
         if ($userInfo) {
-            if($userInfo->activation_status == 1){
+            if ($userInfo->activation_status == 1) {
                 Session::flash('error_message', "You have already use this link!");
-            }else{
+            } else {
                 User::where('id', $userInfo->id)->update(array('activation_status' => 1, 'status' => 1));
-                Session::flash('success_message', "Your Account has been verified Successfully! Please Login");          
+                Session::flash('success_message', "Your Account has been verified Successfully! Please Login");
             }
-        }else{
-            Session::flash('error_message', "Invalide URL!");              
-        }        
+        } else {
+            Session::flash('error_message', "Invalide URL!");
+        }
         return Redirect::to('/login');
-    }    
+    }
 
     public function redirectToGoogle() {
         return Socialite::driver('google')->redirect();
@@ -349,7 +433,7 @@ class UsersController extends Controller {
             return redirect('auth/facebook');
         }
     }
-    
+
     public function redirectToLinkedin() {
         return Socialite::driver('LinkedIn')->redirect();
     }
@@ -372,28 +456,28 @@ class UsersController extends Controller {
     }
 
     public function sociallogin($data = array()) {
-//        $data['login_type'] = 'facebook';
-//        $data['social_id'] = '113511857662946434944';
-//        $data['name'] = 'Dinesh Dhaker';
-//        $data['email'] = 'dinesh.dhaker@logicspice.com';
-//        $data['avatar_original'] = 'https://lh6.googleusercontent.com/-ObLBMUQ2GMM/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaOMjcKb7TEXJePyWBT_mkfoYDuVrA/mo/photo.jpg';
+        //        $data['login_type'] = 'facebook';
+        //        $data['social_id'] = '113511857662946434944';
+        //        $data['name'] = 'Dinesh Dhaker';
+        //        $data['email'] = 'dinesh.dhaker@logicspice.com';
+        //        $data['avatar_original'] = 'https://lh6.googleusercontent.com/-ObLBMUQ2GMM/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaOMjcKb7TEXJePyWBT_mkfoYDuVrA/mo/photo.jpg';
 
-        if (Session::has('user_id')){
+        if (Session::has('user_id')) {
             if ($data['login_type'] == 'google') {
                 User::where('id', Session::get('user_id'))->update(array('google_id' => $data['social_id']));
-            }else if ($data['login_type'] == 'facebook') {
+            } else if ($data['login_type'] == 'facebook') {
                 User::where('id', Session::get('user_id'))->update(array('facebook_id' => $data['social_id']));
-            }else {
+            } else {
                 User::where('id', Session::get('user_id'))->update(array('linkedin_id' => $data['social_id']));
             }
             echo "<script>window.close();window.opener.location.reload();</script>";
             exit;
         }
-        
-        if(empty($data['email'])){
+
+        if (empty($data['email'])) {
             Session::flash('error_message', "Social login not return email address, so please try with mnormal login/signup.");
-        }else{
-            $emailAddress = $data['email'];        
+        } else {
+            $emailAddress = $data['email'];
             $userInfo = User::where('email_address', $emailAddress)->first();
             if (!empty($userInfo) && $userInfo->id > 0) {
                 if ($userInfo->status == 1) {
@@ -431,8 +515,8 @@ class UsersController extends Controller {
                 $serialisedData['activation_status'] = 1;
                 $password = bin2hex(openssl_random_pseudo_bytes(4));
                 $serialisedData['password'] = $this->encpassword($password);
-                User::insert($serialisedData); 
-                
+                User::insert($serialisedData);
+
                 $userInfo = User::where('email_address', $emailAddress)->first();
                 Session::put('user_id', $userInfo->id);
                 Session::put('user_name', ucwords($userInfo->first_name . ' ' . $userInfo->last_name));
@@ -464,21 +548,21 @@ class UsersController extends Controller {
         // return Redirect::to('/login');
         return Redirect::to('/index1');
     }
-    
+
     public function dashboard() {
         $pageTitle = 'User Dashboard';
         $recordInfo = User::where('id', Session::get('user_id'))->first();
-        $skillsList  = DB::table('skills')->where('status', 1)->orderBy('name', 'ASC')->pluck('name','id')->all();
-        $countryLists  = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name','name')->all();
-        $qualificationsLists  = DB::table('qualifications')->where('status', 1)->orderBy('name', 'ASC')->pluck('name','name')->all();
-        
-        $latestservices = Service::where(['status'=>'1'])->where('user_id', '!=' , Session::get('user_id'))->orderBy('id', 'DESC')->limit(10)->get();
+        $skillsList  = DB::table('skills')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id')->all();
+        $countryLists  = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
+        $qualificationsLists  = DB::table('qualifications')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
+
+        $latestservices = Service::where(['status' => '1'])->where('user_id', '!=', Session::get('user_id'))->orderBy('id', 'DESC')->limit(10)->get();
         $myorders  = Myorder::where('seller_id', Session::get('user_id'))->orderBy('id', 'DESC')->limit(4)->get();
-        $mygigs  = Gig::where(['user_id'=>Session::get('user_id')])->orderBy('id', 'DESC')->limit(5)->get();
-        
-        return view('users.dashboard', ['title' => $pageTitle, 'recordInfo'=>$recordInfo, 'skillsList'=>$skillsList, 'countryLists'=>$countryLists, 'qualificationsLists'=>$qualificationsLists, 'latestservices'=>$latestservices, 'myorders'=>$myorders, 'mygigs'=>$mygigs]);
+        $mygigs  = Gig::where(['user_id' => Session::get('user_id')])->orderBy('id', 'DESC')->limit(5)->get();
+
+        return view('users.dashboard', ['title' => $pageTitle, 'recordInfo' => $recordInfo, 'skillsList' => $skillsList, 'countryLists' => $countryLists, 'qualificationsLists' => $qualificationsLists, 'latestservices' => $latestservices, 'myorders' => $myorders, 'mygigs' => $mygigs]);
     }
-    
+
     public function uploadprofileimage() {
         $input = Input::all();
         if (Input::hasFile('profile_image')) {
@@ -486,20 +570,20 @@ class UsersController extends Controller {
             $uploadedFileName = $this->uploadImage($file, PROFILE_FULL_UPLOAD_PATH);
             $this->resizeImage($uploadedFileName, PROFILE_FULL_UPLOAD_PATH, PROFILE_SMALL_UPLOAD_PATH, PROFILE_MW, PROFILE_MH);
             $recordInfo =  User::select('profile_image')->where('id', Session::get('user_id'))->first();
-            @unlink(PROFILE_FULL_UPLOAD_PATH.$recordInfo->profile_image);
-            @unlink(PROFILE_SMALL_UPLOAD_PATH.$recordInfo->profile_image);
+            @unlink(PROFILE_FULL_UPLOAD_PATH . $recordInfo->profile_image);
+            @unlink(PROFILE_SMALL_UPLOAD_PATH . $recordInfo->profile_image);
             User::where('id', Session::get('user_id'))->update(array('profile_image' => $uploadedFileName));
             echo $uploadedFileName;
         }
     }
-    
+
     public function updatedata(Request $request) {
         if ($request->has('statusnameid')) {
             User::where('id', Session::get('user_id'))->update(array('user_status' => $request->get('statusnameid')));
         } elseif ($request->has('contact')) {
             User::where('id', Session::get('user_id'))->update(array('contact' => $request->input('contact')));
         } elseif ($request->has('first_name')) {
-            User::where('id', Session::get('user_id'))->update(array('first_name' => $request->input('first_name'),'last_name' => $request->input('last_name')));
+            User::where('id', Session::get('user_id'))->update(array('first_name' => $request->input('first_name'), 'last_name' => $request->input('last_name')));
         } elseif ($request->has('countrynameid')) {
             $countryInfo = DB::table('countries')->where('name', $request->get('countrynameid'))->first();
             User::where('id', Session::get('user_id'))->update(array('country_id' => $countryInfo->id, 'city' => $request->get('city_id'), 'zipcode' => $request->get('zipcode_id')));
@@ -578,7 +662,7 @@ class UsersController extends Controller {
                     $educationsArray[$edu_key]['stream_name'] = $stream_name;
                     $educationsArray[$edu_key]['year'] = $year;
                 }
-            } else { 
+            } else {
                 $edu_key = $this->RemoveSpecialChar($stream_name);
                 $edu_key = str_replace(' ', '_', strtolower(trim($edu_key)));
                 $educationsArray[$edu_key]['country_name'] = $country_name;
@@ -629,180 +713,181 @@ class UsersController extends Controller {
             User::where('id', Session::get('user_id'))->update(array('certifications' => json_encode($educationsArray)));
         }
     }
-    
+
     public function settings() {
         $pageTitle = 'Manage Settings';
         $recordInfo = User::where('id', Session::get('user_id'))->first();
-        return view('users.settings', ['title' => $pageTitle, 'recordInfo'=>$recordInfo]);
+        return view('users.settings', ['title' => $pageTitle, 'recordInfo' => $recordInfo]);
     }
-    
+
     public function updatesettings(Request $request) {
         $recordInfo = User::where('id', Session::get('user_id'))->first();
-        if($request->has('old_password')){
+        if ($request->has('old_password')) {
             $old_password = $request->get('old_password');
-            $newpassword = $request->get('newpassword'); 
-            if(!password_verify($old_password, $recordInfo->password)) {
+            $newpassword = $request->get('newpassword');
+            if (!password_verify($old_password, $recordInfo->password)) {
                 echo 'Current password is not correct.';
-            }else if($old_password == $newpassword){
-                echo 'You can not change new password same as current password'; exit;
-            }else{
+            } else if ($old_password == $newpassword) {
+                echo 'You can not change new password same as current password';
+                exit;
+            } else {
                 $new_password = $this->encpassword($newpassword);
                 User::where('id', Session::get('user_id'))->update(array('password' => $new_password));
                 echo '1';
             }
         }
-        if($request->has('paypal_email')){
+        if ($request->has('paypal_email')) {
             $paypal_email = $request->get('paypal_email');
             User::where('id', Session::get('user_id'))->update(array('paypal_email' => $paypal_email));
             echo '1';
         }
     }
-    
-    public function buyercontacts(){ 
-       $pageTitle = 'View Buyer Contacts'; 
-       $allrecords = Myorder::where('seller_id', Session::get('user_id'))->groupBy('buyer_id')->get();
-       return view('users.buyercontacts', ['title' => $pageTitle, 'allrecords'=>$allrecords]);    
+
+    public function buyercontacts() {
+        $pageTitle = 'View Buyer Contacts';
+        $allrecords = Myorder::where('seller_id', Session::get('user_id'))->groupBy('buyer_id')->get();
+        return view('users.buyercontacts', ['title' => $pageTitle, 'allrecords' => $allrecords]);
     }
-    public function sellercontacts(){ 
-        $pageTitle = 'View Seller Contacts'; 
+    public function sellercontacts() {
+        $pageTitle = 'View Seller Contacts';
         $allrecords = Myorder::where('buyer_id', Session::get('user_id'))->groupBy('seller_id')->get();
-        return view('users.sellercontacts', ['title' => $pageTitle, 'allrecords'=>$allrecords]);   
+        return view('users.sellercontacts', ['title' => $pageTitle, 'allrecords' => $allrecords]);
     }
-    
-    public function publicprofile($slug){ 
+
+    public function publicprofile($slug) {
         $recordInfo = User::where('slug', $slug)->first();
-        if(!$recordInfo){
+        if (!$recordInfo) {
             return Redirect::to('dashboard');
-        }        
-        $pageTitle =  $recordInfo->first_name.' '.$recordInfo->last_name.' Public Profile'; 
-        
-        $skillsList  = DB::table('skills')->where('status', 1)->orderBy('name', 'ASC')->pluck('name','id')->all();
-        $countryLists  = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name','name')->all();
-        $qualificationsLists  = DB::table('qualifications')->where('status', 1)->orderBy('name', 'ASC')->pluck('name','name')->all();
-        $mygigs  = Gig::where(['status'=>1, 'user_id'=>$recordInfo->id])->orderBy('id', 'DESC')->limit(9)->get();
-        $myreviews  = Review::where(['status'=>1, 'user_id'=>$recordInfo->id])->orderBy('id', 'DESC')->limit(10)->get();
+        }
+        $pageTitle =  $recordInfo->first_name . ' ' . $recordInfo->last_name . ' Public Profile';
+
+        $skillsList  = DB::table('skills')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id')->all();
+        $countryLists  = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
+        $qualificationsLists  = DB::table('qualifications')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
+        $mygigs  = Gig::where(['status' => 1, 'user_id' => $recordInfo->id])->orderBy('id', 'DESC')->limit(9)->get();
+        $myreviews  = Review::where(['status' => 1, 'user_id' => $recordInfo->id])->orderBy('id', 'DESC')->limit(10)->get();
         $mysavegigs = $this->getSavedGigs();
-        
-         $date1 = date('Y-m-d',strtotime("-30 days"));
+
+        $date1 = date('Y-m-d', strtotime("-30 days"));
         $sellingOrders = DB::table('myorders')
-                ->select('seller_id', 'id', DB::raw('sum(total_amount) as total_sum'))
-                ->where('seller_id','=', Session::get('user_id'))                     
-                ->where('created_at','>=', $date1)                                       
-                ->get();
-        
-        $topRatedInfo = DB::table('reviews')->where(['otheruser_id'=>Session::get('user_id')])->where('rating','>',4)->pluck(DB::raw('count(*) as total'),'id')->all();
-        
-        return view('users.publicprofile', ['title' => $pageTitle, 'recordInfo'=>$recordInfo, 'topRatedInfo'=>$topRatedInfo,'sellingOrders' => $sellingOrders, 'skillsList'=>$skillsList, 'countryLists'=>$countryLists, 'qualificationsLists'=>$qualificationsLists, 'mygigs'=>$mygigs, 'myreviews'=>$myreviews, 'mysavegigs'=>$mysavegigs]);
+            ->select('seller_id', 'id', DB::raw('sum(total_amount) as total_sum'))
+            ->where('seller_id', '=', Session::get('user_id'))
+            ->where('created_at', '>=', $date1)
+            ->get();
+
+        $topRatedInfo = DB::table('reviews')->where(['otheruser_id' => Session::get('user_id')])->where('rating', '>', 4)->pluck(DB::raw('count(*) as total'), 'id')->all();
+
+        return view('users.publicprofile', ['title' => $pageTitle, 'recordInfo' => $recordInfo, 'topRatedInfo' => $topRatedInfo, 'sellingOrders' => $sellingOrders, 'skillsList' => $skillsList, 'countryLists' => $countryLists, 'qualificationsLists' => $qualificationsLists, 'mygigs' => $mygigs, 'myreviews' => $myreviews, 'mysavegigs' => $mysavegigs]);
     }
-    
+
     public function likeunlike(Request $request) {
-       $gid =  $request->get('gid');
-       $type =  $request->get('type');
-       if($type == 1){
-            $mysavegigsAA  = DB::table('savedgigs')->where(['user_id'=>Session::get('user_id')])->first();
-            if($mysavegigsAA){
+        $gid =  $request->get('gid');
+        $type =  $request->get('type');
+        if ($type == 1) {
+            $mysavegigsAA  = DB::table('savedgigs')->where(['user_id' => Session::get('user_id')])->first();
+            if ($mysavegigsAA) {
                 $mysavegigs = array();
-                if($mysavegigsAA->gig_ids){
+                if ($mysavegigsAA->gig_ids) {
                     $mysavegigs = explode(',', $mysavegigsAA->gig_ids);
                 }
-                if(!in_array($gid, $mysavegigs)){
+                if (!in_array($gid, $mysavegigs)) {
                     $mysavegigs[] = $gid;
                 }
                 $gigidss = implode(',', $mysavegigs);
-                DB::table('savedgigs')->where('id', $mysavegigsAA->id)->update(['gig_ids'=>$gigidss]);  
-            }else{
+                DB::table('savedgigs')->where('id', $mysavegigsAA->id)->update(['gig_ids' => $gigidss]);
+            } else {
                 $serialisedData = array();
                 $serialisedData['user_id'] =  Session::get('user_id');
-                $serialisedData['gig_ids'] =  $gid;                
+                $serialisedData['gig_ids'] =  $gid;
                 $serialisedData = $this->serialiseFormData($serialisedData);
                 DB::table('savedgigs')->insert($serialisedData);
             }
-       }else{
-            $mysavegigsAA  = DB::table('savedgigs')->where(['user_id'=>Session::get('user_id')])->first();
+        } else {
+            $mysavegigsAA  = DB::table('savedgigs')->where(['user_id' => Session::get('user_id')])->first();
             $mysavegigs = array();
-            if($mysavegigsAA->gig_ids){
+            if ($mysavegigsAA->gig_ids) {
                 $mysavegigs = explode(',', $mysavegigsAA->gig_ids);
             }
             if (($key = array_search($gid, $mysavegigs)) !== false) {
                 unset($mysavegigs[$key]);
             }
             $gigidss = implode(',', $mysavegigs);
-            DB::table('savedgigs')->where('id', $mysavegigsAA->id)->update(['gig_ids'=>$gigidss]);  
-       }
-       
+            DB::table('savedgigs')->where('id', $mysavegigsAA->id)->update(['gig_ids' => $gigidss]);
+        }
+
         $mysavegigs = array();
-        if(Session::get('user_id')){
-            $mysavegigsAA  = DB::table('savedgigs')->where(['user_id'=>Session::get('user_id')])->first();
-            if($mysavegigsAA){
-                if($mysavegigsAA->gig_ids){
+        if (Session::get('user_id')) {
+            $mysavegigsAA  = DB::table('savedgigs')->where(['user_id' => Session::get('user_id')])->first();
+            if ($mysavegigsAA) {
+                if ($mysavegigsAA->gig_ids) {
                     $mysavegigs = explode(',', $mysavegigsAA->gig_ids);
                 }
             }
         }
-       return view('elements.likeunlikeinner', ['gid' => $gid, 'mysavegigs'=>$mysavegigs]);
+        return view('elements.likeunlikeinner', ['gid' => $gid, 'mysavegigs' => $mysavegigs]);
     }
-    
-    
-    public function mysavedgig(){ 
-        $pageTitle = 'My Saved Gigs'; 
-        $mysavegigsAA  = DB::table('savedgigs')->where(['user_id'=>Session::get('user_id')])->first();
+
+
+    public function mysavedgig() {
+        $pageTitle = 'My Saved Gigs';
+        $mysavegigsAA  = DB::table('savedgigs')->where(['user_id' => Session::get('user_id')])->first();
         $mysavegigs = array(0);
-        if($mysavegigsAA){
-            if($mysavegigsAA->gig_ids){
+        if ($mysavegigsAA) {
+            if ($mysavegigsAA->gig_ids) {
                 $mysavegigs = explode(',', $mysavegigsAA->gig_ids);
             }
         }
-       
-       $allrecords = Gig::whereIn('id', $mysavegigs)->get();
-       return view('users.mysavedgig', ['title' => $pageTitle, 'allrecords'=>$allrecords]);    
+
+        $allrecords = Gig::whereIn('id', $mysavegigs)->get();
+        return view('users.mysavedgig', ['title' => $pageTitle, 'allrecords' => $allrecords]);
     }
-    
+
     public function deletelikeunlike(Request $request) {
         $gid =  $request->get('gid');
-        $mysavegigsAA  = DB::table('savedgigs')->where(['user_id'=>Session::get('user_id')])->first();
+        $mysavegigsAA  = DB::table('savedgigs')->where(['user_id' => Session::get('user_id')])->first();
         $mysavegigs = array();
-        if($mysavegigsAA->gig_ids){
+        if ($mysavegigsAA->gig_ids) {
             $mysavegigs = explode(',', $mysavegigsAA->gig_ids);
         }
         if (($key = array_search($gid, $mysavegigs)) !== false) {
             unset($mysavegigs[$key]);
         }
         $gigidss = implode(',', $mysavegigs);
-        DB::table('savedgigs')->where('id', $mysavegigsAA->id)->update(['gig_ids'=>$gigidss]); 
+        DB::table('savedgigs')->where('id', $mysavegigsAA->id)->update(['gig_ids' => $gigidss]);
     }
-    
-    public function notifications(){ 
-        $pageTitle = 'My Notifications';         
+
+    public function notifications() {
+        $pageTitle = 'My Notifications';
         $allrecords = Notification::where('user_id', Session::get('user_id'))->orderBy('id', 'DESC')->limit(100)->get();
-        return view('users.notifications', ['title' => $pageTitle, 'allrecords'=>$allrecords]);    
-    }   
-    
-    public function deletenotification($slug=null){ 
-        if($slug){
+        return view('users.notifications', ['title' => $pageTitle, 'allrecords' => $allrecords]);
+    }
+
+    public function deletenotification($slug = null) {
+        if ($slug) {
             Notification::where('slug', $slug)->delete();
             Session::flash('success_message', "Notification deleted successfully.");
             return Redirect::to('users/notifications');
-        }   
-    } 
-    
-    public function viewnotification($slug=null){ 
-        $notification  = Notification::where(['user_id'=>Session::get('user_id'), 'slug'=>$slug])->first();
-        if($notification){
+        }
+    }
+
+    public function viewnotification($slug = null) {
+        $notification  = Notification::where(['user_id' => Session::get('user_id'), 'slug' => $slug])->first();
+        if ($notification) {
             $url = $notification->url;
-            Notification::where(['user_id'=>Session::get('user_id'), 'url'=>$notification->url])->update(['status'=>1]);  
+            Notification::where(['user_id' => Session::get('user_id'), 'url' => $notification->url])->update(['status' => 1]);
             return Redirect::to($url);
-        }else{
+        } else {
             Session::flash('error_message', "You can not access his URL.");
             return Redirect::to('users/notifications');
-        }   
-    } 
-    
-    public function checknotifications(){ 
-        $notifications  = Notification::where(['user_id'=>Session::get('user_id'), 'status'=>0])->select(['from_name','slug', 'created_at', 'message'])->orderBy('id', 'DESC')->limit(10)->get();
-        if(count($notifications) > 0){
+        }
+    }
+
+    public function checknotifications() {
+        $notifications  = Notification::where(['user_id' => Session::get('user_id'), 'status' => 0])->select(['from_name', 'slug', 'created_at', 'message'])->orderBy('id', 'DESC')->limit(10)->get();
+        if (count($notifications) > 0) {
             $data  = array();
             $i = 0;
-            foreach($notifications as $notification){
+            foreach ($notifications as $notification) {
                 $data[$i]['url'] = $notification->slug;
                 $data[$i]['timeago'] = $notification->created_at->diffForHumans();
                 $data[$i]['from_name'] = $notification->from_name;
@@ -810,11 +895,11 @@ class UsersController extends Controller {
                 $i++;
             }
             echo json_encode($data);
-        }else{
+        } else {
             return '1';
-        }        
+        }
     }
-    
+
     public function messageuser() {
         $pageTitle = 'Register';
         $input = Input::all();
@@ -834,57 +919,59 @@ class UsersController extends Controller {
             } else {
                 unset($serialisedData['attachment']);
             }
-            
+
             $message = $serialisedData['message'];
             $receiver_id = $serialisedData['receiver_id'];
-            
-//            echo '<pre>';print_r($serialisedData);exit;
+
+            //            echo '<pre>';print_r($serialisedData);exit;
             Message::insert($serialisedData);
-            
+
             $senderUser = User::where(['id' => Session::get('user_id')])->select('id', 'slug', 'profile_image')->first();
-            
+
             $serialisedData = array();
-                $serialisedData['from_name'] = Session::get('user_name');
-                $serialisedData['user_id'] = $receiver_id;
-                $serialisedData['message'] = $message;
-                $serialisedData['url'] = 'messages/message/' . $senderUser->slug;
-                $serialisedData['status'] = 0;
-                $serialisedData = $this->serialiseFormData($serialisedData);
-                $serialisedData['slug'] = bin2hex(openssl_random_pseudo_bytes(5)) . time() . rand(10, 99);
-//                echo '<pre>';print_r($serialisedData);exit;
-                Notification::insert($serialisedData);
-            
+            $serialisedData['from_name'] = Session::get('user_name');
+            $serialisedData['user_id'] = $receiver_id;
+            $serialisedData['message'] = $message;
+            $serialisedData['url'] = 'messages/message/' . $senderUser->slug;
+            $serialisedData['status'] = 0;
+            $serialisedData = $this->serialiseFormData($serialisedData);
+            $serialisedData['slug'] = bin2hex(openssl_random_pseudo_bytes(5)) . time() . rand(10, 99);
+            //                echo '<pre>';print_r($serialisedData);exit;
+            Notification::insert($serialisedData);
+
             $datetime = date('M d, Y');
 
-                $loginUserInfo = User::where('id', Session::get('user_id'))->first();
-                $loginuser = $loginUserInfo->first_name . ' ' . $loginUserInfo->last_name;
+            $loginUserInfo = User::where('id', Session::get('user_id'))->first();
+            $loginuser = $loginUserInfo->first_name . ' ' . $loginUserInfo->last_name;
 
-                // Email sent to seller user
-                $message = $message;
-                $receiverInfo = User::where('id', $receiver_id)->first();
-                $emailId = $receiverInfo->email_address;
-                $name = $receiverInfo->first_name . ' ' . $receiverInfo->last_name;
+            // Email sent to seller user
+            $message = $message;
+            $receiverInfo = User::where('id', $receiver_id)->first();
+            $emailId = $receiverInfo->email_address;
+            $name = $receiverInfo->first_name . ' ' . $receiverInfo->last_name;
 
-                $emailTemplate = DB::table('emailtemplates')->where('id', 21)->first();
-                $toRepArray = array('[!username!]', '[!datetime!]', '[!name!]', '[!message!]', '[!HTTP_PATH!]', '[!SITE_TITLE!]');
-                $fromRepArray = array($loginuser, $datetime, $name, $message, HTTP_PATH, SITE_TITLE);
-                $emailSubject = str_replace($toRepArray, $fromRepArray, $emailTemplate->subject);
-                $emailBody = str_replace($toRepArray, $fromRepArray, $emailTemplate->template);
-                Mail::to($emailId)->send(new SendMailable($emailBody, $emailSubject));
+            $emailTemplate = DB::table('emailtemplates')->where('id', 21)->first();
+            $toRepArray = array('[!username!]', '[!datetime!]', '[!name!]', '[!message!]', '[!HTTP_PATH!]', '[!SITE_TITLE!]');
+            $fromRepArray = array($loginuser, $datetime, $name, $message, HTTP_PATH, SITE_TITLE);
+            $emailSubject = str_replace($toRepArray, $fromRepArray, $emailTemplate->subject);
+            $emailBody = str_replace($toRepArray, $fromRepArray, $emailTemplate->template);
+            Mail::to($emailId)->send(new SendMailable($emailBody, $emailSubject));
 
             $recSlug = User::where('id', $receiver_id)->select('slug')->first();
             Session::flash('success_message', "Message send successfully.");
-            return Redirect::to('messages/message/'.$recSlug->slug);
+            return Redirect::to('messages/message/' . $recSlug->slug);
         }
     }
-    public function RemoveSpecialChar($str){
-      
-    // Using str_ireplace() function 
-    // to replace the word 
-    $res = str_ireplace( array( '\'', '"',
-    ',' , '&' , ';', '<', '>' ), '', $str);
-      
-    // returning the result 
-    return $res;
+    public function RemoveSpecialChar($str) {
+
+        // Using str_ireplace() function 
+        // to replace the word 
+        $res = str_ireplace(array(
+            '\'', '"',
+            ',', '&', ';', '<', '>'
+        ), '', $str);
+
+        // returning the result 
+        return $res;
     }
 }
