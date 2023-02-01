@@ -555,7 +555,6 @@ class UsersController extends Controller {
         $skillsList  = DB::table('skills')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id')->all();
         $countryLists  = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
         $qualificationsLists  = DB::table('qualifications')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
-
         $latestservices = Service::where(['status' => '1'])->where('user_id', '!=', Session::get('user_id'))->orderBy('id', 'DESC')->limit(10)->get();
         $myorders  = Myorder::where('seller_id', Session::get('user_id'))->orderBy('id', 'DESC')->limit(4)->get();
         $mygigs  = Gig::where(['user_id' => Session::get('user_id')])->orderBy('id', 'DESC')->limit(5)->get();

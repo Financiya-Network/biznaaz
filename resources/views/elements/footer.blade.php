@@ -632,7 +632,7 @@
         /* <![CDATA[ */
         var freeio_job_opts = {
             "ajaxurl": "gigs/getkeyword",
-            "empty_msg": "data",
+            "empty_msg": "hello",
             "show": "Show",
             "hide": "Hide"
         };

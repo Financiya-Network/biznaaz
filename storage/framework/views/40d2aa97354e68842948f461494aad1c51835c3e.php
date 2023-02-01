@@ -1,35 +1,344 @@
-<div id="apus-footer" class="apus-footer footer-builder-wrapper  footer-2">
-    <div class="apus-footer-inner">
-        <div data-elementor-type="wp-post" data-elementor-id="3038" class="elementor elementor-3038">
-            <section
-                class="elementor-section elementor-top-section elementor-element elementor-element-61014fe elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                data-id="61014fe" data-element_type="section"
-                data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-                <div class="elementor-container elementor-column-gap-extended">
-                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-c544df8"
-                        data-id="c544df8" data-element_type="column">
+<footer>
+    <div id="apus-footer" class="apus-footer footer-builder-wrapper  footer-2">
+        <div class="apus-footer-inner">
+            <div data-elementor-type="wp-post" data-elementor-id="3038" class="elementor elementor-3038">
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-61014fe elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                    data-id="61014fe" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                    <div class="elementor-container elementor-column-gap-extended">
+                        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-c544df8"
+                            data-id="c544df8" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-6e5bd49 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                    data-id="6e5bd49" data-element_type="widget" data-widget_type="icon-list.default">
+                                    <div class="elementor-widget-container">
+                                        <link rel="stylesheet" href="../public/css1/widget-icon-list.min.css">
+                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <a href="#">
+
+                                                    <span class="elementor-icon-list-text">Terms of Service</span>
+                                                </a>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <a href="#">
+
+                                                    <span class="elementor-icon-list-text">Privacy Policy</span>
+                                                </a>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <a href="#">
+
+                                                    <span class="elementor-icon-list-text">Site Map</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-e8d19b3"
+                            data-id="e8d19b3" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-0e051cc elementor-widget__width-auto elementor-widget elementor-widget-heading"
+                                    data-id="0e051cc" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <h2 class="elementor-heading-title elementor-size-default">Follow Us</h2>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-c99ab25 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_social_links"
+                                    data-id="c99ab25" data-element_type="widget"
+                                    data-widget_type="apus_element_social_links.default">
+                                    <div class="elementor-widget-container">
+
+                                        <div class="widget-socials  ">
+                                            <ul class="social list-inline">
+                                                <?php if($siteSettings->facebook_link): ?>
+                                                    <li>
+                                                        <a href="<?php echo $siteSettings->facebook_link; ?>" target="_blank">
+                                                            <i class="fab fa-facebook-f"></i> </a>
+                                                    </li>
+                                                <?php endif; ?>
+                                                <?php if($siteSettings->twitter_link): ?>
+                                                    <li>
+                                                        <a href="<?php echo $siteSettings->twitter_link; ?>" target="_blank">
+                                                            <i class="fab fa-twitter"></i> </a>
+                                                    </li>
+                                                <?php endif; ?>
+                                                <?php if($siteSettings->instagram_link): ?>
+                                                    <li>
+                                                        <a href="<?php echo $siteSettings->instagram_link; ?>" target="_blank">
+                                                            <i class="fab fa-instagram"></i> </a>
+                                                    </li>
+                                                <?php endif; ?>
+                                                <?php if($siteSettings->linkedin_link): ?>
+                                                    <li>
+                                                        <a href="<?php echo $siteSettings->linkedin_link; ?>" target="_blank">
+                                                            <i class="fab fa-linkedin-in"></i> </a>
+                                                    </li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-8d9d494 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                    data-id="8d9d494" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                    <div class="elementor-container elementor-column-gap-extended">
+                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ce41ee5"
+                            data-id="ce41ee5" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-dc121be elementor-widget elementor-widget-spacer"
+                                    data-id="dc121be" data-element_type="widget" data-widget_type="spacer.default">
+                                    <div class="elementor-widget-container">
+                                        <style>
+                                            /*! elementor - v3.8.1 - 13-11-2022 */
+                                            .elementor-column .elementor-spacer-inner {
+                                                height: var(--spacer-size)
+                                            }
+
+                                            .e-con {
+                                                --container-widget-width: 100%
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer,
+                                            .e-con>.elementor-widget-spacer {
+                                                width: var(--container-widget-width, var(--spacer-size));
+                                                -ms-flex-item-align: stretch;
+                                                align-self: stretch;
+                                                -ms-flex-negative: 0;
+                                                flex-shrink: 0
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer>.elementor-widget-container,
+                                            .e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer,
+                                            .e-con>.elementor-widget-spacer>.elementor-widget-container,
+                                            .e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer {
+                                                height: 100%
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner,
+                                            .e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner {
+                                                height: var(--container-widget-height, var(--spacer-size))
+                                            }
+                                        </style>
+                                        <div class="elementor-spacer">
+                                            <div class="elementor-spacer-inner"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-37939ff elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                    data-id="37939ff" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                    <div class="elementor-container elementor-column-gap-extended">
+                        <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-07b121e"
+                            data-id="07b121e" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-cfc0fc5 elementor-widget elementor-widget-apus_element_nav_menu"
+                                    data-id="cfc0fc5" data-element_type="widget"
+                                    data-widget_type="apus_element_nav_menu.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="widget-nav-menu no-margin widget  ">
+
+                                            <h2 class="widget-title">About</h2>
+
+                                            <div class="widget-content">
+                                                <div class="menu-about-container">
+                                                    <ul id="menu-about" class="menu">
+                                                        <li id="menu-item-2981"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2981">
+                                                            <a href="<?php echo e(URL::to('about-us')); ?>">About
+                                                                Us</a>
+                                                        </li>
+                                                        <li id="menu-item-2982"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2982">
+                                                            <a href="<?php echo e(URL::to('how-it-works')); ?>">How it works</a>
+                                                        </li>
+                                                        <li id="menu-item-2983"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2983">
+                                                            <a href="<?php echo e(URL::to('privacy-policy')); ?>">Privacy
+                                                                policy</a>
+                                                        </li>
+                                                        <li id="menu-item-2984"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2984">
+                                                            <a href="<?php echo e(URL::to('terms-and-condition')); ?>">Terms of
+                                                                service</a>
+                                                        </li>
+                                                        <li id="menu-item-2985"
+                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2985">
+                                                            <a href="<?php echo e(URL::to('press-and-news')); ?>">Press &
+                                                                News</a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-b3c6b66"
+                            data-id="b3c6b66" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-0cac63f elementor-widget elementor-widget-apus_element_nav_menu"
+                                    data-id="0cac63f" data-element_type="widget"
+                                    data-widget_type="apus_element_nav_menu.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="widget-nav-menu no-margin widget  ">
+
+                                            <h2 class="widget-title">Categories</h2>
+
+                                            <div class="widget-content">
+                                                <div class="menu-categories-container">
+                                                    <ul id="menu-categories-2" class="menu">
+                                                        <?php if($globalCategories): ?>
+                                                            <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                <li
+                                                                    class="menu-item menu-item-type-taxonomy menu-item-object-service_category menu-item-2988">
+                                                                    <a
+                                                                        href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"><?php echo $cat->name; ?></a>
+                                                                </li>
+                                                                <?php if($loop->iteration == 10): ?>
+                                                                <?php break; ?>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php endif; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-1952402"
+                        data-id="1952402" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="elementor-element elementor-element-6e5bd49 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                                data-id="6e5bd49" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-element elementor-element-158a7c8 elementor-widget elementor-widget-apus_element_nav_menu"
+                                data-id="158a7c8" data-element_type="widget"
+                                data-widget_type="apus_element_nav_menu.default">
                                 <div class="elementor-widget-container">
-                                    <link rel="stylesheet" href="../public/css1/widget-icon-list.min.css">
-                                    <ul class="elementor-icon-list-items elementor-inline-items">
-                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                    <div class="widget-nav-menu no-margin widget  ">
+
+                                        <h2 class="widget-title">Support</h2>
+
+                                        <div class="widget-content">
+                                            <div class="menu-support-container">
+                                                <ul id="menu-support" class="menu">
+                                                    <li id="menu-item-2978"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2978">
+                                                        <a href="<?php echo e(URL::to('contact-us')); ?>">Contact us</a>
+                                                    </li>
+                                                    <li id="menu-item-2977"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977">
+                                                        <a href="<?php echo e(URL::to('trust-and-safety')); ?>">Trust &
+                                                            safety</a>
+                                                    </li>
+                                                    <li id="menu-item-2976"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2976">
+                                                        <a href="<?php echo e(URL::to('faqs')); ?>">FAQ</a>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-c69eab0"
+                        data-id="c69eab0" data-element_type="column">
+                        <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-element elementor-element-eb001fa elementor-widget elementor-widget-heading"
+                                data-id="eb001fa" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <h2 class="elementor-heading-title elementor-size-default">Subscribe</h2>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-a8eeb1c elementor-widget elementor-widget-apus_element_mailchimp"
+                                data-id="a8eeb1c" data-element_type="widget"
+                                data-widget_type="apus_element_mailchimp.default">
+                                <div class="elementor-widget-container">
+                                    <div class="widget-mailchimp  ">
+                                        <script>
+                                            (function() {
+                                                window.mc4wp = window.mc4wp || {
+                                                    listeners: [],
+                                                    forms: {
+                                                        on: function(evt, cb) {
+                                                            window.mc4wp.listeners.push({
+                                                                event: evt,
+                                                                callback: cb
+                                                            });
+                                                        }
+                                                    }
+                                                }
+                                            })();
+                                        </script>
+                                        <!-- Mailchimp for WordPress v4.8.11 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
+                                        <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-977" method="post"
+                                            data-id="977" data-name="">
+                                            <div class="mc4wp-form-fields">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="email" name="EMAIL"
+                                                        placeholder="Your email address" required="">
+                                                    <button class="btn btn-second" type="submit"><span
+                                                            class="text">Send</span></button>
+                                                </div>
+                                            </div><label style="display: none !important;">Leave this field
+                                                empty if you're human: <input type="text"
+                                                    name="_mc4wp_honeypot" value="" tabindex="-1"
+                                                    autocomplete="off" /></label><input type="hidden"
+                                                name="_mc4wp_timestamp" value="1674014412" /><input
+                                                type="hidden" name="_mc4wp_form_id" value="977" /><input
+                                                type="hidden" name="_mc4wp_form_element_id"
+                                                value="mc4wp-form-1" />
+                                            <div class="mc4wp-response"></div>
+                                        </form><!-- / Mailchimp for WordPress Plugin -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-d649069 elementor-widget elementor-widget-heading"
+                                data-id="d649069" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <h2 class="elementor-heading-title elementor-size-default">Apps</h2>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-0280f3a elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                data-id="0280f3a" data-element_type="widget"
+                                data-widget_type="icon-list.default">
+                                <div class="elementor-widget-container">
+                                    <ul class="elementor-icon-list-items">
+                                        <li class="elementor-icon-list-item">
                                             <a href="#">
 
-                                                <span class="elementor-icon-list-text">Terms of Service</span>
+                                                <span class="elementor-icon-list-icon">
+                                                    <i aria-hidden="true" class="fab fa-apple"></i> </span>
+                                                <span class="elementor-icon-list-text">iOS App</span>
                                             </a>
                                         </li>
-                                        <li class="elementor-icon-list-item elementor-inline-item">
+                                        <li class="elementor-icon-list-item">
                                             <a href="#">
 
-                                                <span class="elementor-icon-list-text">Privacy Policy</span>
-                                            </a>
-                                        </li>
-                                        <li class="elementor-icon-list-item elementor-inline-item">
-                                            <a href="#">
-
-                                                <span class="elementor-icon-list-text">Site Map</span>
+                                                <span class="elementor-icon-list-icon">
+                                                    <i aria-hidden="true" class="fab fa-android"></i>
+                                                </span>
+                                                <span class="elementor-icon-list-text">Android App</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -37,96 +346,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-e8d19b3"
-                        data-id="e8d19b3" data-element_type="column">
-                        <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="elementor-element elementor-element-0e051cc elementor-widget__width-auto elementor-widget elementor-widget-heading"
-                                data-id="0e051cc" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container">
-                                    <h2 class="elementor-heading-title elementor-size-default">Follow Us</h2>
-                                </div>
-                            </div>
-                            <div class="elementor-element elementor-element-c99ab25 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_social_links"
-                                data-id="c99ab25" data-element_type="widget"
-                                data-widget_type="apus_element_social_links.default">
-                                <div class="elementor-widget-container">
-
-                                    <div class="widget-socials  ">
-                                        <ul class="social list-inline">
-                                            <?php if($siteSettings->facebook_link): ?>
-                                                <li>
-                                                    <a href="<?php echo $siteSettings->facebook_link; ?>" target="_blank">
-                                                        <i class="fab fa-facebook-f"></i> </a>
-                                                </li>
-                                            <?php endif; ?>
-                                            <?php if($siteSettings->twitter_link): ?>
-                                                <li>
-                                                    <a href="<?php echo $siteSettings->twitter_link; ?>" target="_blank">
-                                                        <i class="fab fa-twitter"></i> </a>
-                                                </li>
-                                            <?php endif; ?>
-                                            <?php if($siteSettings->instagram_link): ?>
-                                                <li>
-                                                    <a href="<?php echo $siteSettings->instagram_link; ?>" target="_blank">
-                                                        <i class="fab fa-instagram"></i> </a>
-                                                </li>
-                                            <?php endif; ?>
-                                            <?php if($siteSettings->linkedin_link): ?>
-                                                <li>
-                                                    <a href="<?php echo $siteSettings->linkedin_link; ?>" target="_blank">
-                                                        <i class="fab fa-linkedin-in"></i> </a>
-                                                </li>
-                                            <?php endif; ?>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
             <section
-                class="elementor-section elementor-top-section elementor-element elementor-element-8d9d494 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                data-id="8d9d494" data-element_type="section"
+                class="elementor-section elementor-top-section elementor-element elementor-element-a517935 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                data-id="a517935" data-element_type="section"
                 data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
                 <div class="elementor-container elementor-column-gap-extended">
-                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ce41ee5"
-                        data-id="ce41ee5" data-element_type="column">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e8e45f"
+                        data-id="2e8e45f" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="elementor-element elementor-element-dc121be elementor-widget elementor-widget-spacer"
-                                data-id="dc121be" data-element_type="widget" data-widget_type="spacer.default">
+                            <div class="elementor-element elementor-element-3c96bdc elementor-widget elementor-widget-spacer"
+                                data-id="3c96bdc" data-element_type="widget" data-widget_type="spacer.default">
                                 <div class="elementor-widget-container">
-                                    <style>
-                                        /*! elementor - v3.8.1 - 13-11-2022 */
-                                        .elementor-column .elementor-spacer-inner {
-                                            height: var(--spacer-size)
-                                        }
-
-                                        .e-con {
-                                            --container-widget-width: 100%
-                                        }
-
-                                        .e-con-inner>.elementor-widget-spacer,
-                                        .e-con>.elementor-widget-spacer {
-                                            width: var(--container-widget-width, var(--spacer-size));
-                                            -ms-flex-item-align: stretch;
-                                            align-self: stretch;
-                                            -ms-flex-negative: 0;
-                                            flex-shrink: 0
-                                        }
-
-                                        .e-con-inner>.elementor-widget-spacer>.elementor-widget-container,
-                                        .e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer,
-                                        .e-con>.elementor-widget-spacer>.elementor-widget-container,
-                                        .e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer {
-                                            height: 100%
-                                        }
-
-                                        .e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner,
-                                        .e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner {
-                                            height: var(--container-widget-height, var(--spacer-size))
-                                        }
-                                    </style>
                                     <div class="elementor-spacer">
                                         <div class="elementor-spacer-inner"></div>
                                     </div>
@@ -136,299 +368,75 @@
                     </div>
                 </div>
             </section>
-
             <section
-                class="elementor-section elementor-top-section elementor-element elementor-element-37939ff elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                data-id="37939ff" data-element_type="section"
+                class="elementor-section elementor-top-section elementor-element elementor-element-a1ad0b8 elementor-section-stretched elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                data-id="a1ad0b8" data-element_type="section"
                 data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
                 <div class="elementor-container elementor-column-gap-extended">
-                    <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-07b121e"
-                        data-id="07b121e" data-element_type="column">
+                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-26e6976"
+                        data-id="26e6976" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="elementor-element elementor-element-cfc0fc5 elementor-widget elementor-widget-apus_element_nav_menu"
-                                data-id="cfc0fc5" data-element_type="widget"
-                                data-widget_type="apus_element_nav_menu.default">
+                            <div class="elementor-element elementor-element-8d9529a elementor-widget elementor-widget-text-editor"
+                                data-id="8d9529a" data-element_type="widget"
+                                data-widget_type="text-editor.default">
                                 <div class="elementor-widget-container">
-                                    <div class="widget-nav-menu no-margin widget  ">
-
-                                        <h2 class="widget-title">About</h2>
-
-                                        <div class="widget-content">
-                                            <div class="menu-about-container">
-                                                <ul id="menu-about" class="menu">
-                                                    <li id="menu-item-2981"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2981">
-                                                        <a href="<?php echo e(URL::to('about-us')); ?>">About
-                                                            Us</a>
-                                                    </li>
-                                                    <li id="menu-item-2982"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2982">
-                                                        <a href="<?php echo e(URL::to('how-it-works')); ?>">How it works</a>
-                                                    </li>
-                                                    <li id="menu-item-2983"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2983">
-                                                        <a href="<?php echo e(URL::to('privacy-policy')); ?>">Privacy
-                                                            policy</a>
-                                                    </li>
-                                                    <li id="menu-item-2984"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2984">
-                                                        <a href="<?php echo e(URL::to('terms-and-condition')); ?>">Terms of
-                                                            service</a>
-                                                    </li>
-                                                    <li id="menu-item-2985"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2985">
-                                                        <a href="<?php echo e(URL::to('press-and-news')); ?>">Press &
-                                                            News</a>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
+                                    © Copyright @ <?php echo date('Y'); ?> &nbsp;|&nbsp; <a
+                                        href="https://biznaaz.com" target="_blank">Biznaaz Dev Portal</a> by
+                                    Biznaaz.com. All Rights Reserved </div>
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-b3c6b66"
-                        data-id="b3c6b66" data-element_type="column">
+                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-9754817"
+                        data-id="9754817" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="elementor-element elementor-element-0cac63f elementor-widget elementor-widget-apus_element_nav_menu"
-                                data-id="0cac63f" data-element_type="widget"
-                                data-widget_type="apus_element_nav_menu.default">
+                            <div class="elementor-element elementor-element-8a09fb4 elementor-widget__width-auto elementor-widget elementor-widget-text-editor"
+                                data-id="8a09fb4" data-element_type="widget"
+                                data-widget_type="text-editor.default">
                                 <div class="elementor-widget-container">
-                                    <div class="widget-nav-menu no-margin widget  ">
-
-                                        <h2 class="widget-title">Categories</h2>
-
-                                        <div class="widget-content">
-                                            <div class="menu-categories-container">
-                                                <ul id="menu-categories-2" class="menu">
-                                                    <?php if($globalCategories): ?>
-                                                        <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <li
-                                                                class="menu-item menu-item-type-taxonomy menu-item-object-service_category menu-item-2988">
-                                                                <a
-                                                                    href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"><?php echo $cat->name; ?></a>
-                                                            </li>
-                                                            <?php if($loop->iteration == 10): ?>
-                                                            <?php break; ?>
-                                                        <?php endif; ?>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                <?php endif; ?>
+                                    <div class="widget_icl_lang_sel_widget">
+                                        <div
+                                            class="wpml-ls-sidebars-language wpml-ls wpml-ls-legacy-dropdown js-wpml-ls-legacy-dropdown">
+                                            <ul>
+                                                <li class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-dropdown"
+                                                    tabindex="0"><a
+                                                        class="js-wpml-ls-item-toggle wpml-ls-item-toggle"
+                                                        href="javascript:void(0)"><span
+                                                            class="wpml-ls-native">English</span></a>
+                                                    <ul class="wpml-ls-sub-menu">
+                                                        <li
+                                                            class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-de">
+                                                            <a class="wpml-ls-link" href="#"><span
+                                                                    class="wpml-ls-native"
+                                                                    lang="de">Deutsch</span></a>
+                                                        </li>
+                                                        <li
+                                                            class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-it wpml-ls-last-item">
+                                                            <a class="wpml-ls-link" href="#"><span
+                                                                    class="wpml-ls-native"
+                                                                    lang="it">Italia</span></a>
+                                                        </li>
+                                                        <li
+                                                            class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-it wpml-ls-last-item">
+                                                            <a class="wpml-ls-link" href="#"><span
+                                                                    class="wpml-ls-native"
+                                                                    lang="it">French</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-1952402"
-                    data-id="1952402" data-element_type="column">
-                    <div class="elementor-widget-wrap elementor-element-populated">
-                        <div class="elementor-element elementor-element-158a7c8 elementor-widget elementor-widget-apus_element_nav_menu"
-                            data-id="158a7c8" data-element_type="widget"
-                            data-widget_type="apus_element_nav_menu.default">
-                            <div class="elementor-widget-container">
-                                <div class="widget-nav-menu no-margin widget  ">
-
-                                    <h2 class="widget-title">Support</h2>
-
-                                    <div class="widget-content">
-                                        <div class="menu-support-container">
-                                            <ul id="menu-support" class="menu">
-                                                <li id="menu-item-2978"
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2978">
-                                                    <a href="<?php echo e(URL::to('contact-us')); ?>">Contact us</a>
-                                                </li>
-                                                <li id="menu-item-2977"
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977">
-                                                    <a href="<?php echo e(URL::to('trust-and-safety')); ?>">Trust &
-                                                        safety</a>
-                                                </li>
-                                                <li id="menu-item-2976"
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2976">
-                                                    <a href="<?php echo e(URL::to('faqs')); ?>">FAQ</a>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-c69eab0"
-                    data-id="c69eab0" data-element_type="column">
-                    <div class="elementor-widget-wrap elementor-element-populated">
-                        <div class="elementor-element elementor-element-eb001fa elementor-widget elementor-widget-heading"
-                            data-id="eb001fa" data-element_type="widget" data-widget_type="heading.default">
-                            <div class="elementor-widget-container">
-                                <h2 class="elementor-heading-title elementor-size-default">Subscribe</h2>
-                            </div>
-                        </div>
-                        <div class="elementor-element elementor-element-a8eeb1c elementor-widget elementor-widget-apus_element_mailchimp"
-                            data-id="a8eeb1c" data-element_type="widget"
-                            data-widget_type="apus_element_mailchimp.default">
-                            <div class="elementor-widget-container">
-                                <div class="widget-mailchimp  ">
-                                    <script>
-                                        (function() {
-                                            window.mc4wp = window.mc4wp || {
-                                                listeners: [],
-                                                forms: {
-                                                    on: function(evt, cb) {
-                                                        window.mc4wp.listeners.push({
-                                                            event: evt,
-                                                            callback: cb
-                                                        });
-                                                    }
-                                                }
-                                            }
-                                        })();
-                                    </script>
-                                    <!-- Mailchimp for WordPress v4.8.11 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
-                                    <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-977" method="post"
-                                        data-id="977" data-name="">
-                                        <div class="mc4wp-form-fields">
-                                            <div class="input-group">
-                                                <input class="form-control" type="email" name="EMAIL"
-                                                    placeholder="Your email address" required="">
-                                                <button class="btn btn-second" type="submit"><span
-                                                        class="text">Send</span></button>
-                                            </div>
-                                        </div><label style="display: none !important;">Leave this field
-                                            empty if you're human: <input type="text" name="_mc4wp_honeypot"
-                                                value="" tabindex="-1" autocomplete="off" /></label><input
-                                            type="hidden" name="_mc4wp_timestamp" value="1674014412" /><input
-                                            type="hidden" name="_mc4wp_form_id" value="977" /><input
-                                            type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" />
-                                        <div class="mc4wp-response"></div>
-                                    </form><!-- / Mailchimp for WordPress Plugin -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="elementor-element elementor-element-d649069 elementor-widget elementor-widget-heading"
-                            data-id="d649069" data-element_type="widget" data-widget_type="heading.default">
-                            <div class="elementor-widget-container">
-                                <h2 class="elementor-heading-title elementor-size-default">Apps</h2>
-                            </div>
-                        </div>
-                        <div class="elementor-element elementor-element-0280f3a elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                            data-id="0280f3a" data-element_type="widget" data-widget_type="icon-list.default">
-                            <div class="elementor-widget-container">
-                                <ul class="elementor-icon-list-items">
-                                    <li class="elementor-icon-list-item">
-                                        <a href="#">
-
-                                            <span class="elementor-icon-list-icon">
-                                                <i aria-hidden="true" class="fab fa-apple"></i> </span>
-                                            <span class="elementor-icon-list-text">iOS App</span>
-                                        </a>
-                                    </li>
-                                    <li class="elementor-icon-list-item">
-                                        <a href="#">
-
-                                            <span class="elementor-icon-list-icon">
-                                                <i aria-hidden="true" class="fab fa-android"></i>
-                                            </span>
-                                            <span class="elementor-icon-list-text">Android App</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section
-            class="elementor-section elementor-top-section elementor-element elementor-element-a517935 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-            data-id="a517935" data-element_type="section"
-            data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-            <div class="elementor-container elementor-column-gap-extended">
-                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e8e45f"
-                    data-id="2e8e45f" data-element_type="column">
-                    <div class="elementor-widget-wrap elementor-element-populated">
-                        <div class="elementor-element elementor-element-3c96bdc elementor-widget elementor-widget-spacer"
-                            data-id="3c96bdc" data-element_type="widget" data-widget_type="spacer.default">
-                            <div class="elementor-widget-container">
-                                <div class="elementor-spacer">
-                                    <div class="elementor-spacer-inner"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section
-            class="elementor-section elementor-top-section elementor-element elementor-element-a1ad0b8 elementor-section-stretched elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-            data-id="a1ad0b8" data-element_type="section"
-            data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-            <div class="elementor-container elementor-column-gap-extended">
-                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-26e6976"
-                    data-id="26e6976" data-element_type="column">
-                    <div class="elementor-widget-wrap elementor-element-populated">
-                        <div class="elementor-element elementor-element-8d9529a elementor-widget elementor-widget-text-editor"
-                            data-id="8d9529a" data-element_type="widget" data-widget_type="text-editor.default">
-                            <div class="elementor-widget-container">
-                                © Copyright @ <?php echo date('Y'); ?> &nbsp;|&nbsp; <a href="https://biznaaz.com"
-                                    target="_blank">Biznaaz Dev Portal</a> by
-                                Biznaaz.com. All Rights Reserved </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-9754817"
-                    data-id="9754817" data-element_type="column">
-                    <div class="elementor-widget-wrap elementor-element-populated">
-                        <div class="elementor-element elementor-element-8a09fb4 elementor-widget__width-auto elementor-widget elementor-widget-text-editor"
-                            data-id="8a09fb4" data-element_type="widget" data-widget_type="text-editor.default">
-                            <div class="elementor-widget-container">
-                                <div class="widget_icl_lang_sel_widget">
-                                    <div
-                                        class="wpml-ls-sidebars-language wpml-ls wpml-ls-legacy-dropdown js-wpml-ls-legacy-dropdown">
-                                        <ul>
-                                            <li class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-dropdown"
-                                                tabindex="0"><a
-                                                    class="js-wpml-ls-item-toggle wpml-ls-item-toggle"
-                                                    href="javascript:void(0)"><span
-                                                        class="wpml-ls-native">English</span></a>
-                                                <ul class="wpml-ls-sub-menu">
-                                                    <li class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-de">
-                                                        <a class="wpml-ls-link" href="#"><span
-                                                                class="wpml-ls-native"
-                                                                lang="de">Deutsch</span></a>
-                                                    </li>
-                                                    <li
-                                                        class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-it wpml-ls-last-item">
-                                                        <a class="wpml-ls-link" href="#"><span
-                                                                class="wpml-ls-native"
-                                                                lang="it">Italia</span></a>
-                                                    </li>
-                                                    <li
-                                                        class="wpml-ls-slot-language wpml-ls-item wpml-ls-item-it wpml-ls-last-item">
-                                                        <a class="wpml-ls-link" href="#"><span
-                                                                class="wpml-ls-native"
-                                                                lang="it">French</span></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
-</div>
+</footer>
 <a href="#" id="back-to-top" class="add-fix-top">
-    <i class="ti-angle-up"></i>
+<i class="ti-angle-up"></i>
 </a>
 </div><!-- .site -->
 

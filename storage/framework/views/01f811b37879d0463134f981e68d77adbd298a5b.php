@@ -824,15 +824,15 @@
                             <nav id="menu-main-menu-navbar" class="navbar navbar-offcanvas" role="navigation">
                                 <div id="mobile-menu-container" class="menu-primary-menu-container">
                                     <ul id="menu-primary-menu" class="">
-                                        @if (session()->has('user_id'))
+                                        <?php if(session()->has('user_id')): ?>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('gigs/create') }}" class=""
+                                                    href="<?php echo e(URL::to('gigs/create')); ?>" class=""
                                                     data-hover="dropdown" data-toggle="dropdown">Post
                                                     Gig
                                                     <b class="caret"></b></a>
                                             </li>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('gigs') }}" class="" data-hover="dropdown"
+                                                    href="<?php echo e(URL::to('gigs')); ?>" class="" data-hover="dropdown"
                                                     data-toggle="dropdown">Browse Gigs
                                                     <b class="caret"></b></a>
                                             </li>
@@ -842,13 +842,13 @@
                                                     <b class="caret"></b></a>
                                             </li>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('messages/message') }}" class=""
+                                                    href="<?php echo e(URL::to('messages/message')); ?>" class=""
                                                     data-hover="dropdown" data-toggle="dropdown">Message
                                                     <b class="caret"></b></a>
                                             </li>
-                                        @else
+                                        <?php else: ?>
                                             <li id="menu-item-61" class="has-submenu menu-item-61"><a
-                                                    href="{{ URL::to('index1') }}">Home</a>
+                                                    href="<?php echo e(URL::to('index1')); ?>">Home</a>
                                             </li>
                                             <li id="menu-item-5226" class="has-submenu menu-item-5226"><a
                                                     href="#">Browse
@@ -857,14 +857,14 @@
                                                     <li id="menu-item-5161" class="has-submenu menu-item-5161"><a
                                                             href="#">Services</a>
                                                         <ul class="sub-menu">
-                                                            @if ($globalCategories)
-                                                                @foreach ($globalCategories as $cat)
+                                                            <?php if($globalCategories): ?>
+                                                                <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                     <li id="menu-item-5162" class="menu-item-5162">
                                                                         <a
-                                                                            href="{{ URL::to('gigs/' . $cat->slug) }}">{!! $cat->name !!}</a>
+                                                                            href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"><?php echo $cat->name; ?></a>
                                                                     </li>
-                                                                @endforeach
-                                                            @endif
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php endif; ?>
                                                         </ul>
                                                     </li>
                                                     <li id="menu-item-5182" class="has-submenu menu-item-5182"><a
@@ -955,25 +955,25 @@
                                                             href="">404</a></li>
                                                 </ul>
                                             </li>
-                                        @endif
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                                 <ul class="menu-account-mobile">
-                                    @if (session()->has('user_id'))
+                                    <?php if(session()->has('user_id')): ?>
                                         <li>
-                                            <a href="{{ URL::to('logout') }}" title="Login">
+                                            <a href="<?php echo e(URL::to('logout')); ?>" title="Login">
                                                 Logout</a>
                                         </li>
-                                    @else
+                                    <?php else: ?>
                                         <li>
-                                            <a href="{{ URL::to('login') }}" title="Login">
+                                            <a href="<?php echo e(URL::to('login')); ?>" title="Login">
                                                 Login </a>
                                         </li>
                                         <li>
-                                            <a href="{{ URL::to('register') }}" title="Register">
+                                            <a href="<?php echo e(URL::to('register')); ?>" title="Register">
                                                 Register </a>
                                         </li>
-                                    @endif
+                                    <?php endif; ?>
                                 </ul>
                             </nav>
                         </div>
@@ -994,16 +994,16 @@
                         <div class="col-7 d-flex align-items-center justify-content-end">
 
                             <div class="top-wrapper-menu ">
-                                @if (session()->has('user_id'))
-                                    <a class="btn-account btn-login" href="{{ URL::to('logout') }}" title="Login">
+                                <?php if(session()->has('user_id')): ?>
+                                    <a class="btn-account btn-login" href="<?php echo e(URL::to('logout')); ?>" title="Login">
                                         Logout </a>
-                                @else
-                                    <a class="btn-account btn-login" href="{{ URL::to('login') }}" title="Login">
+                                <?php else: ?>
+                                    <a class="btn-account btn-login" href="<?php echo e(URL::to('login')); ?>" title="Login">
                                         Login </a>
-                                    <a class="btn-account btn-register" href="{{ URL::to('register') }}"
+                                    <a class="btn-account btn-register" href="<?php echo e(URL::to('register')); ?>"
                                         title="Sign Up">
                                         Sign Up </a>
-                                @endif
+                                <?php endif; ?>
                             </div>
                             <a href="#navbar-offcanvas" class="btn-showmenu">
                                 <i class="mobile-menu-icon"></i>
@@ -1029,7 +1029,8 @@
                                             <div class="logo ">
                                                 <a href="">
                                                     <span class="logo-main">
-                                                        {{ HTML::image('public/images/logo.png', SITE_TITLE, ['style' => 'width:133px;height:40px']) }}
+                                                        <?php echo e(HTML::image('public/images/logo.png', SITE_TITLE, ['style' => 'width:133px;height:40px'])); ?>
+
                                                     </span>
                                                 </a>
                                             </div>
@@ -1047,14 +1048,15 @@
                                                 </span>
                                                 <div class="content-vertical">
                                                     <ul id="vertical-menu" class="apus-vertical-menu nav">
-                                                        @if ($globalCategories)
-                                                            @foreach ($globalCategories as $cat)
+                                                        <?php if($globalCategories): ?>
+                                                            <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <li id="menu-item-5663"
                                                                     class="menu-item-5663 has-mega-menu aligned-left">
-                                                                    <a href="{{ URL::to('gigs/' . $cat->slug) }}"
+                                                                    <a href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"
                                                                         class="dropdown-toggle" data-hover="dropdown"
                                                                         data-toggle="dropdown">
-                                                                        {{ HTML::image('public/img/front/home/' . $cat->image, SITE_TITLE) }}{!! $cat->name !!}
+                                                                        <?php echo e(HTML::image('public/img/front/home/' . $cat->image, SITE_TITLE)); ?><?php echo $cat->name; ?>
+
                                                                         <b class="caret"></b></a>
                                                                     <div class="dropdown-menu development-it"
                                                                         style="width:500px">
@@ -1089,18 +1091,18 @@
                                                                                                                 class="widget-content">
                                                                                                                 <div
                                                                                                                     class="menu-top-jobs-container">
-                                                                                                                    @if (isset($globalSubCategories[$cat->id]))
+                                                                                                                    <?php if(isset($globalSubCategories[$cat->id])): ?>
                                                                                                                         <ul id="menu-top-jobs"
                                                                                                                             class="menu">
-                                                                                                                            @foreach ($globalSubCategories[$cat->id] as $subCat)
+                                                                                                                            <?php $__currentLoopData = $globalSubCategories[$cat->id]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                                                                                 <li id="menu-item-4338"
                                                                                                                                     class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-4338">
                                                                                                                                     <a
-                                                                                                                                        href="{{ URL::to('gigs/' . $cat->slug . '/' . $subCat->slug) }}">{!! $subCat->name !!}</a>
+                                                                                                                                        href="<?php echo e(URL::to('gigs/' . $cat->slug . '/' . $subCat->slug)); ?>"><?php echo $subCat->name; ?></a>
                                                                                                                                 </li>
-                                                                                                                            @endforeach
+                                                                                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                                                                         </ul>
-                                                                                                                    @endif
+                                                                                                                    <?php endif; ?>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
@@ -1114,8 +1116,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </li>
-                                                            @endforeach
-                                                        @endif
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php endif; ?>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -1132,19 +1134,19 @@
                                                     <div class="collapse navbar-collapse no-padding">
                                                         <ul id="primary-menu" class="nav navbar-nav megamenu effect1">
                                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                    href="{{ URL::to('gigs/create') }}"
+                                                                    href="<?php echo e(URL::to('gigs/create')); ?>"
                                                                     class="" data-hover="dropdown"
                                                                     data-toggle="dropdown">Post
                                                                     Gig
                                                                     <b class="caret"></b></a>
                                                             </li>
                                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                    href="{{ URL::to('gigs') }}" class=""
+                                                                    href="<?php echo e(URL::to('gigs')); ?>" class=""
                                                                     data-hover="dropdown"
                                                                     data-toggle="dropdown">Browse Gigs
                                                                     <b class="caret"></b></a>
                                                             </li>
-                                                            @if (session()->has('user_id'))
+                                                            <?php if(session()->has('user_id')): ?>
                                                                 <li class="nav-item dropdown notification-b">
                                                                     <a class="nav-link dropdown-toggle"
                                                                         href='javascript:void();'
@@ -1159,26 +1161,16 @@
                                                                     </ul>
                                                                 </li>
                                                                 <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="{{ URL::to('messages/message') }}"
+                                                                        href="<?php echo e(URL::to('messages/message')); ?>"
                                                                         class="" data-hover="dropdown"
                                                                         data-toggle="dropdown">Message
                                                                         <b class="caret"></b></a>
                                                                 </li>
-                                                                {{-- <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                    href="{{ URL::to('logout') }}" class=""
-                                                                    data-hover="dropdown" data-toggle="dropdown">Logout
-                                                                    <b class="caret"></b></a>
-                                                            </li> --}}
+                                                                
 
 
-                                                                {{-- @else
-                                                                <li class="nav-item"><a class="nav-link"
-                                                                        href='{{ URL::to('register') }}'>Register</a>
-                                                                </li>
-                                                                <li class="nav-item"><a class="nav-link"
-                                                                        href='{{ URL::to('login') }}'>
-                                                                        Login</a></li> --}}
-                                                            @endif
+                                                                
+                                                            <?php endif; ?>
                                                         </ul>
                                                     </div>
                                                 </nav>
@@ -1256,24 +1248,24 @@
                                         data-widget_type="apus_element_user_info.default">
                                         <div class="elementor-widget-container">
                                             <div class="top-wrapper-menu ">
-                                                @if (session()->has('user_id'))
-                                                    <a class="btn-account btn-login" href="{{ URL::to('logout') }}"
+                                                <?php if(session()->has('user_id')): ?>
+                                                    <a class="btn-account btn-login" href="<?php echo e(URL::to('logout')); ?>"
                                                         title="Login">
                                                         Logout </a>
-                                                @else
-                                                    <a class="btn-account btn-login" href="{{ URL::to('login') }}"
+                                                <?php else: ?>
+                                                    <a class="btn-account btn-login" href="<?php echo e(URL::to('login')); ?>"
                                                         title="Login">
                                                         Login </a>
                                                     <a class="btn-account btn-register"
-                                                        href="{{ URL::to('register') }}" title="Sign Up">
+                                                        href="<?php echo e(URL::to('register')); ?>" title="Sign Up">
                                                         Sign Up </a>
-                                                @endif
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @if (session()->has('user_id'))
+                            <?php if(session()->has('user_id')): ?>
                                 <div class="elementor-element elementor-element-b90628b elementor-widget__width-auto elementor-widget elementor-widget-apus_element_user_info"
                                     data-id="b90628b" data-element_type="widget" style="margin-top: 0.75rem;"
                                     data-widget_type="apus_element_user_info.default">
@@ -1284,114 +1276,80 @@
                                                     <?php $userHInfo = DB::table('users')
                                                         ->where('id', session()->get('user_id'))
                                                         ->first(); ?>
-                                                    @if (isset($userHInfo->profile_image) && file_exists(PROFILE_SMALL_UPLOAD_PATH . $userHInfo->profile_image))
-                                                        {{ HTML::image(PROFILE_SMALL_DISPLAY_PATH . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage']) }}
-                                                    @else
-                                                        {{ HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage']) }}
-                                                    @endif
+                                                    <?php if(isset($userHInfo->profile_image) && file_exists(PROFILE_SMALL_UPLOAD_PATH . $userHInfo->profile_image)): ?>
+                                                        <?php echo e(HTML::image(PROFILE_SMALL_DISPLAY_PATH . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage'])); ?>
+
+                                                    <?php else: ?>
+                                                        <?php echo e(HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage'])); ?>
+
+                                                    <?php endif; ?>
                                                 </div>
-                                                {{-- <div class="name-acount d-flex align-items-center">
-                                                    <div class="name-wrapper">
-                                                        renisskyline <div class="balance-available">
-                                                            Freelancer (<span
-                                                                class="woocommerce-Price-amount amount"><bdi><span
-                                                                        class="woocommerce-Price-currencySymbol">&#36;</span>0</bdi></span>)
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
+                                                
                                             </div>
                                             <div class="inner-top-menu">
                                                 <ul id="menu-freelancer-1" class="nav navbar-nav topmenu-menu">
                                                     <li class="menu-item-5285 aligned-left"><a
-                                                            href="{{ URL::to('users/settings') }}"><i
+                                                            href="<?php echo e(URL::to('users/settings')); ?>"><i
                                                                 class="fa fa-cog" aria-hidden="true"></i>Settings</a>
                                                     </li>
                                                     <li class="menu-item-5345 aligned-left"><a
-                                                            href="{{ URL::to('users/dashboard') }}"><i
+                                                            href="<?php echo e(URL::to('users/dashboard')); ?>"><i
                                                                 class="fa fa-dashboard"></i>Dashboard</a></li>
-                                                    {{-- <ul id="menu-primary-menu" class="">
-                                                        <li id="menu-item-65" class="has-submenu menu-item-65"><a
-                                                                href="#">Pages</a>
-                                                            <ul class="sub-menu">
-                                                                <li id="menu-item-5137" class="menu-item-5137"><a
-                                                                        href="">Shop</a></li>
-                                                                <li id="menu-item-68" class="menu-item-68"><a
-                                                                        href="">Contact</a></li>
-                                                                <li id="menu-item-66" class="menu-item-66"><a
-                                                                        href="">About
-                                                                        v1</a></li>
-                                                                <li id="menu-item-67" class="menu-item-67"><a
-                                                                        href="">About
-                                                                        v2</a></li>
-                                                                <li id="menu-item-71" class="menu-item-71"><a
-                                                                        href="">Pricing</a></li>
-                                                                <li id="menu-item-70" class="menu-item-70"><a
-                                                                        href="">Help</a>
-                                                                </li>
-                                                                <li id="menu-item-69" class="menu-item-69"><a
-                                                                        href="">FAQ</a>
-                                                                </li>
-                                                                <li id="menu-item-72" class="menu-item-72"><a
-                                                                        href="">Terms</a></li>
-                                                                <li id="menu-item-1754" class="menu-item-1754"><a
-                                                                        href="">404</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul> --}}
+                                                    
                                                     <li class="dropdown menu-item-5287  aligned-left"><a
-                                                            href="{{ URL::to('gigs/management') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
                                                                 class='fas fa-comments-dollar'></i>Selling</a></li>
                                                     <li class="menu-item-5290 aligned-left"><a
-                                                            href="{{ URL::to('gigs/management') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
                                                                 class='fas fa-hourglass-half'></i>Manage Gigs</a></li>
                                                     <li class="menu-item-5294 aligned-left"><a
-                                                            href="{{ URL::to('gigs/create') }}"><i class="fa fa-plus"
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>"><i class="fa fa-plus"
                                                                 aria-hidden="true"></i>Create New Gig</a>
                                                     </li>
                                                     <li class="menu-item-5784 aligned-left"><a
-                                                            href="{{ URL::to('gigs/myofferedgig') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/myofferedgig')); ?>"><i
                                                                 class='fas fa-ad'></i>My Offered Gigs</a></li>
                                                     <li class="menu-item-5301 aligned-left"><a
-                                                            href="{{ URL::to('services/management') }}"><i
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
                                                                 class="fa fa-shopping-cart"></i>Buying</a></li>
                                                     <li class="menu-item-5352 aligned-left"><a
-                                                            href="{{ URL::to('services/management') }}"><i
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
                                                                 class='fas fa-balance-scale'></i>Manage Requests</a>
                                                     </li>
                                                     <li class="menu-item-5302 aligned-left"><a
-                                                            href="{{ URL::to('services/create-request') }}"><i
+                                                            href="<?php echo e(URL::to('services/create-request')); ?>"><i
                                                                 class="fa fa-check-square-o"></i>Post Request</a></li>
                                                     <li class="menu-item-5303 aligned-left"><a
-                                                            href="{{ URL::to('my-saved-gigs') }}"><i
+                                                            href="<?php echo e(URL::to('my-saved-gigs')); ?>"><i
                                                                 class="fa fa-save"></i>My Saved Gigs</a></li>
                                                     <li class="menu-item-5314 aligned-left"><a
-                                                            href="{{ URL::to('gigs/offeredgig') }}"><i
+                                                            href="<?php echo e(URL::to('gigs/offeredgig')); ?>"><i
                                                                 class='fas fa-bullhorn'></i>Offered Gigs</a></li>
                                                     <li class="menu-item-5313 aligned-left"><a
-                                                            href="{{ URL::to('selling-orders') }}"><i
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
                                                                 class="fab fa-first-order"></i>Orders</a></li>
                                                     <li class="menu-item-5687 aligned-left"><a
-                                                            href="{{ URL::to('selling-orders') }}"><i
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
                                                                 class='fas fa-handshake'></i>Selling Orders</a></li>
                                                     <li class="menu-item-5284 aligned-left"><a
-                                                            href="{{ URL::to('buying-orders') }}"><i
+                                                            href="<?php echo e(URL::to('buying-orders')); ?>"><i
                                                                 class='fas fa-dollar-sign'></i>Buying Orders</a></li>
                                                     <li class="menu-item-5342 aligned-left"><a
-                                                            href="{{ URL::to('earnings') }}"><i
+                                                            href="<?php echo e(URL::to('earnings')); ?>"><i
                                                                 class='fas fa-money-bill-alt'></i>Earnings</a></li>
                                                     <li class="menu-item-5283 aligned-left"><a
-                                                            href="{{ URL::to('payments/history') }}"><i
+                                                            href="<?php echo e(URL::to('payments/history')); ?>"><i
                                                                 class='fab fa-paypal'></i>PayPal
                                                             History</a></li>
                                                     <li class="menu-item-5286 aligned-left"><a
-                                                            href="{{ URL::to('logout') }}"><i
+                                                            href="<?php echo e(URL::to('logout')); ?>"><i
                                                                 class="fa fa-sign-out"></i>Logout</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                            <?php endif; ?>
                         </div>
                     </section>
                 </div>

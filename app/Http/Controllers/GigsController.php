@@ -815,6 +815,7 @@ class GigsController extends Controller {
         $pageTitle = 'View Gigs';
         //$query = new Searchkeyword();
         $query1 = '';
+        $query2 = '';
         $limit = 6;
         $remining_keyword = $limit;
         $count = 0;
@@ -864,16 +865,23 @@ class GigsController extends Controller {
                 }
             }
             $query1 = DB::table('users')->select('first_name', 'last_name', 'slug')->where(DB::raw('CONCAT(first_name," ",last_name)'), 'like', "%{$keyword}%")->limit(4)->get();
+            $query2 = DB::table('categories')->select('name', 'home_image', 'slug')->where(DB::raw('CONCAT(name)'), 'like', "%{$keyword}%")->limit(4)->get();
+           
         }
 
         $allrecords = array_merge($gigextras, $skills, $searchkeywords, $categories);
        
         $alluserrecords = json_decode(json_encode($query1), true);
+        $allcategoriesrecords = json_decode(json_encode($query2), true);
         
         if ($request->ajax()) {
                 $status = 1;
-                $data = ['keyword' => $keyword, 'allrecords' => $allrecords, 'alluserrecords' => $alluserrecords, 'isajax' => 1];
-            return response()->json(['Success' => $status ,'data' => $data]);
+                // $data = ['keyword' => $keyword, 'allrecords' => $allrecords, 'alluserrecords' => $alluserrecords, 'isajax' => 1];
+                $data = $allcategoriesrecords[0];
+                  
+          
+            
+            return response()->json([$data]);
             // return view('elements.gigs.getkeyword', ['keyword' => $keyword, 'allrecords' => $allrecords, 'alluserrecords' => $alluserrecords, 'isajax' => 1]);
         }
         exit;

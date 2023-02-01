@@ -8,24 +8,11 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shortcut icon" href="{!! FAVICON_PATH !!}" type="image/x-icon" />
     <link rel="icon" href="{!! FAVICON_PATH !!}" type="image/x-icon" />
-    {{-- 
-       {{ HTML::style('public/css/front/bootstrap.min.css')}}
-        {{ HTML::style('public/css/front/style.css')}}
-        {{ HTML::style('public/css/front/home.css')}} --}}
-    {{-- {{ HTML::style('public/css/front/inner.css')}} --}}
-    {{-- {{ HTML::style('public/css/front/stylee.css')}}
-        {{ HTML::style('public/css/front/font-awesome.css')}}
-        {{ HTML::style('public/css/front/media.css')}} --}}
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
 
-
-    {{-- {{ HTML::script('public/js/jquery-2.1.0.min.js') }}
-    {{ HTML::script('public/js/front/bootstrap.js') }}
-    {{ HTML::script('public/js/jquery.validate.js') }}
-    {{ HTML::script('public/js/front/menu.js') }}
-    {{ HTML::script('public/js/ajaxsoringpagging.js') }} --}}
     {{ HTML::script('public/js/front/bootstrap.min.js') }}
 
     {{-- All css------------------------------------------------------------------------------------------- --}}
@@ -114,12 +101,27 @@
     {{ HTML::script('public/js1/waypoints.min.js') }}
     {{ HTML::script('public/js1/bootstrap.min.js') }}
 
+     {{ HTML::style('public/css/front/bootstrap.min.css')}}
+        {{-- {{ HTML::style('public/css/front/style.css')}} --}}
+        {{ HTML::style('public/css/front/home.css')}}
+        {{ HTML::style('public/css/front/inner.css')}}
+        {{ HTML::style('public/css/front/stylee.css')}}
+        {{ HTML::style('public/css/front/font-awesome.css')}}
+        {{ HTML::style('public/css/front/media.css')}}
+
+        {{ HTML::script('public/js/jquery-2.1.0.min.js')}}
+        {{ HTML::script('public/js/front/bootstrap.js')}}
+        {{ HTML::script('public/js/jquery.validate.js')}}
+        {{ HTML::script('public/js/front/menu.js')}}
+        {{ HTML::script('public/js/ajaxsoringpagging.js')}}
+        {{ HTML::script('public/js/front/bootstrap.min.js')}}
+
 </head>
 
 <body>
-    @include('elements.header')
-    <div class="main_dashboard">
-        @include('elements.topmenu')
+    @include('elements.header2')
+    <div class="main_dashboard" style="margin-top: 9rem;margin-bottom: -2rem;">
+        {{-- @include('elements.topmenu') --}}
         @yield('content')
         <script>
             $(function() {

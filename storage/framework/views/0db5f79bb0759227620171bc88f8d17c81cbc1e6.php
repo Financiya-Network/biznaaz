@@ -8,15 +8,11 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shortcut icon" href="<?php echo FAVICON_PATH; ?>" type="image/x-icon" />
     <link rel="icon" href="<?php echo FAVICON_PATH; ?>" type="image/x-icon" />
-    
-    
-    
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     
 
-
-    
     <?php echo e(HTML::script('public/js/front/bootstrap.min.js')); ?>
 
 
@@ -184,12 +180,39 @@
     <?php echo e(HTML::script('public/js1/bootstrap.min.js')); ?>
 
 
+     <?php echo e(HTML::style('public/css/front/bootstrap.min.css')); ?>
+
+        
+        <?php echo e(HTML::style('public/css/front/home.css')); ?>
+
+        <?php echo e(HTML::style('public/css/front/inner.css')); ?>
+
+        <?php echo e(HTML::style('public/css/front/stylee.css')); ?>
+
+        <?php echo e(HTML::style('public/css/front/font-awesome.css')); ?>
+
+        <?php echo e(HTML::style('public/css/front/media.css')); ?>
+
+
+        <?php echo e(HTML::script('public/js/jquery-2.1.0.min.js')); ?>
+
+        <?php echo e(HTML::script('public/js/front/bootstrap.js')); ?>
+
+        <?php echo e(HTML::script('public/js/jquery.validate.js')); ?>
+
+        <?php echo e(HTML::script('public/js/front/menu.js')); ?>
+
+        <?php echo e(HTML::script('public/js/ajaxsoringpagging.js')); ?>
+
+        <?php echo e(HTML::script('public/js/front/bootstrap.min.js')); ?>
+
+
 </head>
 
 <body>
-    <?php echo $__env->make('elements.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <div class="main_dashboard">
-        <?php echo $__env->make('elements.topmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('elements.header2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <div class="main_dashboard" style="margin-top: 9rem;margin-bottom: -2rem;">
+        
         <?php echo $__env->yieldContent('content'); ?>
         <script>
             $(function() {

@@ -1341,68 +1341,69 @@
                                         data-widget_type="apus_element_service_search_form.default">
                                         <div class="elementor-widget-container">
 
+                                            <?php if(!session()->has('user_id')): ?>
+                                                <button type="button" class="btn-search-header"
+                                                    data-bs-toggle="modal" data-bs-target="#search-header"><i
+                                                        class="flaticon-loupe"></i></button>
+                                                <div class="modal modal-search-header fade" id="search-header"
+                                                    tabindex="-1" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <button type="button" class="btn-close ms-auto"
+                                                                data-bs-dismiss="modal" aria-label="Close"><i
+                                                                    class="ti-close"></i></button>
 
-                                            <button type="button" class="btn-search-header" data-bs-toggle="modal"
-                                                data-bs-target="#search-header"><i
-                                                    class="flaticon-loupe"></i></button>
-                                            <div class="modal modal-search-header fade" id="search-header"
-                                                tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <button type="button" class="btn-close ms-auto"
-                                                            data-bs-dismiss="modal" aria-label="Close"><i
-                                                                class="ti-close"></i></button>
-
-                                                        <div class="widget-listing-search-form  button horizontal">
-                                                            <form id="filter-listing-form-zCi6n" action=""
-                                                                class="form-search filter-listing-form button"
-                                                                method="GET">
-                                                                <div class="search-form-inner">
-                                                                    <div class="main-inner clearfix">
-                                                                        <div class="content-main-inner">
-                                                                            <div
-                                                                                class="row row-20 align-items-center list-fileds">
+                                                            <div class="widget-listing-search-form  button horizontal">
+                                                                <form id="filter-listing-form-zCi6n" action=""
+                                                                    class="form-search filter-listing-form button"
+                                                                    method="GET">
+                                                                    <div class="search-form-inner">
+                                                                        <div class="main-inner clearfix">
+                                                                            <div class="content-main-inner">
                                                                                 <div
-                                                                                    class="item-column col-12 col-md-9 col-lg-9  has-icon item-last">
+                                                                                    class="row row-20 align-items-center list-fileds">
                                                                                     <div
-                                                                                        class="form-group form-group-title  ">
+                                                                                        class="item-column col-12 col-md-9 col-lg-9  has-icon item-last">
                                                                                         <div
-                                                                                            class="form-group-inner inner has-icon">
-                                                                                            <i
-                                                                                                class="flaticon-loupe"></i>
-                                                                                            <input type="text"
-                                                                                                name="filter-title"
-                                                                                                class="form-control apus-autocompleate-input autocompleate-service"
-                                                                                                value=""
-                                                                                                id="zCi6n_title"
-                                                                                                placeholder="What service are you looking for today?">
-                                                                                        </div>
-                                                                                    </div><!-- /.form-group -->
+                                                                                            class="form-group form-group-title  ">
+                                                                                            <div
+                                                                                                class="form-group-inner inner has-icon">
+                                                                                                <i
+                                                                                                    class="flaticon-loupe"></i>
+                                                                                                <input type="text"
+                                                                                                    name="filter-title"
+                                                                                                    class="form-control apus-autocompleate-input autocompleate-service"
+                                                                                                    value=""
+                                                                                                    id="zCi6n_title"
+                                                                                                    placeholder="What service are you looking for today?">
+                                                                                            </div>
+                                                                                        </div><!-- /.form-group -->
 
-
-                                                                                </div>
-                                                                                <div
-                                                                                    class="col-12 col-md-3 form-group-search ">
-                                                                                    <div
-                                                                                        class="d-flex align-items-center justify-content-end">
-                                                                                        <button
-                                                                                            class="btn-submit btn w-100 btn-theme btn-inverse"
-                                                                                            type="submit">
-                                                                                            Search </button>
 
                                                                                     </div>
-                                                                                </div>
+                                                                                    <div
+                                                                                        class="col-12 col-md-3 form-group-search ">
+                                                                                        <div
+                                                                                            class="d-flex align-items-center justify-content-end">
+                                                                                            <button
+                                                                                                class="btn-submit btn w-100 btn-theme btn-inverse"
+                                                                                                type="submit">
+                                                                                                Search </button>
 
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </form>
+                                                                </form>
 
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                     <div class="elementor-element elementor-element-2a61283 elementor-widget__width-auto elementor-widget elementor-widget-button"
@@ -1410,13 +1411,15 @@
                                         data-widget_type="button.default">
                                         <div class="elementor-widget-container">
                                             <div class="elementor-button-wrapper">
-                                                <a href="<?php echo e(URL::to('become-seller')); ?>"
-                                                    class="elementor-button-link elementor-button elementor-size-sm"
-                                                    role="button">
-                                                    <span class="elementor-button-content-wrapper">
-                                                        <span class="elementor-button-text">Become a Seller</span>
-                                                    </span>
-                                                </a>
+                                                <?php if(!session()->has('user_id')): ?>
+                                                    <a href="<?php echo e(URL::to('become-seller')); ?>"
+                                                        class="elementor-button-link elementor-button elementor-size-sm"
+                                                        role="button">
+                                                        <span class="elementor-button-content-wrapper">
+                                                            <span class="elementor-button-text">Become a Seller</span>
+                                                        </span>
+                                                    </a>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1432,7 +1435,8 @@
                                                         Logout </a>
                                                 <?php else: ?>
                                                     <a class="btn-account btn-login" data-toggle="modal"
-                                                        data-target="#exampleModalCenter" style="cursor: pointer;margin-right: 1rem;">
+                                                        data-target="#exampleModalCenter"
+                                                        style="cursor: pointer;margin-right: 1rem;">
                                                         Login </a>
 
                                                     <!-- Modal -->
@@ -1638,84 +1642,41 @@
                                             <div class="inner-top-menu">
                                                 <ul id="menu-freelancer-1" class="nav navbar-nav topmenu-menu">
                                                     <li class="menu-item-5285 aligned-left"><a
-                                                            href="<?php echo e(URL::to('users/settings')); ?>"><i
-                                                                class="flaticon-home"></i>Settings</a></li>
+                                                            href="<?php echo e(URL::to('users/settings')); ?>"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
                                                     <li class="menu-item-5345 aligned-left"><a
                                                             href="<?php echo e(URL::to('users/dashboard')); ?>"><i
                                                                 class="flaticon-briefcase"></i>Dashboard</a></li>
-                                                    <ul id="menu-primary-menu" class="">
-                                                        <li id="menu-item-65" class="has-submenu menu-item-65"><a
-                                                                href="#">Pages</a>
-                                                            <ul class="sub-menu">
-                                                                <li id="menu-item-5137" class="menu-item-5137"><a
-                                                                        href="">Shop</a></li>
-                                                                <li id="menu-item-68" class="menu-item-68"><a
-                                                                        href="<?php echo e(URL::to('contact-us')); ?>">Contact</a>
-                                                                </li>
-                                                                <li id="menu-item-66" class="menu-item-66"><a
-                                                                        href="<?php echo e(URL::to('about-us')); ?>">About
-                                                                        v1</a></li>
-                                                                <li id="menu-item-67" class="menu-item-67"><a
-                                                                        href="<?php echo e(URL::to('about-us')); ?>">About
-                                                                        v2</a></li>
-                                                                <li id="menu-item-71" class="menu-item-71"><a
-                                                                        href="">Pricing</a></li>
-                                                                <li id="menu-item-70" class="menu-item-70"><a
-                                                                        href="">Help</a>
-                                                                </li>
-                                                                <li id="menu-item-69" class="menu-item-69"><a
-                                                                        href="<?php echo e(URL::to('faqs')); ?>">FAQ</a>
-                                                                </li>
-                                                                <li id="menu-item-72" class="menu-item-72"><a
-                                                                        href="<?php echo e(URL::to('terms-and-condition')); ?>">Terms</a>
-                                                                </li>
-                                                                <li id="menu-item-1754" class="menu-item-1754"><a
-                                                                        href="">404</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
+                                                    
                                                     <li class="dropdown menu-item-5287  aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
-                                                                class="flaticon-dollar"></i>Selling</a></li>
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i class='fas fa-comments-dollar'></i>Selling</a></li>
                                                     <li class="menu-item-5290 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
-                                                                class="flaticon-sand-clock"></i>Manage Gigs</a></li>
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i class='fas fa-hourglass-half'></i>Manage Gigs</a></li>
                                                     <li class="menu-item-5294 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/create')); ?>"><i
-                                                                class="flaticon-notification"></i>Create New Gig</a>
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Create New Gig</a>
                                                     </li>
                                                     <li class="menu-item-5784 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/myofferedgig')); ?>"><i
-                                                                class="flaticon-like"></i>My Offered Gigs</a></li>
+                                                            href="<?php echo e(URL::to('gigs/myofferedgig')); ?>"><i class='fas fa-ad'></i>My Offered Gigs</a></li>
                                                     <li class="menu-item-5301 aligned-left"><a
-                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
-                                                                class="flaticon-target"></i>Buying</a></li>
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i class="fa fa-shopping-cart"></i>Buying</a></li>
                                                     <li class="menu-item-5352 aligned-left"><a
-                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
-                                                                class="flaticon-chat"></i>Manage Requests</a></li>
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i class='fas fa-balance-scale'></i>Manage Requests</a></li>
                                                     <li class="menu-item-5302 aligned-left"><a
                                                             href="<?php echo e(URL::to('services/create-request')); ?>"><i
                                                                 class="flaticon-web"></i>Post Request</a></li>
                                                     <li class="menu-item-5303 aligned-left"><a
-                                                            href="<?php echo e(URL::to('my-saved-gigs')); ?>"><i
-                                                                class="flaticon-money"></i>My Saved Gigs</a></li>
+                                                            href="<?php echo e(URL::to('my-saved-gigs')); ?>"><i class="fa fa-save"></i>My Saved Gigs</a></li>
                                                     <li class="menu-item-5314 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/offeredgig')); ?>"><i
-                                                                class="flaticon-button"></i>Offered Gigs</a></li>
+                                                            href="<?php echo e(URL::to('gigs/offeredgig')); ?>"><i class='fas fa-bullhorn'></i>Offered Gigs</a></li>
                                                     <li class="menu-item-5313 aligned-left"><a
-                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
-                                                                class="flaticon-button"></i>Orders</a></li>
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i class="fab fa-first-order"></i>Orders</a></li>
                                                     <li class="menu-item-5687 aligned-left"><a
-                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
-                                                                class="flaticon-badge"></i>Selling Orders</a></li>
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i class='fas fa-handshake'></i>Selling Orders</a></li>
                                                     <li class="menu-item-5284 aligned-left"><a
-                                                            href="<?php echo e(URL::to('buying-orders')); ?>"><i
-                                                                class="flaticon-photo"></i>Buying Orders</a></li>
+                                                            href="<?php echo e(URL::to('buying-orders')); ?>"><i class='fas fa-dollar-sign'></i>Buying Orders</a></li>
                                                     <li class="menu-item-5342 aligned-left"><a
-                                                            href="<?php echo e(URL::to('earnings')); ?>"><i
-                                                                class="flaticon-delete"></i>Earnings</a></li>
+                                                            href="<?php echo e(URL::to('earnings')); ?>"><i class='fas fa-money-bill-alt'></i>Earnings</a></li>
                                                     <li class="menu-item-5283 aligned-left"><a
-                                                            href="<?php echo e(URL::to('payments/history')); ?>">PayPal
+                                                            href="<?php echo e(URL::to('payments/history')); ?>"><i class='fab fa-paypal'></i>PayPal
                                                             History</a></li>
                                                     <li class="menu-item-5286 aligned-left"><a
                                                             href="<?php echo e(URL::to('logout')); ?>"><i

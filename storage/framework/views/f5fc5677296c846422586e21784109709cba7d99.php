@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
     $.get("https://www.iplocate.io/api/lookup", function (response){
-        var ippp=response.ip;$recordInfo->skills
+        
        //alert(ip);
        
         $("#countrynameid").val(response.country);
@@ -31,7 +31,7 @@
         });
     });
 </script>
-<div class="main_dashboard" style="margin-top: 4rem; margin-bottom: 2rem;">
+<div class="main_dashboard">
     <section class="dashboard-section">
         <div class="container">
             <div class="ee er_msg"><?php echo $__env->make('elements.errorSuccessMessage', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></div>

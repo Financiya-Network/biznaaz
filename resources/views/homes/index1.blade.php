@@ -101,39 +101,40 @@
                                                         for work
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-8e9df33 elementor-invisible elementor-widget elementor-widget-apus_element_service_search_form"
+                                                <div class="elementor-element elementor-element-8e9df33 elementor-widget elementor-widget-apus_element_service_search_form animated slide-up"
                                                     data-id="8e9df33" data-element_type="widget"
                                                     data-settings="{&quot;_animation&quot;:&quot;slide-up&quot;}"
                                                     data-widget_type="apus_element_service_search_form.default">
                                                     <div class="elementor-widget-container">
-
-
                                                         <div class="widget-listing-search-form   horizontal">
-                                                            {{ Form::open(['url' => url('gigs'), 'method' => 'post', 'class' => 'searchform form-search filter-listing-form', 'id' => 'searchform']) }}
+                                                           {{ Form::open(['url' => url('gigs'), 'method' => 'post', 'class' => 'searchform form-search filter-listing-form', 'id' => 'searchform']) }}
                                                             <meta name="csrf-token" content="{{ csrf_token() }}">
                                                             <div class="search-form-inner">
                                                                 <div class="main-inner clearfix">
                                                                     <div class="content-main-inner">
                                                                         <div
                                                                             class="row row-20 align-items-center list-fileds">
-                                                                            <div
-                                                                                class="item-column col-12 col-md-6 col-lg-6  has-icon" style="margin-top: 8px;">
+                                                                            <div class="item-column col-12 col-md-6 col-lg-6  has-icon"
+                                                                               >
                                                                                 <div class="form-group form-group-title  ">
                                                                                     <div
-                                                                                        class="seacrh_in form-group-inner inner has-icon">
+                                                                                        class="form-group-inner inner has-icon">
                                                                                         <i class="flaticon-loupe"></i>
-                                                                                        
-                                                                                        <input type="text" name="title"
-                                                                                            class="search-area form-control form-control apus-autocompleate-input autocompleate-service tt-input"
-                                                                                            value="" id="search-area"
-                                                                                            autocomplete="off"
-                                                                                            placeholder="What are you looking for?"
-                                                                                            style="margin-top: -36px;">
-                                                                                         
+                                                                                        <span class="twitter-typeahead"
+                                                                                            style="position: relative; display: inline-block;">
+                                                                                            <input type="text"
+                                                                                                name="filter-title"
+                                                                                                class="form-control apus-autocompleate-input autocompleate-service tt-input"
+                                                                                                value=""
+                                                                                                id="RmPhI_title"
+                                                                                                placeholder="What are you looking for?"
+                                                                                                autocomplete="off"
+                                                                                                spellcheck="false"
+                                                                                                dir="auto"
+                                                                                                style="position: relative; vertical-align: top; background-color: transparent;">
+                                                                                        </span>
                                                                                     </div>
                                                                                 </div><!-- /.form-group -->
-
-
                                                                             </div>
                                                                             <div
                                                                                 class="item-column col-12 col-md-4 col-lg-4   item-last">
@@ -167,14 +168,13 @@
                                                                                 <div
                                                                                     class="d-flex align-items-center justify-content-end">
                                                                                     <div class="search_btn">
-                                                                                    <button
-                                                                                        class="homesearch btn-submit btn w-100 btn-theme btn-inverse"
-                                                                                        type="submit">
-                                                                                        Search </button>
+                                                                                        <button
+                                                                                            class="homesearch btn-submit btn w-100 btn-theme btn-inverse"
+                                                                                            type="submit">
+                                                                                            Search </button>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -185,13 +185,10 @@
                                                                 name="is_service_selected" class="is_service_selected">
                                                             {{ Form::close() }}
                                                             <div class="searchgig" id="searchgig">
-
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
-                                               
                                                 <section
                                                     class="elementor-section elementor-inner-section elementor-element elementor-element-21c3332 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                                     data-id="21c3332" data-element_type="section">
@@ -390,8 +387,9 @@
                                                                             </a>
                                                                             <!--
 
-                       --><a id="slider-1-slide-1-layer-1" class="rs-layer rs-pxl-1" href="" target="_self"
-                                                                                data-type="image" data-rsp_ch="on"
+                               --><a id="slider-1-slide-1-layer-1" class="rs-layer rs-pxl-1" href=""
+                                                                                target="_self" data-type="image"
+                                                                                data-rsp_ch="on"
                                                                                 data-xy="xo:525px,525px,375px,217px;yo:397px,397px,247px,169px;"
                                                                                 data-text="w:normal;s:20,20,20,13;l:0,0,0,17;"
                                                                                 data-dim="w:368px,368px,368px,300px;h:170px,170px,170px,139px;"
@@ -409,7 +407,7 @@
                                                                             </a>
                                                                             <!--
 
-                       --><a id="slider-1-slide-1-layer-2" class="rs-layer rs-pxl-1"
+                               --><a id="slider-1-slide-1-layer-2" class="rs-layer rs-pxl-1"
                                                                                 href="https://demoapus1.com/freeio/freelancer/"
                                                                                 target="_self" data-type="image"
                                                                                 data-rsp_ch="on"
@@ -429,7 +427,7 @@
                                                                                     data-no-retina>
                                                                             </a>
                                                                             <!--
-                -->
+                        -->
                                                                         </rs-slide>
                                                                     </rs-slides>
                                                                 </rs-module>
@@ -687,7 +685,7 @@
                                                                                                 <a href="">
                                                                                                     <div
                                                                                                         class="image-wrapper">
-                                                                                                        {{ HTML::image('public/files/categories/full/'  . $cat->home_image, SITE_TITLE, ['style' => 'width:400px;height:260px']) }}
+                                                                                                        {{ HTML::image('public/files/categories/full/' . $cat->home_image, SITE_TITLE, ['style' => 'width:400px;height:260px']) }}
                                                                                                     </div>
                                                                                                 </a>
                                                                                             </div>
@@ -714,7 +712,7 @@
                                                                                                     href="{{ URL::to('gigs/' . $cat->slug) }}">{!! $cat->name !!}</a>
                                                                                             </h2>
                                                                                             {{-- <h3>{!! $cat->name !!}</h3> --}}
-                                                                                            
+
                                                                                             <div class="rating-reviews">
                                                                                                 <i class="fa fa-star"></i>
                                                                                                 <span
@@ -1557,13 +1555,11 @@
                                                                             class="map-item freelancer-card post-1918 freelancer type-freelancer status-publish has-post-thumbnail hentry location-los-angeles freelancer_category-business freelancer_category-digital-marketing freelancer_tag-design-writing freelancer_tag-figma freelancer_tag-html5 freelancer_tag-prototyping freelancer_tag-software-design"
                                                                             data-latitude="" data-longitude=""
                                                                             data-img="https://demoapus1.com/freeio/wp-content/uploads/2022/09/bg-video-150x150.png">
-                                                                            <div
-                                                                                class="freelancer-item position-relative">
+                                                                            <div class="freelancer-item position-relative">
                                                                                 <div
                                                                                     class="freelancer-logo d-flex align-items-center">
                                                                                     <a href="">
-                                                                                        <img width="150"
-                                                                                            height="150"
+                                                                                        <img width="150" height="150"
                                                                                             src="https://demoapus1.com/freeio/wp-content/uploads/2022/09/bg-video-150x150.png"
                                                                                             class="attachment-thumbnail size-thumbnail wp-post-image"
                                                                                             alt=""
@@ -2126,14 +2122,14 @@
     </div><!-- .site-main -->
 
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(document).ready(function() {
 
             $('.search-area').on("keyup click", function() {
                 //alert( "HTTP_PATH" );
                 $(".search-bar-panel").show();
                 $(".is_service_selected").val(0);
-               // alert(123);
+                // alert(123);
                 //if (e.which == 13) {
                 keyword = $('.search-area').val();
                 if (keyword) {
@@ -2206,7 +2202,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
 
 @endsection
