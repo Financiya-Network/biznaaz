@@ -18,11 +18,28 @@
         content="Get your own online marketplace software by using our readymade fiver clone script. LS Gigger is on demand marketplace where freelancers and entrepreneurs can connect with each other. ">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{!! FAVICON_PATH !!}" type="image/x-icon" />
-    <link rel="icon" href="{!! FAVICON_PATH !!}" type="image/x-icon" />
+    {{-- <link rel="shortcut icon" href="{!! FAVICON_PATH !!}" type="image/x-icon" />
+    <link rel="icon" href="{!! FAVICON_PATH !!}" type="image/x-icon" /> --}}
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="canonical" href="<?php echo HTTP_PATH; ?>" />
+    <link rel="apple-touch-icon" sizes="57x57" href="public/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="public/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="public/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="public/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="public/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="public/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="public/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="public/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="public/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="public/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon/favicon-16x16.png">
+    <link rel="manifest" href="public/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     {{-- <link rel='stylesheet' id='freeio-template-css' href='public/css1/template.css' type='text/css'
         media='all' /> --}}
 
@@ -30,8 +47,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    
-      
+
+
 
     <meta name="generator" content="WordPress 6.1.1" />
     <meta name="generator" content="WooCommerce 7.1.0" />
@@ -76,7 +93,7 @@
     {{ HTML::style('public/css1/post-3038.css') }}
     {{ HTML::style('public/css1/animations.min.css') }}
     {{ HTML::style('public/css1/style.css') }}
-  
+
 
     {{-- All js--------------------------------------------------------------------------------------------------------------- --}}
 
@@ -123,7 +140,7 @@
     {{ HTML::script('public/js1/waypoints.min.js') }}
     {{ HTML::script('public/js1/bootstrap.min.js') }}
 
-{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+    {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
 
     <noscript>

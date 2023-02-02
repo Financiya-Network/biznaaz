@@ -476,7 +476,7 @@
 .elementor :after,
 .elementor :before {
     -webkit-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 .elementor a {

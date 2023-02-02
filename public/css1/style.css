@@ -295,7 +295,7 @@ p {
 }
 
 .face-login {
-    background: #0e666a
+    background: #0d666a
 }
 
 
@@ -516,7 +516,7 @@ p {
 
 .col_tow_logns.forgot_pass_sec a {
     font-size: 15px;
-    color: #1fbec6;
+    color: #1fbec6 ;
 }
 
 .remember_secsd label {
@@ -604,7 +604,7 @@ label.in-label {
 }
 
 .in-label a {
-    color: #1fbec6;
+    color: #1fbec6 ;
 }
 
 .in-label a:hover {
@@ -659,7 +659,7 @@ label.in-label {
 
 .loginbtn,
 .sign_in input[type="submit"] {
-    background: #0e666a;
+    background: #0d666a;
     color: #fff;
     border: none;
     font-family: 'robotoregular';
@@ -673,7 +673,7 @@ label.in-label {
 
 .loginbtn:hover,
 .sign_in input[type="submit"]:hover {
-    background: #1fbec6;
+    background: #1fbec6 ;
     opacity: 0.8
 }
 
@@ -764,7 +764,7 @@ label.in-label {
 
 .login_texct a {
     background: #fff;
-    color: #1fbec6;
+    color: #1fbec6 ;
     border: none;
     font-family: 'robotoregular';
     font-size: 14px;
@@ -789,7 +789,7 @@ label.in-label {
 
 .always_btn a {
     background: #fff;
-    color: #1fbec6;
+    color: #1fbec6 ;
     border: none;
     font-family: 'robotoregular';
     font-size: 14px;
@@ -1315,7 +1315,7 @@ label.in-label {
 }
 
 .postbtn {
-    background: #1fbec6;
+    background: #1fbec6 ;
     margin: 18px 0px 0px;
     border: none;
     padding: 5px 35px;

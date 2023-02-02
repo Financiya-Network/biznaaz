@@ -41,13 +41,16 @@ class GigsController extends Controller {
         $user_id = Session::get('user_id');
         
         $userInfo = User::where('id', $user_id)->first();
-        
+       
         if($userInfo->first_name == '' || $userInfo->last_name == '' || $userInfo->contact == '' || $userInfo->description == '' || $userInfo->languages == '' || $userInfo->skills == '' || $userInfo->educations == ''){
+           
             $error = 'Please complete profile details.';
+        
             return Redirect::to('/users/dashboard')->withErrors($error);
         }
         
         if (!empty($input)) {
+           
             //echo "<pre>"; print_r($input);exit;
             $rules = array(
                 'title' => 'required|min:5|max:80|unique:gigs',
@@ -94,7 +97,7 @@ class GigsController extends Controller {
                 return Redirect::to('gigs/edit/' . $slug);
             }
         }
-
+       
         return view('gigs.create', ['title' => $pageTitle, 'catList' => $catList, 'skills' => $skills]);
     }
 
@@ -348,7 +351,7 @@ class GigsController extends Controller {
                             $serialisedImgData = array();
                             if ($img->getClientOriginalName()) {
                                 $file = $img;
-                                $uploadedFileName = $this->uploadImage($file, GIG_FULL_UPLOAD_PATH);
+                                $uploadedFileName = $this->uploadImage($file,GIG_FULL_UPLOAD_PATH);
                                 $this->resizeImage($uploadedFileName, GIG_FULL_UPLOAD_PATH, GIG_SMALL_UPLOAD_PATH, GIG_MW, GIG_MH);
                                 if (isset($oldimgarr[$key])) {
                                     $old_image = $oldimgarr[$key];

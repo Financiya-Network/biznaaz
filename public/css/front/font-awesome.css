@@ -631,10 +631,10 @@
 .fa-twitter:before {
   content: "\f099";
 }
-.fa-facebook-f:before,
+/* .fa-facebook-f:before,
 .fa-facebook:before {
   content: "\f09a";
-}
+} */
 .fa-github:before {
   content: "\f09b";
 }

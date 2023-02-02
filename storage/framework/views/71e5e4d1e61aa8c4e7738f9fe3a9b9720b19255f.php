@@ -566,13 +566,13 @@
 
 <style id='freeio-template-inline-css' type='text/css'>
     :root {
-        --freeio-theme-color: #1fbec6;
+        --freeio-theme-color: #1fbec6 ;
         --freeio-second-color: #1F4B3F;
         --freeio-text-color: #6B7177;
         --freeio-link-color: #222222;
-        --freeio-link_hover_color: #1fbec6;
+        --freeio-link_hover_color: #1fbec6 ;
         --freeio-heading-color: #222222;
-        --freeio-theme-hover-color: #1fbec6;
+        --freeio-theme-hover-color: #1fbec6 ;
         --freeio-second-hover-color: #222222;
         --freeio-main-font: 'DM Sans';
         --freeio-main-font-size: 15px;
@@ -831,14 +831,33 @@
                                     <ul id="menu-primary-menu" class="">
                                         <?php if(session()->has('user_id')): ?>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="<?php echo e(URL::to('gigs/create')); ?>" class=""
-                                                    data-hover="dropdown" data-toggle="dropdown">Post
-                                                    Gig
+                                                    href="<?php echo e(URL::to('users/dashboard')); ?>" class=""
+                                                    data-hover="dropdown" data-toggle="dropdown">Dashboard
+                                                    <b class="caret"></b></a>
+                                            </li>
+                                             <li id="menu-item-64" class="has-submenu menu-item-64"><a
+                                                    href="">My Business</a>
+                                                <ul class="sub-menu">
+                                                    <li id="menu-item-5132" class="menu-item-5132"><a
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>">Orders</a></li>
+                                                    <li id="menu-item-5130" class="menu-item-5130"><a
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>">Post Gig</a></li>
+                                                    <li id="menu-item-5131" class="menu-item-5131"><a
+                                                            href="<?php echo e(URL::to('gigs')); ?>">Browse Gigs</a></li>
+                                                    <li id="menu-item-5133" class="menu-item-5133"><a
+                                                            href="<?php echo e(URL::to('earnings')); ?>">Earnings</a></li>
+                                                    <li id="menu-item-5133" class="menu-item-5133"><a
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>">Create a new gig</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
+                                                    href="#" class="" data-hover="dropdown"
+                                                    data-toggle="dropdown">Growth & Marketing
                                                     <b class="caret"></b></a>
                                             </li>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="<?php echo e(URL::to('gigs')); ?>" class="" data-hover="dropdown"
-                                                    data-toggle="dropdown">Browse Gigs
+                                                    href="#" class="" data-hover="dropdown"
+                                                    data-toggle="dropdown">Analytics
                                                     <b class="caret"></b></a>
                                             </li>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
@@ -992,7 +1011,7 @@
                         <div class="col-5">
                             <div class="logo logo-theme">
                                 <a href="<?php echo e(URL::to('index1')); ?>">
-                                    <?php echo e(HTML::image('public/images/logo.png', SITE_TITLE, ['style' => 'width:133px;height:40px'])); ?>
+                                    <?php echo e(HTML::image('public/images/biznaaz.png', SITE_TITLE, ['style' => 'width:133px;height:40px'])); ?>
 
                                 </a>
                             </div>
@@ -1629,8 +1648,8 @@
                                                     <?php $userHInfo = DB::table('users')
                                                         ->where('id', session()->get('user_id'))
                                                         ->first(); ?>
-                                                    <?php if(isset($userHInfo->profile_image) && file_exists(PROFILE_SMALL_UPLOAD_PATH . $userHInfo->profile_image)): ?>
-                                                        <?php echo e(HTML::image(PROFILE_SMALL_DISPLAY_PATH . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage'])); ?>
+                                                    <?php if(isset($userHInfo->profile_image) && file_exists('public/files/users/small/' . $userHInfo->profile_image)): ?>
+                                                        <?php echo e(HTML::image('public/files/users/small/' . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage'])); ?>
 
                                                     <?php else: ?>
                                                         <?php echo e(HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage'])); ?>

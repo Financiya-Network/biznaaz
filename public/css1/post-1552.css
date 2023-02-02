@@ -42,10 +42,10 @@
     font-weight: 700;
     fill: #FFFFFF;
     color: #FFFFFF;
-    background-color: #1fbec6;
+    background-color: #1fbec6 ;
     border-style: solid;
     border-width: 2px 2px 2px 2px;
-    border-color: #1fbec6;
+    border-color: #1fbec6 ;
     border-radius: 4px 4px 4px 4px;
     padding: 20px 32px 20px 32px;
 }
@@ -53,8 +53,8 @@
 .elementor-1552 .elementor-element.elementor-element-b6d85af .elementor-button:hover,
 .elementor-1552 .elementor-element.elementor-element-b6d85af .elementor-button:focus {
     color: #FFFFFF;
-    background-color: #0e666a;
-    border-color: #0e666a;
+    background-color: #0d666a;
+    border-color: #0d666a;
 }
 
 .elementor-1552 .elementor-element.elementor-element-b6d85af .elementor-button:hover svg,

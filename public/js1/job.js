@@ -602,43 +602,12 @@
                                 beforeSend: function () {
 
                                 },
-                                // success: function(data) {
-                                //     //  $("#wrkr_srch_ldr").hide();
-                                //     //NProgress.done();
-                                //     console.log(data);
-                                //     $this.closest('.twitter-typeahead').removeClass('loading');
-                                //     $this.closest('.has-suggestion').removeClass('active');
-                                //     $(".searchgig").html('');
-                                //     $(".searchgig").html(data);
-
-                                // },
-                                // error: function(data) {
-                                //     console.log("error");
-                                //     console.log(data);
-                                // }
                                 dataType: 'json',
                                 success: function (json) {
                                     console.log(json);
                                     $this.closest('.twitter-typeahead').removeClass('loading');
                                     $this.closest('.has-suggestion').removeClass('active');
                                     return processAsync(json);
-                                    // {{ HTML::image('public/files/categories/full/'  . $cat->home_image, SITE_TITLE, ['style' => 'width:400px;height:260px']) }}\
-                                    // var res='';
-                                    //     $.each(data,function(key,value){
-                                    //         res +=
-                                    //         console.log(value.allrecords);
-                                    //         // $.each(value,function(allrecords,records){
-
-                                    //         //     console.log(records);
-                                    //         // });
-                                    //         return '<a href="" class="media autocompleate-media">\
-                                    //         <div class="media-left media-middle">\
-                                    //         </div>\
-                                    //         <div class="media-body media-middle">\
-                                    //             <h4>'+ value.allrecords +'</h4>\
-                                    //             '+ data.salary +'\
-                                    //         </div></a>';
-                                    //     });
                                 }
                             });
                         },
@@ -654,7 +623,6 @@
                                 
                                     return '<a href="" class="media autocompleate-media">\
                                     <div class="media-left media-middle">\
-                                        <img src="'+ 'public/files/categories/full/'+ data.home_image + '" class="media-object" height="50" width="50">\
                                     </div>\
                                     <div class="media-body media-middle">\
                                         <h4>'+ data.name + '</h4>\

@@ -826,14 +826,34 @@
                                     <ul id="menu-primary-menu" class="">
                                         @if (session()->has('user_id'))
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('gigs/create') }}" class=""
-                                                    data-hover="dropdown" data-toggle="dropdown">Post
-                                                    Gig
+                                                    href="{{ URL::to('users/dashboard') }}" class=""
+                                                    data-hover="dropdown" data-toggle="dropdown">Dashboard
                                                     <b class="caret"></b></a>
                                             </li>
-                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="{{ URL::to('gigs') }}" class="" data-hover="dropdown"
-                                                    data-toggle="dropdown">Browse Gigs
+                                            <li id="menu-item-64" class="has-submenu menu-item-64"><a
+                                                    href="">My Business</a>
+                                                <ul class="sub-menu">
+                                                    <li id="menu-item-5132" class="menu-item-5132"><a
+                                                            href="{{ URL::to('gigs/create') }}">Orders</a></li>
+                                                    <li id="menu-item-5130" class="menu-item-5130"><a
+                                                            href="{{ URL::to('gigs/create') }}">Post Gig</a></li>
+                                                    <li id="menu-item-5131" class="menu-item-5131"><a
+                                                            href="{{ URL::to('gigs') }}">Browse Gigs</a></li>
+                                                    <li id="menu-item-5133" class="menu-item-5133"><a
+                                                            href="{{ URL::to('earnings') }}">Earnings</a></li>
+                                                    <li id="menu-item-5133" class="menu-item-5133"><a
+                                                            href="{{ URL::to('gigs/create') }}">Create a new gig</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
+                                                    class="" data-hover="dropdown"
+                                                    data-toggle="dropdown">Growth & Marketing
+                                                    <b class="caret"></b></a>
+                                            </li>
+                                            <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
+                                                    class="" data-hover="dropdown"
+                                                    data-toggle="dropdown">Analytics
                                                     <b class="caret"></b></a>
                                             </li>
                                             <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
@@ -961,7 +981,7 @@
                                 <ul class="menu-account-mobile">
                                     @if (session()->has('user_id'))
                                         <li>
-                                            <a href="{{ URL::to('logout') }}" title="Login">
+                                            <a href="{{ URL::to('logout') }}" title="Logout">
                                                 Logout</a>
                                         </li>
                                     @else
@@ -986,8 +1006,8 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-5">
                             <div class="logo logo-theme">
-                                <a href="https://demoapus1.com/freeio/">
-                                    <img src="../public/images/logo.png" alt="Freeio">
+                                <a href="{{ URL::to('index1') }}">
+                                    {{ HTML::image('public/images/biznaaz.png', SITE_TITLE, ['style' => 'width:133px;height:40px']) }}
                                 </a>
                             </div>
                         </div>
@@ -995,7 +1015,7 @@
 
                             <div class="top-wrapper-menu ">
                                 @if (session()->has('user_id'))
-                                    <a class="btn-account btn-login" href="{{ URL::to('logout') }}" title="Login">
+                                    <a class="btn-account btn-login" href="{{ URL::to('logout') }}" title="Logout">
                                         Logout </a>
                                 @else
                                     <a class="btn-account btn-login" href="{{ URL::to('login') }}" title="Login">
@@ -1035,7 +1055,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-element elementor-element-c36693e elementor-widget__width-auto elementor-widget elementor-widget-apus_element_vertical_menu"
+                                    {{-- <div class="elementor-element elementor-element-c36693e elementor-widget__width-auto elementor-widget elementor-widget-apus_element_vertical_menu"
                                         data-id="c36693e" data-element_type="widget"
                                         data-widget_type="apus_element_vertical_menu.default">
                                         <div class="elementor-widget-container">
@@ -1043,7 +1063,7 @@
                                                 <span class="action-vertical d-flex align-items-center">
                                                     <i class="flaticon-menu"></i>
                                                     <span class="title">
-                                                        Categories </span>
+                                                        Dashboard </span>
                                                 </span>
                                                 <div class="content-vertical">
                                                     <ul id="vertical-menu" class="apus-vertical-menu nav">
@@ -1120,7 +1140,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="elementor-element elementor-element-14b46c9 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_primary_menu"
                                         data-id="14b46c9" data-element_type="widget"
                                         data-widget_type="apus_element_primary_menu.default">
@@ -1132,20 +1152,71 @@
                                                     <div class="collapse navbar-collapse no-padding">
                                                         <ul id="primary-menu" class="nav navbar-nav megamenu effect1">
                                                             <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                    href="{{ URL::to('gigs/create') }}"
+                                                                    href="{{ URL::to('users/dashboard') }}"
                                                                     class="" data-hover="dropdown"
-                                                                    data-toggle="dropdown">Post
-                                                                    Gig
+                                                                    data-toggle="dropdown">Dashboard
                                                                     <b class="caret"></b></a>
                                                             </li>
-                                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                    href="{{ URL::to('gigs') }}" class=""
-                                                                    data-hover="dropdown"
-                                                                    data-toggle="dropdown">Browse Gigs
+                                                            <li class="dropdown menu-item-65 aligned-left"><a
+                                                                    href="#" class="dropdown-toggle"
+                                                                    data-hover="dropdown" data-toggle="dropdown">My
+                                                                    Business
                                                                     <b class="caret"></b></a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li class="menu-item-68 aligned-left"><a
+                                                                            href="{{ URL::to('gigs/create') }}">Orders</a>
+                                                                    </li>
+                                                                    <li class="menu-item-5137 aligned-left"><a
+                                                                            href="{{ URL::to('gigs/create') }}">Post
+                                                                            Gig</a>
+                                                                    </li>
+                                                                    <li class="menu-item-68 aligned-left"><a
+                                                                            href="{{ URL::to('gigs') }}">Browse
+                                                                            Gigs</a>
+                                                                    </li>
+                                                                    <li class="menu-item-68 aligned-left"><a
+                                                                            href="{{ URL::to('earnings') }}">Earnings</a>
+                                                                    </li>
+                                                                    <li class="menu-item-68 aligned-left"><a
+                                                                            href="{{ URL::to('gigs/create') }}">Create
+                                                                            a new gig</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="dropdown menu-item-65 aligned-left"><a
+                                                                    href="#" class="dropdown-toggle"
+                                                                    data-hover="dropdown"
+                                                                    data-toggle="dropdown">Growth & Marketing
+                                                                    <b class="caret"></b></a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li class="menu-item-5137 aligned-left"><a
+                                                                            href="{{ URL::to('gigs/create') }}">Post
+                                                                            Gig</a>
+                                                                    </li>
+                                                                    <li class="menu-item-68 aligned-left"><a
+                                                                            href="{{ URL::to('gigs') }}">Browse
+                                                                            Gigs</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="dropdown menu-item-65 aligned-left"><a
+                                                                    href="#" class="dropdown-toggle"
+                                                                    data-hover="dropdown"
+                                                                    data-toggle="dropdown">Analytics
+                                                                    <b class="caret"></b></a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li class="menu-item-5137 aligned-left"><a
+                                                                            href="{{ URL::to('gigs/create') }}">Post
+                                                                            Gig</a>
+                                                                    </li>
+                                                                    <li class="menu-item-68 aligned-left"><a
+                                                                            href="{{ URL::to('gigs') }}">Browse
+                                                                            Gigs</a>
+                                                                    </li>
+                                                                </ul>
                                                             </li>
                                                             @if (session()->has('user_id'))
-                                                                <li class="nav-item dropdown notification-b">
+                                                                {{-- <li class="nav-item dropdown notification-b">
                                                                     <a class="nav-link dropdown-toggle"
                                                                         href='javascript:void();'
                                                                         data-toggle="dropdown" role="button"
@@ -1157,13 +1228,13 @@
                                                                     <ul class="dropdown-menu notification displaynonenot"
                                                                         id="msgcontaine">
                                                                     </ul>
-                                                                </li>
-                                                                <li class="menu-item-61 has-mega-menu aligned-left"><a
+                                                                </li> --}}
+                                                                {{-- <li class="menu-item-61 has-mega-menu aligned-left"><a
                                                                         href="{{ URL::to('messages/message') }}"
                                                                         class="" data-hover="dropdown"
                                                                         data-toggle="dropdown">Message
                                                                         <b class="caret"></b></a>
-                                                                </li>
+                                                                </li> --}}
                                                                 {{-- <li class="menu-item-61 has-mega-menu aligned-left"><a
                                                                     href="{{ URL::to('logout') }}" class=""
                                                                     data-hover="dropdown" data-toggle="dropdown">Logout
@@ -1190,7 +1261,45 @@
                             <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-efb26be"
                                 data-id="efb26be" data-element_type="column">
                                 <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-39ebc28 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_service_search_form"
+                                    <div class="elementor-element elementor-element-14b46c9 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_primary_menu"
+                                        data-id="14b46c9" data-element_type="widget"
+                                        data-widget_type="apus_element_primary_menu.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="main-menu  ">
+                                                <nav data-duration="400"
+                                                    class="apus-megamenu animate navbar navbar-expand-lg p-0"
+                                                    role="navigation">
+                                                    <div class="collapse navbar-collapse no-padding">
+                                                        <ul id="primary-menu" class="nav navbar-nav megamenu effect1">
+                                                            @if (session()->has('user_id'))
+                                                                <li class="nav-item dropdown notification-b">
+                                                                    <a class="nav-link" href='javascript:void();'
+                                                                        data-toggle="dropdown" role="button"
+                                                                        aria-haspopup="true" aria-expanded="false"> <i
+                                                                            class="flaticon-notification"
+                                                                            style='font-size:20px'></i>
+                                                                        <span id="checkunreadmsg"
+                                                                            class="green-dots displaynone"></span></a>
+                                                                    <ul class="dropdown-menu notification displaynonenot"
+                                                                        id="msgcontaine">
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="menu-item-61 has-mega-menu aligned-left">
+                                                                    <a href="{{ URL::to('messages/message') }}"
+                                                                        class="" data-hover="dropdown"
+                                                                        data-toggle="dropdown"><i
+                                                                            class="fa fa-envelope" aria-hidden="true"
+                                                                            style='font-size:20px'></i>
+                                                                        <b class="caret"></b></a>
+                                                                </li>
+                                                            @endif
+                                                        </ul>
+                                                    </div>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- <div class="elementor-element elementor-element-39ebc28 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_service_search_form"
                                         data-id="39ebc28" data-element_type="widget"
                                         data-widget_type="apus_element_service_search_form.default">
                                         <div class="elementor-widget-container">
@@ -1250,16 +1359,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="elementor-element elementor-element-2cfa795 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_user_info"
                                         data-id="2cfa795" data-element_type="widget"
                                         data-widget_type="apus_element_user_info.default">
                                         <div class="elementor-widget-container">
                                             <div class="top-wrapper-menu ">
                                                 @if (session()->has('user_id'))
-                                                    <a class="btn-account btn-login" href="{{ URL::to('logout') }}"
-                                                        title="Login">
-                                                        Logout </a>
+                                                    {{-- <a class="btn-account btn-login" href="{{ URL::to('logout') }}"
+                                                        title="Logout">
+                                                        Logout </a> --}}
                                                 @else
                                                     <a class="btn-account btn-login" href="{{ URL::to('login') }}"
                                                         title="Login">
@@ -1284,8 +1393,8 @@
                                                     <?php $userHInfo = DB::table('users')
                                                         ->where('id', session()->get('user_id'))
                                                         ->first(); ?>
-                                                    @if (isset($userHInfo->profile_image) && file_exists(PROFILE_SMALL_UPLOAD_PATH . $userHInfo->profile_image))
-                                                        {{ HTML::image(PROFILE_SMALL_DISPLAY_PATH . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage']) }}
+                                                    @if (isset($userHInfo->profile_image) && file_exists('public/files/users/small/' . $userHInfo->profile_image))
+                                                        {{ HTML::image('public/files/users/small/' . $userHInfo->profile_image, SITE_TITLE, ['id' => 'pimage']) }}
                                                     @else
                                                         {{ HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage']) }}
                                                     @endif
