@@ -4302,7 +4302,7 @@ input[type=submit].btn-block {
     color: #495057;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
-    border-bottom: 5px solid green;
+    border-bottom: 3px solid #1fbec6;
 }
 
 .nav-tabs .dropdown-menu {

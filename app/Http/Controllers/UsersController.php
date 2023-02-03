@@ -559,6 +559,49 @@ class UsersController extends Controller {
         $myorders  = Myorder::where('seller_id', Session::get('user_id'))->orderBy('id', 'DESC')->limit(4)->get();
         $mygigs  = Gig::where(['user_id' => Session::get('user_id')])->orderBy('id', 'DESC')->limit(5)->get();
 
+        $users = Message::where('sender_id', Session::get('user_id'))->orWhere('receiver_id', Session::get('user_id'))->orderBy('id', 'ASC')->get();
+       
+        $userValue = array();
+        $userData = array();
+        
+        if ($users) { 
+            $i = 0;
+            foreach ($users as $user) { 
+                $userData[$i]['id'] = $user->id;
+                $userData[$i]['message'] = $user->message;
+                if ($user->sender_id == Session::get('user_id') && $user->Receiver) {       
+                    $userData[$i]['user_id'] = $user->receiver_id;
+                    $userData[$i]['name'] = $user->Receiver->first_name . ' ' . $user->Receiver->last_name;
+                    $userData[$i]['slug'] = $user->Receiver->slug;
+                    $userData[$i]['user_status'] = $user->Receiver->user_status;
+                    $userData[$i]['profile_image'] = $user->Receiver->profile_image;
+                    $usId = $user->receiver_id;            
+                }
+                if ($user->receiver_id == Session::get('user_id') && $user->Sender) {
+                    $userData[$i]['user_id'] = $user->sender_id;
+                    $userData[$i]['name'] = $user->Sender->first_name . ' ' . $user->Sender->last_name;
+                    $userData[$i]['slug'] = $user->Sender->slug;
+                    $userData[$i]['user_status'] = $user->Sender->user_status;
+                    $userData[$i]['profile_image'] = $user->Sender->profile_image;
+                    $usId = $user->sender_id;
+                }
+                $userValue[$usId] = $userData[$i];
+                $i++;
+            }
+        }
+
+        return view('users.dashboard', ['title' => $pageTitle, 'recordInfo' => $recordInfo, 'userData' => $userValue, 'skillsList' => $skillsList, 'countryLists' => $countryLists, 'qualificationsLists' => $qualificationsLists, 'latestservices' => $latestservices, 'myorders' => $myorders, 'mygigs' => $mygigs]);
+    }
+    public function dashboard1() {
+        $pageTitle = 'User Dashboard';
+        $recordInfo = User::where('id', Session::get('user_id'))->first();
+        $skillsList  = DB::table('skills')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id')->all();
+        $countryLists  = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
+        $qualificationsLists  = DB::table('qualifications')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'name')->all();
+        $latestservices = Service::where(['status' => '1'])->where('user_id', '!=', Session::get('user_id'))->orderBy('id', 'DESC')->limit(10)->get();
+        $myorders  = Myorder::where('seller_id', Session::get('user_id'))->orderBy('id', 'DESC')->limit(4)->get();
+        $mygigs  = Gig::where(['user_id' => Session::get('user_id')])->orderBy('id', 'DESC')->limit(5)->get();
+
         return view('users.dashboard', ['title' => $pageTitle, 'recordInfo' => $recordInfo, 'skillsList' => $skillsList, 'countryLists' => $countryLists, 'qualificationsLists' => $qualificationsLists, 'latestservices' => $latestservices, 'myorders' => $myorders, 'mygigs' => $mygigs]);
     }
 

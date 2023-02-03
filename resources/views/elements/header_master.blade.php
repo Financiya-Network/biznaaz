@@ -1,5 +1,3 @@
-<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<link rel='stylesheet' id='wp-block-library-css' href='../public/css1/style.min.css' type='text/css' media='all' />
 <style id='wp-block-library-theme-inline-css' type='text/css'>
     .wp-block-audio figcaption {
         color: #555;
@@ -196,12 +194,6 @@
         margin-bottom: 0
     }
 </style>
-<link rel='stylesheet' id='wc-blocks-vendors-style-css' href='../public/css1/wc-blocks-vendors-style.css' type='text/css'
-    media='all' />
-<link rel='stylesheet' id='wc-blocks-style-css' href='../public/css1/wc-blocks-style.css' type='text/css'
-    media='all' />
-<link rel='stylesheet' id='classic-theme-styles-css' href='../public/css1/classic-themes.min.css' type='text/css'
-    media='all' />
 <style id='global-styles-inline-css' type='text/css'>
     body {
         --wp--preset--color--black: #000000;
@@ -535,13 +527,6 @@
         line-height: 1.6;
     }
 </style>
-<link rel='stylesheet' id='contact-form-7-css' href='../public/css1/styles.css' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce-layout-css' href='../public/css1/woocommerce-layout.css' type='text/css'
-    media='all' />
-<link rel='stylesheet' id='woocommerce-smallscreen-css' href='../public/css1/woocommerce-smallscreen.css'
-    type='text/css' media='only screen and (max-width: 768px)' />
-<link rel='stylesheet' id='woocommerce-general-css' href='../public/css1/woocommerce.css' type='text/css'
-    media='all' />
 <style id='woocommerce-inline-inline-css' type='text/css'>
     .woocommerce form .form-row .required {
         visibility: visible;
@@ -550,9 +535,17 @@
 <link rel='stylesheet' id='freeio-theme-fonts-css'
     href='https://fonts.googleapis.com/css?family=DM+Sans:400,500,700,400,500,700&#038;subset=latin%2Clatin-ext%2Clatin%2Clatin-ext'
     type='text/css' media='all' />
+{{-- <link rel='stylesheet' id='perfect-scrollbar-jquery-css' href='../public/css1/perfect-scrollbar.css' type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='perfect-scrollbar-css' href='../public/css1/perfect-scrollbar.css' type='text/css'
+        media='all' /> --}}
 <link rel='stylesheet' id='google-fonts-1-css'
     href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.1.1'
     type='text/css' media='all' />
+
+
+
+
 <style id='rs-plugin-settings-inline-css' type='text/css'>
     #rs-demo-id {}
 </style>
@@ -573,7 +566,7 @@
         padding: 0 !important;
     }
 </style>
-<link rel='stylesheet' id='freeio-template-css' href='../public/css1/template.css' type='text/css' media='all' />
+
 <style id='freeio-template-inline-css' type='text/css'>
     :root {
         --freeio-theme-color: #1fbec6 ;
@@ -597,4 +590,97 @@
         --freeio-second-color-050: rgba(31, 75, 63, 0.5);
     }
 </style>
-<link rel='stylesheet' id='freeio-style-css' href='../public/css1/style.css' type='text/css' media='all' />
+
+
+{{-- <link rel="https://api.w.org/" href="https://demoapus1.com/freeio/wp-json/" />
+    <link rel="alternate" type="application/json" href="https://demoapus1.com/freeio/wp-json/wp/v2/pages/5186" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD"
+        href="https://demoapus1.com/freeio/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
+        href="https://demoapus1.com/freeio/wp-includes/wlwmanifest.xml" /> --}}
+<meta name="generator" content="WordPress 6.1.1" />
+<meta name="generator" content="WooCommerce 7.1.0" />
+{{-- <link rel="canonical" href="https://demoapus1.com/freeio/freelancers-layout-v1/" />
+    <link rel='shortlink' href='https://demoapus1.com/freeio/?p=5186' />
+    <link rel="alternate" type="application/json+oembed"
+        href="https://demoapus1.com/freeio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemoapus1.com%2Ffreeio%2Ffreelancers-layout-v1%2F" />
+    <link rel="alternate" type="text/xml+oembed"
+        href="https://demoapus1.com/freeio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemoapus1.com%2Ffreeio%2Ffreelancers-layout-v1%2F&#038;format=xml" /> --}}
+<noscript>
+    <style>
+        .woocommerce-product-gallery {
+            opacity: 1 !important;
+        }
+    </style>
+</noscript>
+<meta name="generator"
+    content="Powered by Slider Revolution 6.5.12 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<script>
+    function setREVStartSize(e) {
+        //window.requestAnimationFrame(function() {
+        window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+        window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+        try {
+            var pw = document.getElementById(e.c).parentNode.offsetWidth,
+                newh;
+            pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+            e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+            e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+            e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+            e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+            e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+            e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+            e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+            if (e.layout === "fullscreen" || e.l === "fullscreen")
+                newh = Math.max(e.mh, window.RSIH);
+            else {
+                e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+                for (var i in e.rl)
+                    if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+                e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+                e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+                for (var i in e.rl)
+                    if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+                var nl = new Array(e.rl.length),
+                    ix = 0,
+                    sl;
+                e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+                e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+                e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+                e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+                for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+                sl = nl[0];
+                for (var i in nl)
+                    if (sl > nl[i] && nl[i] > 0) {
+                        sl = nl[i];
+                        ix = i;
+                    }
+                var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+                newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+            }
+            var el = document.getElementById(e.c);
+            if (el !== null && el) el.style.height = newh + "px";
+            el = document.getElementById(e.c + "_wrapper");
+            if (el !== null && el) {
+                el.style.height = newh + "px";
+                el.style.display = "block";
+            }
+        } catch (e) {
+            console.log("Failure at Presize of Slider:" + e)
+        }
+        //});
+    };
+</script>
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+    rs-slides,
+    rs-slide,
+    rs-module {
+        overflow: visible !important
+    }
+</style>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> --}}
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>

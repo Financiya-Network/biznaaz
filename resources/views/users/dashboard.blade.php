@@ -31,7 +31,7 @@
             });
         });
     </script>
-    <div class="main_dashboard">
+    <div class="main_dashboard1">
         <section class="dashboard-section">
             <div class="container">
                 <div class="ee er_msg">@include('elements.errorSuccessMessage')</div>
@@ -205,6 +205,53 @@
                                 </div>
                             </div>
                             {{ Form::close() }}
+                        </div>
+                        <div class="cheat-box profile-txtbx">
+                            <div class="user-txt-bx">
+                                <div id="descriptioncnt" class="showall">
+                                    <h3><i class="fa fa-inbox" aria-hidden="true"></i>  Inbox  </h3>
+                                    <span class="curpointer editright"><a href="{{ URL::to('messages/message') }}"
+                                            class=""><i class="fa fa-eye"></i> View All
+                                            <b class="caret"></b></a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="scroll">
+                                <?php
+                                if ($userData) { 
+                                    foreach ($userData as $users) { 
+                                        ?>
+                                <div class="block_container">
+                                    <div class="bloc2">
+                                        <?php if ($users['profile_image']) { ?>
+                                        {{ HTML::image(PROFILE_SMALL_DISPLAY_PATH . $users['profile_image'], SITE_TITLE, ['id' => 'pimage', 'style' => 'width: 50px;height: 56px;border-radius: 50%;']) }}
+                                        <?php } else { ?>
+                                        {{ HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage', 'style' => 'width: 50px;height: 56px;border-radius: 50%;']) }}
+                                        <?php } 
+                                       ?>
+                                        <?php if($users['user_status'] == 'Online'){ ?>
+                                       <i class="fa fa-circle" style="font-size:10px;color:green"></i>
+                                        <?php }else{ ?>
+                                       <i class="fa fa-circle" style="font-size:10px;color:red"></i>
+                                        <?php } ?>
+                                    </div>
+
+                                    <div class="bloc1">
+                                        <div class="cheat-header">{{ $users['name'] }}</div>
+                                        <div>{{ $users['message'] }}</div>
+                                    </div>
+                                    <div class="block_star ">
+                                        {{-- <span class="curpointer editright" style="margin-left: 210px;"><a href="#"
+                                                class=""><i class="fa fa-star-o" style="font-size:18px;"></i>
+                                                <b class="caret"></b></a>
+                                        </span> --}}
+                                    </div>
+                                </div>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </div>
                         </div>
                         {{ Form::open(['method' => 'post', 'id' => 'updateother']) }}
                         <div class="profile-txtbx">
@@ -483,27 +530,29 @@
                         <div class="dashboard-rights-section">
                             <div class="statistics row">
                                 <div class="col-12 col-xl-12 col-sm-6">
-                                    <div class="header" style="border: 1px #ddd solid;">
+                                    <div class="header">
                                         <div
                                             class="posted-projects list-item d-flex align-items-center justify-content-between text-right">
                                             <div class="inner">
                                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                     <li class="nav-item" role="presentation">
-                                                        <button class="nav-link active" id="home-tab"
+                                                        <button class="nav-link active fo1" id="home-tab"
                                                             data-bs-toggle="tab" data-bs-target="#home" type="button"
                                                             role="tab" aria-controls="home"
                                                             aria-selected="true">Active Gigs</button>
                                                     </li>
                                                     <li class="nav-item" role="presentation">
-                                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                                            data-bs-target="#profile" type="button" role="tab"
-                                                            aria-controls="profile" aria-selected="false">Latest Buyer
+                                                        <button class="nav-link fo1" id="profile-tab"
+                                                            data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                                                            role="tab" aria-controls="profile"
+                                                            aria-selected="false">Latest Buyer
                                                             Requests</button>
                                                     </li>
                                                     <li class="nav-item" role="presentation">
-                                                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                                                            data-bs-target="#contact" type="button" role="tab"
-                                                            aria-controls="contact" aria-selected="false">Latest Selling
+                                                        <button class="nav-link fo1" id="contact-tab"
+                                                            data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                                                            role="tab" aria-controls="contact"
+                                                            aria-selected="false">Latest Selling
                                                             Orders</button>
                                                     </li>
                                                 </ul>
@@ -607,20 +656,6 @@
                                                 </div>
                                             </div>
                                         @else
-                                            <div class="statistics row">
-                                                <div class="col-12 col-xl-12 col-sm-6">
-                                                    <div class="header" style="border: 1px #ddd solid;">
-                                                        <div
-                                                            class="posted-projects list-item d-flex align-items-center justify-content-between text-right">
-                                                            <div class="inner">
-                                                                <span><button type="button"
-                                                                        class="btn btn-outline-success">Active
-                                                                        Gigs123</button></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="col-sm-12 col-md-3">
                                                 <div class="thumbnail">
                                                     <div class="creat-new creat-new-full">

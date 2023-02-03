@@ -138,8 +138,8 @@
 </head>
 
 <body>
-    @include('elements.header2')
-    <div class="main_dashboard" style="margin-top: 9rem;margin-bottom: -2rem;">
+    @include('elements.header')
+    <div class="main_dashboard">
         {{-- @include('elements.topmenu') --}}
         @yield('content')
         <script>

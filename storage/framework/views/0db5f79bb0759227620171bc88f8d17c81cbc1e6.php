@@ -228,8 +228,8 @@
 </head>
 
 <body>
-    <?php echo $__env->make('elements.header2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <div class="main_dashboard" style="margin-top: 9rem;margin-bottom: -2rem;">
+    <?php echo $__env->make('elements.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <div class="main_dashboard">
         
         <?php echo $__env->yieldContent('content'); ?>
         <script>
