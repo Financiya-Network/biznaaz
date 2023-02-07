@@ -33,7 +33,7 @@
             }
         }
     </script>
-    <div class="main_dashboard message_dashboard" style="margin-top: 7rem;" >
+    <div class="main_dashboard message_dashboard terms_footer" >
         <div class="container">
             <div class="message_sections">
                 <div class="row ml-0 mr-0">

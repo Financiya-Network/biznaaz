@@ -1,10 +1,10 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="main_dashboard " id="backtotop" style="margin-top: 75px">
+    <div class="main_dashboard big_dashboard " id="backtotop">
         {{-- @include('elements.topcategories') --}}
         <section class="dashboard-section ">
             {{ Form::open(['method' => 'post', 'id' => 'searchform']) }}
-            <div class="breadcrumbs-simple" style="margin-bottom: -60px">
+            <div class="breadcrumbs-simple">
                 <div class="layout-service-sidebar main-content container inner">
                     <ol class="breadcrumb ">
                         @if (isset($catInfo) && !empty($catInfo))
@@ -160,8 +160,9 @@
                                 <form class="services-ordering" method="get" action="">
                                     {{-- <select name="filter-orderby" class="orderby" data-placeholder="Sort by"> --}}
                                     <span> <?php global $searcFilterArray; ?>
-                                        {{ Form::select('filter_type', $searcFilterArray, null, ['class' => 'form-control', 'onchange' => 'updateresult()']) }}
+                                        {{ Form::select('filter_type', $searcFilterArray, null, ['class' => 'form-control', 'onchange' => 'updateresult()','placeholder'=>'Sort by (Default)']) }}
                                     </span>
+                                    <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
                                     {{-- <option value="menu_order" selected='selected'>Sort by (Default)</option>
                                             <option value="newest">Newest</option>
                                             <option value="oldest">Oldest</option>

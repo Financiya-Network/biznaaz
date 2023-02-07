@@ -512,7 +512,22 @@
       padding: 25px 0;
     }
   }
+  @media (min-width: 1200px) {
+    .big_dashboard{
+      margin-top: 100px;
+    }
+  }
   
+  .terms_footer{
+    display: grid;
+   }
+
+   @media (min-width: 1200px) {
+    .terms_footer{
+      margin-top: 100px;
+    }
+  }
+
   .breadcrumbs-simple .breadcrumb {
     margin: 0;
     padding: 0;

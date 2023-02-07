@@ -19,8 +19,8 @@
         }        
     };
 </script>
-<div class="main_dashboard">
-    <?php echo $__env->make('elements.topcategories', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="main_dashboard terms_footer">
+    
     <div class="container">
     <div class="st_pages">
         <div class="st_pages_title">Send Your Enquiry</div>

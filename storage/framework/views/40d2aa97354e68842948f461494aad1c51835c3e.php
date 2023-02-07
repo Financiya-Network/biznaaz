@@ -13,7 +13,7 @@
                                 <div class="elementor-element elementor-element-6e5bd49 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
                                     data-id="6e5bd49" data-element_type="widget" data-widget_type="icon-list.default">
                                     <div class="elementor-widget-container">
-                                        <link rel="stylesheet" href="../public/css1/widget-icon-list.min.css">
+                                        
                                         <ul class="elementor-icon-list-items elementor-inline-items">
                                             <li class="elementor-icon-list-item elementor-inline-item">
                                                 <a href="#">

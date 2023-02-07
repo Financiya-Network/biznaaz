@@ -20,8 +20,8 @@
         }        
     };
 </script>
-<div class="main_dashboard terms_footer">
-    {{-- @include('elements.topcategories') --}}
+<div class="main_dashboard">
+    @include('elements.topcategories')
     <div class="container">
     <div class="st_pages">
         <div class="st_pages_title">Send Your Enquiry</div>

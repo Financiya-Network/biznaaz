@@ -145,16 +145,16 @@
                     <div class="offcanvas-content">
                         <div class="middle-offcanvas">
 
-                            <nav id="menu-main-menu-navbar" class="navbar navbar-offcanvas" role="navigation">
+                            <nav id="menu-main-menu-navbar" class="navbar-offcanvas" role="navigation">
                                 <div id="mobile-menu-container" class="menu-primary-menu-container">
                                     <ul id="menu-primary-menu" class="">
                                         <?php if(session()->has('user_id')): ?>
-                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
+                                                <li class="menu-item-61 has-mega-menu aligned-left"><a
                                                     href="<?php echo e(URL::to('users/dashboard')); ?>" class=""
                                                     data-hover="dropdown" data-toggle="dropdown">Dashboard
                                                     <b class="caret"></b></a>
                                             </li>
-                                             <li id="menu-item-64" class="has-submenu menu-item-64"><a
+                                            <li id="menu-item-64" class="has-submenu menu-item-64"><a
                                                     href="">My Business</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-5132" class="menu-item-5132"><a
@@ -166,16 +166,17 @@
                                                     <li id="menu-item-5133" class="menu-item-5133"><a
                                                             href="<?php echo e(URL::to('earnings')); ?>">Earnings</a></li>
                                                     <li id="menu-item-5133" class="menu-item-5133"><a
-                                                            href="<?php echo e(URL::to('gigs/create')); ?>">Create a new gig</a></li>
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>">Create a new gig</a>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="#" class="" data-hover="dropdown"
+                                            <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
+                                                    class="" data-hover="dropdown"
                                                     data-toggle="dropdown">Growth & Marketing
                                                     <b class="caret"></b></a>
                                             </li>
-                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="#" class="" data-hover="dropdown"
+                                            <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
+                                                    class="" data-hover="dropdown"
                                                     data-toggle="dropdown">Analytics
                                                     <b class="caret"></b></a>
                                             </li>

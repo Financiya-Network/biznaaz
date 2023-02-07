@@ -277,8 +277,13 @@ a {
 
 .cheat-header{
 	font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
 }
+@media (min-width: 1200px) {
+	.cheat-header{
+		font-size: 15px;
+	}
+  }
 .bloc1{
 	padding-left: 15px;
 	

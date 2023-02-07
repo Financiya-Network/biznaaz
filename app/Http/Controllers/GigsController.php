@@ -1138,5 +1138,3 @@ class GigsController extends Controller {
     }
 
 }
-
-?>

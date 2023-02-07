@@ -1,10 +1,10 @@
 <?php $__env->startSection('content'); ?>
-    <div class="main_dashboard " id="backtotop" style="margin-top: 75px">
+    <div class="main_dashboard big_dashboard " id="backtotop">
         
         <section class="dashboard-section ">
             <?php echo e(Form::open(['method' => 'post', 'id' => 'searchform'])); ?>
 
-            <div class="breadcrumbs-simple" style="margin-bottom: -60px">
+            <div class="breadcrumbs-simple">
                 <div class="layout-service-sidebar main-content container inner">
                     <ol class="breadcrumb ">
                         <?php if(isset($catInfo) && !empty($catInfo)): ?>
@@ -160,9 +160,10 @@
                                 <form class="services-ordering" method="get" action="">
                                     
                                     <span> <?php global $searcFilterArray; ?>
-                                        <?php echo e(Form::select('filter_type', $searcFilterArray, null, ['class' => 'form-control', 'onchange' => 'updateresult()'])); ?>
+                                        <?php echo e(Form::select('filter_type', $searcFilterArray, null, ['class' => 'form-control', 'onchange' => 'updateresult()','placeholder'=>'Sort by (Default)'])); ?>
 
                                     </span>
+                                    <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
                                     
                                     
                                     <input type="hidden" name="paged" value="1" />

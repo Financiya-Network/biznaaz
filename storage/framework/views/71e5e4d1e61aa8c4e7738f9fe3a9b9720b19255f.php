@@ -1,4 +1,5 @@
 <?php echo $__env->make('elements.header_master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 <body
     class="page-template-default page page-id-26 wp-embed-responsive theme-freeio woocommerce-no-js header_transparent main apus-body-loading body-footer-mobile elementor-default elementor-kit-6 elementor-page elementor-page-26">
     <div id="wrapper-container" class="wrapper-container">
@@ -50,9 +51,8 @@
                     <feComposite in2="SourceGraphic" operator="in" />
                 </filter>
             </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+            role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
             <defs>
                 <filter id="wp-duotone-blue-red">
                     <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
@@ -66,9 +66,8 @@
                     <feComposite in2="SourceGraphic" operator="in" />
                 </filter>
             </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+            role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
             <defs>
                 <filter id="wp-duotone-midnight">
                     <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
@@ -151,7 +150,7 @@
                                                     data-hover="dropdown" data-toggle="dropdown">Dashboard
                                                     <b class="caret"></b></a>
                                             </li>
-                                             <li id="menu-item-64" class="has-submenu menu-item-64"><a
+                                            <li id="menu-item-64" class="has-submenu menu-item-64"><a
                                                     href="">My Business</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-5132" class="menu-item-5132"><a
@@ -163,16 +162,17 @@
                                                     <li id="menu-item-5133" class="menu-item-5133"><a
                                                             href="<?php echo e(URL::to('earnings')); ?>">Earnings</a></li>
                                                     <li id="menu-item-5133" class="menu-item-5133"><a
-                                                            href="<?php echo e(URL::to('gigs/create')); ?>">Create a new gig</a></li>
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>">Create a new gig</a>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="#" class="" data-hover="dropdown"
+                                            <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
+                                                    class="" data-hover="dropdown"
                                                     data-toggle="dropdown">Growth & Marketing
                                                     <b class="caret"></b></a>
                                             </li>
-                                            <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                    href="#" class="" data-hover="dropdown"
+                                            <li class="menu-item-61 has-mega-menu aligned-left"><a href="#"
+                                                    class="" data-hover="dropdown"
                                                     data-toggle="dropdown">Analytics
                                                     <b class="caret"></b></a>
                                             </li>
@@ -374,75 +374,79 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-element elementor-element-c36693e elementor-widget__width-auto elementor-widget elementor-widget-apus_element_vertical_menu"
-                                        data-id="c36693e" data-element_type="widget"
-                                        data-widget_type="apus_element_vertical_menu.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="vertical-wrapper  show-hover">
-                                                <span class="action-vertical d-flex align-items-center">
-                                                    <i class="flaticon-menu"></i>
-                                                    <span class="title">
-                                                        Categories </span>
-                                                </span>
-                                                <div class="content-vertical">
-                                                    <ul id="vertical-menu" class="apus-vertical-menu nav">
-                                                        <?php if($globalCategories): ?>
-                                                            <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                <li id="menu-item-5663"
-                                                                    class="menu-item-5663 has-mega-menu aligned-left">
-                                                                    <a href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"
-                                                                        class="dropdown-toggle" data-hover="dropdown"
-                                                                        data-toggle="dropdown">
-                                                                        <?php echo e(HTML::image('public/img/front/home/' . $cat->image, SITE_TITLE)); ?><?php echo $cat->name; ?>
+                                    <?php if(!session()->has('user_id')): ?>
+                                        <div class="elementor-element elementor-element-c36693e elementor-widget__width-auto elementor-widget elementor-widget-apus_element_vertical_menu"
+                                            data-id="c36693e" data-element_type="widget"
+                                            data-widget_type="apus_element_vertical_menu.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="vertical-wrapper  show-hover">
+                                                    <span class="action-vertical d-flex align-items-center">
+                                                        <i class="flaticon-menu"></i>
+                                                        <span class="title">
+                                                            Categories </span>
+                                                    </span>
+                                                    <div class="content-vertical">
+                                                        <ul id="vertical-menu" class="apus-vertical-menu nav">
+                                                            <?php if($globalCategories): ?>
+                                                                <?php $__currentLoopData = $globalCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                    <li id="menu-item-5663"
+                                                                        class="menu-item-5663 has-mega-menu aligned-left">
+                                                                        <a href="<?php echo e(URL::to('gigs/' . $cat->slug)); ?>"
+                                                                            class="dropdown-toggle"
+                                                                            data-hover="dropdown"
+                                                                            data-toggle="dropdown">
+                                                                            <?php echo e(HTML::image('public/img/front/home/' . $cat->image, SITE_TITLE)); ?><?php echo $cat->name; ?>
 
-                                                                        <b class="caret"></b></a>
-                                                                    <div class="dropdown-menu development-it"
-                                                                        style="width:500px">
-                                                                        <div class="dropdown-menu-inner">
-                                                                            <div data-elementor-type="wp-post"
-                                                                                data-elementor-id="3167"
-                                                                                class="elementor elementor-3167">
-                                                                                <section
-                                                                                    class="elementor-section elementor-top-section elementor-element elementor-element-d0c3572 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                                                                                    data-id="d0c3572"
-                                                                                    data-element_type="section">
-                                                                                    <div class="elementor-container elementor-column-gap-no"
-                                                                                        style="background-color: white;">
-                                                                                        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-080ab5d"
-                                                                                            data-id="080ab5d"
-                                                                                            data-element_type="column">
-                                                                                            <div
-                                                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                                                <div class="elementor-element elementor-element-c563a07 elementor-widget elementor-widget-apus_element_nav_menu"
-                                                                                                    data-id="c563a07"
-                                                                                                    data-element_type="widget"
-                                                                                                    data-widget_type="apus_element_nav_menu.default">
-                                                                                                    <div
-                                                                                                        class="elementor-widget-container">
+                                                                            <b class="caret"></b></a>
+                                                                        <div class="dropdown-menu development-it"
+                                                                            style="width:500px">
+                                                                            <div class="dropdown-menu-inner">
+                                                                                <div data-elementor-type="wp-post"
+                                                                                    data-elementor-id="3167"
+                                                                                    class="elementor elementor-3167">
+                                                                                    <section
+                                                                                        class="elementor-section elementor-top-section elementor-element elementor-element-d0c3572 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                                                                        data-id="d0c3572"
+                                                                                        data-element_type="section">
+                                                                                        <div class="elementor-container elementor-column-gap-no"
+                                                                                            style="background-color: white;">
+                                                                                            <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-080ab5d"
+                                                                                                data-id="080ab5d"
+                                                                                                data-element_type="column">
+                                                                                                <div
+                                                                                                    class="elementor-widget-wrap elementor-element-populated">
+                                                                                                    <div class="elementor-element elementor-element-c563a07 elementor-widget elementor-widget-apus_element_nav_menu"
+                                                                                                        data-id="c563a07"
+                                                                                                        data-element_type="widget"
+                                                                                                        data-widget_type="apus_element_nav_menu.default">
                                                                                                         <div
-                                                                                                            class="widget-nav-menu no-margin widget  ">
-
-                                                                                                            <h2
-                                                                                                                class="widget-title">
-                                                                                                                Top Jobs
-                                                                                                            </h2>
-
+                                                                                                            class="elementor-widget-container">
                                                                                                             <div
-                                                                                                                class="widget-content">
+                                                                                                                class="widget-nav-menu no-margin widget  ">
+
+                                                                                                                <h2
+                                                                                                                    class="widget-title">
+                                                                                                                    Top
+                                                                                                                    Jobs
+                                                                                                                </h2>
+
                                                                                                                 <div
-                                                                                                                    class="menu-top-jobs-container">
-                                                                                                                    <?php if(isset($globalSubCategories[$cat->id])): ?>
-                                                                                                                        <ul id="menu-top-jobs"
-                                                                                                                            class="menu">
-                                                                                                                            <?php $__currentLoopData = $globalSubCategories[$cat->id]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                                                                                <li id="menu-item-4338"
-                                                                                                                                    class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-4338">
-                                                                                                                                    <a
-                                                                                                                                        href="<?php echo e(URL::to('gigs/' . $cat->slug . '/' . $subCat->slug)); ?>"><?php echo $subCat->name; ?></a>
-                                                                                                                                </li>
-                                                                                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                                                                                        </ul>
-                                                                                                                    <?php endif; ?>
+                                                                                                                    class="widget-content">
+                                                                                                                    <div
+                                                                                                                        class="menu-top-jobs-container">
+                                                                                                                        <?php if(isset($globalSubCategories[$cat->id])): ?>
+                                                                                                                            <ul id="menu-top-jobs"
+                                                                                                                                class="menu">
+                                                                                                                                <?php $__currentLoopData = $globalSubCategories[$cat->id]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                                                                    <li id="menu-item-4338"
+                                                                                                                                        class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-4338">
+                                                                                                                                        <a
+                                                                                                                                            href="<?php echo e(URL::to('gigs/' . $cat->slug . '/' . $subCat->slug)); ?>"><?php echo $subCat->name; ?></a>
+                                                                                                                                    </li>
+                                                                                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                                                                            </ul>
+                                                                                                                        <?php endif; ?>
+                                                                                                                    </div>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
@@ -450,19 +454,19 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                    </div>
-                                                                                </section>
+                                                                                    </section>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </li>
-                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                        <?php endif; ?>
-                                                    </ul>
+                                                                    </li>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php endif; ?>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php endif; ?>
                                     <div class="elementor-element elementor-element-14b46c9 elementor-widget__width-auto elementor-widget elementor-widget-apus_element_primary_menu"
                                         data-id="14b46c9" data-element_type="widget"
                                         data-widget_type="apus_element_primary_menu.default">
@@ -475,29 +479,69 @@
                                                         <ul id="primary-menu" class="nav navbar-nav megamenu effect1">
                                                             <?php if(session()->has('user_id')): ?>
                                                                 <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="<?php echo e(URL::to('gigs/create')); ?>"
+                                                                        href="<?php echo e(URL::to('users/dashboard')); ?>"
                                                                         class="" data-hover="dropdown"
-                                                                        data-toggle="dropdown">Post
-                                                                        Gig
+                                                                        data-toggle="dropdown">Dashboard
                                                                         <b class="caret"></b></a>
                                                                 </li>
-                                                                <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="<?php echo e(URL::to('gigs')); ?>" class=""
+                                                                <li class="dropdown menu-item-65 aligned-left"><a
+                                                                        href="#" class="dropdown-toggle"
                                                                         data-hover="dropdown"
-                                                                        data-toggle="dropdown">Browse Gigs
+                                                                        data-toggle="dropdown">My
+                                                                        Business
                                                                         <b class="caret"></b></a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li class="menu-item-68 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs/create')); ?>">Orders</a>
+                                                                        </li>
+                                                                        <li class="menu-item-5137 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs/create')); ?>">Post
+                                                                                Gig</a>
+                                                                        </li>
+                                                                        <li class="menu-item-68 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs')); ?>">Browse
+                                                                                Gigs</a>
+                                                                        </li>
+                                                                        <li class="menu-item-68 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('earnings')); ?>">Earnings</a>
+                                                                        </li>
+                                                                        <li class="menu-item-68 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs/create')); ?>">Create
+                                                                                a new gig</a>
+                                                                        </li>
+                                                                    </ul>
                                                                 </li>
-                                                                <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="#" class=""
+                                                                <li class="dropdown menu-item-65 aligned-left"><a
+                                                                        href="#" class="dropdown-toggle"
                                                                         data-hover="dropdown"
-                                                                        data-toggle="dropdown">Notifications
+                                                                        data-toggle="dropdown">Growth & Marketing
                                                                         <b class="caret"></b></a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li class="menu-item-5137 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs/create')); ?>">Post
+                                                                                Gig</a>
+                                                                        </li>
+                                                                        <li class="menu-item-68 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs')); ?>">Browse
+                                                                                Gigs</a>
+                                                                        </li>
+                                                                    </ul>
                                                                 </li>
-                                                                <li class="menu-item-61 has-mega-menu aligned-left"><a
-                                                                        href="<?php echo e(URL::to('messages/message')); ?>"
-                                                                        class="" data-hover="dropdown"
-                                                                        data-toggle="dropdown">Message
+                                                                <li class="dropdown menu-item-65 aligned-left"><a
+                                                                        href="#" class="dropdown-toggle"
+                                                                        data-hover="dropdown"
+                                                                        data-toggle="dropdown">Analytics
                                                                         <b class="caret"></b></a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li class="menu-item-5137 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs/create')); ?>">Post
+                                                                                Gig</a>
+                                                                        </li>
+                                                                        <li class="menu-item-68 aligned-left"><a
+                                                                                href="<?php echo e(URL::to('gigs')); ?>">Browse
+                                                                                Gigs</a>
+                                                                        </li>
+                                                                    </ul>
                                                                 </li>
                                                             <?php else: ?>
                                                                 <li class="menu-item-61 has-mega-menu aligned-left"><a
@@ -685,7 +729,6 @@
                                                             <button type="button" class="btn-close ms-auto"
                                                                 data-bs-dismiss="modal" aria-label="Close"><i
                                                                     class="ti-close"></i></button>
-
                                                             <div class="widget-listing-search-form  button horizontal">
                                                                 <form id="filter-listing-form-zCi6n" action=""
                                                                     class="form-search filter-listing-form button"
@@ -755,7 +798,6 @@
                                         data-id="2cfa795" data-element_type="widget"
                                         data-widget_type="apus_element_user_info.default">
                                         <div class="elementor-widget-container">
-
                                             <div class="top-wrapper-menu ">
                                                 <?php if(session()->has('user_id')): ?>
                                                     <a class="btn-account btn-login" href="<?php echo e(URL::to('logout')); ?>"
@@ -967,43 +1009,59 @@
                                                 
                                             </div>
                                             <div class="inner-top-menu">
-                                                 <ul id="menu-freelancer-1" class="nav navbar-nav topmenu-menu">
+                                                <ul id="menu-freelancer-1" class="nav navbar-nav topmenu-menu">
                                                     <li class="menu-item-5285 aligned-left"><a
-                                                            href="<?php echo e(URL::to('users/settings')); ?>"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
+                                                            href="<?php echo e(URL::to('users/settings')); ?>"><i
+                                                                class="fa fa-cog" aria-hidden="true"></i>Settings</a>
+                                                    </li>
                                                     <li class="menu-item-5345 aligned-left"><a
                                                             href="<?php echo e(URL::to('users/dashboard')); ?>"><i
                                                                 class="flaticon-briefcase"></i>Dashboard</a></li>
                                                     
                                                     <li class="dropdown menu-item-5287  aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i class='fas fa-comments-dollar'></i>Selling</a></li>
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
+                                                                class='fas fa-comments-dollar'></i>Selling</a></li>
                                                     <li class="menu-item-5290 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i class='fas fa-hourglass-half'></i>Manage Gigs</a></li>
+                                                            href="<?php echo e(URL::to('gigs/management')); ?>"><i
+                                                                class='fas fa-hourglass-half'></i>Manage Gigs</a></li>
                                                     <li class="menu-item-5294 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/create')); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Create New Gig</a>
+                                                            href="<?php echo e(URL::to('gigs/create')); ?>"><i class="fa fa-plus"
+                                                                aria-hidden="true"></i>Create New Gig</a>
                                                     </li>
                                                     <li class="menu-item-5784 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/myofferedgig')); ?>"><i class='fas fa-ad'></i>My Offered Gigs</a></li>
+                                                            href="<?php echo e(URL::to('gigs/myofferedgig')); ?>"><i
+                                                                class='fas fa-ad'></i>My Offered Gigs</a></li>
                                                     <li class="menu-item-5301 aligned-left"><a
-                                                            href="<?php echo e(URL::to('services/management')); ?>"><i class="fa fa-shopping-cart"></i>Buying</a></li>
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
+                                                                class="fa fa-shopping-cart"></i>Buying</a></li>
                                                     <li class="menu-item-5352 aligned-left"><a
-                                                            href="<?php echo e(URL::to('services/management')); ?>"><i class='fas fa-balance-scale'></i>Manage Requests</a></li>
+                                                            href="<?php echo e(URL::to('services/management')); ?>"><i
+                                                                class='fas fa-balance-scale'></i>Manage Requests</a>
+                                                    </li>
                                                     <li class="menu-item-5302 aligned-left"><a
                                                             href="<?php echo e(URL::to('services/create-request')); ?>"><i
                                                                 class="flaticon-web"></i>Post Request</a></li>
                                                     <li class="menu-item-5303 aligned-left"><a
-                                                            href="<?php echo e(URL::to('my-saved-gigs')); ?>"><i class="fa fa-save"></i>My Saved Gigs</a></li>
+                                                            href="<?php echo e(URL::to('my-saved-gigs')); ?>"><i
+                                                                class="fa fa-save"></i>My Saved Gigs</a></li>
                                                     <li class="menu-item-5314 aligned-left"><a
-                                                            href="<?php echo e(URL::to('gigs/offeredgig')); ?>"><i class='fas fa-bullhorn'></i>Offered Gigs</a></li>
+                                                            href="<?php echo e(URL::to('gigs/offeredgig')); ?>"><i
+                                                                class='fas fa-bullhorn'></i>Offered Gigs</a></li>
                                                     <li class="menu-item-5313 aligned-left"><a
-                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i class="fab fa-first-order"></i>Orders</a></li>
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
+                                                                class="fab fa-first-order"></i>Orders</a></li>
                                                     <li class="menu-item-5687 aligned-left"><a
-                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i class='fas fa-handshake'></i>Selling Orders</a></li>
+                                                            href="<?php echo e(URL::to('selling-orders')); ?>"><i
+                                                                class='fas fa-handshake'></i>Selling Orders</a></li>
                                                     <li class="menu-item-5284 aligned-left"><a
-                                                            href="<?php echo e(URL::to('buying-orders')); ?>"><i class='fas fa-dollar-sign'></i>Buying Orders</a></li>
+                                                            href="<?php echo e(URL::to('buying-orders')); ?>"><i
+                                                                class='fas fa-dollar-sign'></i>Buying Orders</a></li>
                                                     <li class="menu-item-5342 aligned-left"><a
-                                                            href="<?php echo e(URL::to('earnings')); ?>"><i class='fas fa-money-bill-alt'></i>Earnings</a></li>
+                                                            href="<?php echo e(URL::to('earnings')); ?>"><i
+                                                                class='fas fa-money-bill-alt'></i>Earnings</a></li>
                                                     <li class="menu-item-5283 aligned-left"><a
-                                                            href="<?php echo e(URL::to('payments/history')); ?>"><i class='fab fa-paypal'></i>PayPal
+                                                            href="<?php echo e(URL::to('payments/history')); ?>"><i
+                                                                class='fab fa-paypal'></i>PayPal
                                                             History</a></li>
                                                     <li class="menu-item-5286 aligned-left"><a
                                                             href="<?php echo e(URL::to('logout')); ?>"><i
@@ -1143,7 +1201,6 @@
 
                         }
                         if (response == 'Error') {
-                        
                             done(function(msg) { // You need to add return variable
                                 $('#error').text(msg[
                                     'Error'
@@ -1167,5 +1224,4 @@
 
             }, 'jsonp');
         </script>
-        
         
