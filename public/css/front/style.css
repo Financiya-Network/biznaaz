@@ -2521,6 +2521,12 @@ label.in-label:before {
   font-size: 23px;
 }
 
+.price_sec .form-group input[type="button_s"],.price_sec .form-group input[type="submit_s"] {
+  margin-left: 5px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: xx-small;
+}
+
 .numb {
   float: right;
   color: #a7a5a5;

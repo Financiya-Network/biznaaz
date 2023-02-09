@@ -708,6 +708,249 @@ class GigsController extends Controller {
         if ($request->has('delivery_time') && $request->get('delivery_time') > 0) {
             $query = $query->where('basic_delivery', '<=', $request->get('delivery_time'));
         }
+        if ($request->has('deltime') && $request->get('deltime') > 0) {
+            $query = $query->where('basic_delivery', '<=', $request->get('deltime'));
+        }
+        if ($request->has('langauge') && $request->get('langauge') != '') {
+            $langaugeArray = $request->get('langauge');
+            $query = $query->whereHas('User', function($q) use ($langaugeArray) {
+                $first = array_shift($langaugeArray);
+                $q = $q->where('languages', 'like', '%' . $first . '%');
+                if (count($langaugeArray) > 0) {
+                    foreach ($langaugeArray as $langn) {
+                        $q = $q->orWhere('languages', 'like', '%' . $langn . '%');
+                    }
+                }
+            });  
+        }
+        if ($request->has('langg') && $request->get('langg') != '') {
+            $langaugeArray = $request->get('langg');
+            $query = $query->whereHas('User', function($q) use ($langaugeArray) {
+                $first = ($langaugeArray);
+                $q = $q->where('languages', 'like', '%' . $first . '%');
+                if (($langaugeArray) > 0) {
+                    foreach ($langaugeArray as $langn) {
+                        $q = $q->orWhere('languages', 'like', '%' . $langn . '%');
+                    }
+                }
+            }); 
+        }
+
+        if ($request->has('country_id') && $request->get('country_id') > 0) {
+            $country_id = $request->get('country_id');
+            $query = $query->whereHas('User', function($q) use ($country_id) {
+                $q->where('country_id', $country_id);
+            });
+        }
+        if ($request->has('country') && $request->get('country') > 0) {
+            $country_id = $request->get('country');
+            $query = $query->whereHas('User', function($q) use ($country_id) {
+                $q->where('country_id', $country_id);
+            });
+        }
+
+        $filter_type = 0;
+        if ($request->has('filter_type') && $request->get('filter_type') > 0) {
+            $filter_type = $request->get('filter_type');
+        }
+        switch ($filter_type) {
+            case 1:
+                $query = $query->orderBy('basic_price', 'ASC');
+                break;
+            case 2:
+                $query = $query->orderBy('basic_price', 'DESC');
+                break;
+            case 3:
+                $query = $query->orderBy('id', 'DESC');
+                break;
+            case 4:
+                $query = $query->orderBy('id', 'ASC');
+                break;
+            default:
+                $query = $query->orderBy('basic_price', 'ASC');
+        }
+
+        if ($request->has('page')) {
+            $page = $request->get('page');
+        } else {
+            $page = 1;
+        }
+
+        $limit = 16;
+
+        $allrecords = $query->paginate($limit, ['*'], 'page', $page);
+        // echo '<pre>';
+        // print_r($allrecords);
+        // echo  '</pre>';
+        // die();
+//        echo '<pre>';print_r($allrecords);exit;
+        if ($request->ajax()) {
+            return view('elements.gigs.listing', ['allrecords' => $allrecords, 'page' => $page, 'mysavegigs' => $mysavegigs, 'isajax' => 1]);
+        }
+
+//        if($request->ajax()){
+//            return view('elements.gigs.listing', ['allrecords'=>$allrecords, 'mysavegigs'=>$mysavegigs]);
+//        }
+
+        $catListSlugs = array();
+        if (isset($subcategory_id) && $subcategory_id > 0) {
+            $catList = Category::getSubCategoryList($category_id);
+
+            $gigcatlist = DB::table('gigs')
+                            ->select('subcategory_id', DB::raw('count(*) as total'))
+                            ->where('subcategory_id', $subcategory_id)
+                            ->where('category_id', $category_id)
+                            ->where('basic_price', '!=', 0)
+                            ->where('status', 1)
+                    ->where('pause', 1)
+                            ->whereNull('type_gig')
+                            ->groupBy('subcategory_id')
+                            ->pluck('total', 'subcategory_id')->all();
+        } elseif (isset($category_id) && $category_id > 0) {
+            $catList = Category::getSubCategoryList($category_id);
+            $gigcatlist = DB::table('gigs')
+                            ->select('subcategory_id', DB::raw('count(*) as total'))
+                            ->where('category_id', $category_id)
+                            ->where('basic_price', '!=', 0)
+                            ->where('status', 1)
+                    ->where('pause', 1)
+                            ->whereNull('type_gig')
+                            ->groupBy('subcategory_id')
+                            ->pluck('total', 'subcategory_id')->all();
+        } else {
+            $catListSlugs = Category::where(['status' => 1, 'parent_id' => 0])->orderBy('name', 'ASC')->pluck('slug', 'id')->all();
+            $catList = Category::getCategoryList();
+            $gigcatlist = DB::table('gigs')
+                            ->select('category_id', DB::raw('count(*) as total'))
+                            ->join('categories', 'gigs.category_id', '=', 'categories.id')
+                            ->where('basic_price', '!=', 0)
+                            ->where('gigs.status', 1)
+                    ->where('pause', 1)
+                            ->whereNull('type_gig')
+                            ->groupBy('category_id')
+                            ->pluck('total', 'category_id')->all();
+        }
+       
+        //print_r($catList);exit;
+        $countryLists = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id')->all();
+        
+        return view('gigs.listing', ['title' => $pageTitle, 'allrecords' => $allrecords, 'catList' => $catList, 'gigcatlist' => $gigcatlist, 'page' => $page, 'limit' => $limit, 'countryLists' => $countryLists, 'catInfo' => $catInfo, 'subCatInfo' => $subCatInfo, 'catListSlugs' => $catListSlugs, 'mysavegigs' => $mysavegigs, 'olftitle' => $olftitle]);
+    }
+
+    public function listing1(Request $request, $catslug = null, $subcatslug = null) {
+        $pageTitle = 'View Gigs';
+
+        $query = new Gig();
+        $query = $query->with('User');
+        $query = $query->where('status', 1);
+        $query = $query->where('basic_price', '!=', 0);
+        $query = $query->where('pause', 1);
+        $query = $query->whereNull('type_gig');
+          
+        $avlusers = [];
+        
+        $weekDay = date('w');
+        if($weekDay == 0 || $weekDay == 6){
+            $avl = DB::table('users')->where('hide_weekend', '=', 0)->where('accept_orders', '=', 1)->get()->toArray();
+        }else{
+            $avl = DB::table('users')->where('accept_orders', '=', 1)->get()->toArray();
+        }
+        
+        foreach ($avl as $key) {
+            array_push($avlusers, $key->id);
+        }
+        
+        $str = implode(',', $avlusers);
+        $query = $query->whereIn('user_id', explode(",", $str)); 
+
+        $mysavegigs = $this->getSavedGigs();
+        $olftitle = '';
+        $catInfo = array();
+        if ($catslug) {
+            $catInfo = Category::where('slug', $catslug)->first();
+            if (empty($catInfo)) {
+                return Redirect::to('gigs');
+            } else {
+                $category_id = $catInfo->id;
+                $query = $query->where('category_id', $catInfo->id);
+            }
+        }
+        //echo '<pre>';print_r($catInfo);exit;
+
+        $subCatInfo = array();
+        if ($subcatslug) {
+            $subCatInfo = Category::where('slug', $subcatslug)->first();
+            if (empty($subCatInfo)) {
+                return Redirect::to('gigs/' . $catslug);
+            } else {
+                $subcategory_id = $subCatInfo->id;
+                $query = $query->where('subcategory_id', $subCatInfo->id);
+            }
+        } else
+
+        if ($request->has('subcategory_id') && $request->get('subcategory_id') > 0) {
+            $query = $query->where('subcategory_id', $request->get('subcategory_id'));
+        }
+        if ($request->has('title') && $request->get('title') != '') {
+            $olftitle = $request->get('title');
+           // $query = $query->where('title', 'like', '%' . $request->get('title') . '%');
+            /*$query = $query->whereHas('Category', function($qc) use($request) {
+                $qc = $qc->where('id', '>', 0)
+                ->where('name', 'like', '%' . $request->get('title') . '%')
+                ->orWhere('gigs.title', 'like', '%' . $request->get('title') . '%')
+                ;
+            });*/
+            
+            
+            $avlskills = [];
+            $getskill_ids = DB::table('skills')->select('id')->where('name', 'like', '%' . $request->get('title') . '%')->get();
+            foreach ($getskill_ids as $key) {
+                array_push($avlskills, $key->id);
+            }
+            
+           if (count($getskill_ids) > 0) { 
+                //$langaugeArray = $request->get('langauge');
+                $query = $query->where(function($q) use ($getskill_ids, $request) {
+                    
+                    
+                        foreach ($getskill_ids as $skill_id) {
+                            //$q = $q->orWhere('languages', 'like', '%' . $langn . '%');
+                            $q = $q->whereRaw("FIND_IN_SET('".$skill_id->id."', tags)");
+                            $q->orWhereHas('Category', function($qc) use($request) {
+                $qc = $qc->where('id', '>', 0)
+                ->where('name', 'like', '%' . $request->get('title') . '%')
+                ->orWhere('gigs.title', 'like', '%' . $request->get('title') . '%')
+                ;
+            });
+                        }
+                    
+                });
+                
+            }else{
+                $query = $query
+                ->whereHas('Category', function($qc) use($request) {
+                    $qc = $qc->where('name', 'like', '%' . $request->get('title') . '%')
+                    ->orWhere('gigs.title', 'like', '%' . $request->get('title') . '%')
+                    ;
+                });
+            }
+                
+                
+            }else{
+                $query = $query->whereHas('Category', function($qc) {
+                    $qc = $qc->where('id', '>', 0);
+                });
+            }
+               
+        if ($request->has('price_min') && $request->get('price_min') != '') {
+            $query = $query->where('basic_price', '>=', $request->get('price_min'));
+        }
+        if ($request->has('price_max') && $request->get('price_max') != '') {
+            $query = $query->where('basic_price', '<=', $request->get('price_max'));
+        }
+        if ($request->has('delivery_time') && $request->get('delivery_time') > 0) {
+            $query = $query->where('basic_delivery', '<=', $request->get('delivery_time'));
+        }
         if ($request->has('langauge') && $request->get('langauge') != '') {
             $langaugeArray = $request->get('langauge');
             $query = $query->whereHas('User', function($q) use ($langaugeArray) {
@@ -727,7 +970,7 @@ class GigsController extends Controller {
                 $q->where('country_id', $country_id);
             });
         }
-
+        
         $filter_type = 0;
         if ($request->has('filter_type') && $request->get('filter_type') > 0) {
             $filter_type = $request->get('filter_type');

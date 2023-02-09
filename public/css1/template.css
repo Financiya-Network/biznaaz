@@ -2190,6 +2190,12 @@
     border-color: var(--freeio-theme-color);
     color: #fff;
   }
+
+  .btn-reset {
+    background: #fff;
+    border-color: #fff;
+    color: #928f8f;
+  }
   
   .btn-theme:active, .btn-theme:hover {
     background: var(--freeio-theme-hover-color);
@@ -18263,6 +18269,7 @@
   
   .apus-listing-filter .results-count + [class*="ordering-wrapper"] .filter-in-sidebar-wrapper {
     margin-right: 15px;
+    margin-left: 20px;
   }
   
   .apus-listing-filter .select2-container--default.select2-container .select2-selection--single {

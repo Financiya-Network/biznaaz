@@ -570,7 +570,7 @@
 <style id='freeio-template-inline-css' type='text/css'>
     :root {
         --freeio-theme-color: #1fbec6 ;
-        --freeio-second-color: #1F4B3F;
+        --freeio-second-color: #1d666a;
         --freeio-text-color: #6B7177;
         --freeio-link-color: #222222;
         --freeio-link_hover_color: #1fbec6 ;
