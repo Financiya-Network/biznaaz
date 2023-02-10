@@ -732,6 +732,28 @@ progress {
     max-width: 1200px;
   }
 }
+@media (min-width: 1000px) {
+  .none-d {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .item-right {
+    margin-left: 440px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px)  {
+  .item-right {
+    margin-left: 50px;
+  }
+}
+
+.dm-1{
+  display: flex;
+  align-items: center;
+}
 
 .row {
   --bs-gutter-x: 1.875rem;
@@ -8413,6 +8435,10 @@ fieldset:disabled .btn {
   .float-sm-start {
     float: left !important;
   }
+
+  
+
+  
 
   .float-sm-end {
     float: right !important;
