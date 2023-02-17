@@ -586,7 +586,6 @@ class GigsController extends Controller {
 
     public function listing(Request $request, $catslug = null, $subcatslug = null) {
         $pageTitle = 'View Gigs';
-
         $query = new Gig();
         $query = $query->with('User');
         $query = $query->where('status', 1);
@@ -615,6 +614,7 @@ class GigsController extends Controller {
         $mysavegigs = $this->getSavedGigs();
         $olftitle = '';
         $catInfo = array();
+       
         if ($catslug) {
             $catInfo = Category::where('slug', $catslug)->first();
             if (empty($catInfo)) {
@@ -635,8 +635,7 @@ class GigsController extends Controller {
                 $subcategory_id = $subCatInfo->id;
                 $query = $query->where('subcategory_id', $subCatInfo->id);
             }
-        } else
-
+        } else 
         if ($request->has('subcategory_id') && $request->get('subcategory_id') > 0) {
             $query = $query->where('subcategory_id', $request->get('subcategory_id'));
         }
@@ -649,7 +648,6 @@ class GigsController extends Controller {
                 ->orWhere('gigs.title', 'like', '%' . $request->get('title') . '%')
                 ;
             });*/
-            
             
             $avlskills = [];
             $getskill_ids = DB::table('skills')->select('id')->where('name', 'like', '%' . $request->get('title') . '%')->get();
@@ -735,7 +733,6 @@ class GigsController extends Controller {
                 }
             }); 
         }
-
         if ($request->has('country_id') && $request->get('country_id') > 0) {
             $country_id = $request->get('country_id');
             $query = $query->whereHas('User', function($q) use ($country_id) {
@@ -743,12 +740,28 @@ class GigsController extends Controller {
             });
         }
         if ($request->has('country') && $request->get('country') > 0) {
+           
             $country_id = $request->get('country');
             $query = $query->whereHas('User', function($q) use ($country_id) {
                 $q->where('country_id', $country_id);
             });
         }
+        if ($request->has('categories') && $request->get('categories') != ''){
+            $categories_id = $request->get('categories');
+            $q = Gig::where('subcategory_id',$categories_id)->first(); 
+            $query = $query->whereHas('Category', function($q) use ($categories_id){
+                $q->where('subcategory_id', $categories_id);
+            });
+        }
 
+        if ($request->has('seller_status') && $request->get('seller_status') != ''){
+            $seller_status = $request->get('seller_status');
+            $q = User::where('user_status',$seller_status)->first(); 
+            $query = $query->whereHas('User', function($q) use ($seller_status){
+                $q->where('user_status', $seller_status);
+            });
+        }
+        
         $filter_type = 0;
         if ($request->has('filter_type') && $request->get('filter_type') > 0) {
             $filter_type = $request->get('filter_type');
@@ -778,13 +791,10 @@ class GigsController extends Controller {
 
         $limit = 16;
 
-        $allrecords = $query->paginate($limit, ['*'], 'page', $page);
-        // echo '<pre>';
-        // print_r($allrecords);
-        // echo  '</pre>';
-        // die();
+        $allrecords = $query->paginate($limit, ['*'], 'page', $page);       
 //        echo '<pre>';print_r($allrecords);exit;
         if ($request->ajax()) {
+            
             return view('elements.gigs.listing', ['allrecords' => $allrecords, 'page' => $page, 'mysavegigs' => $mysavegigs, 'isajax' => 1]);
         }
 
@@ -833,8 +843,14 @@ class GigsController extends Controller {
        
         //print_r($catList);exit;
         $countryLists = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id')->all();
-        
-        return view('gigs.listing', ['title' => $pageTitle, 'allrecords' => $allrecords, 'catList' => $catList, 'gigcatlist' => $gigcatlist, 'page' => $page, 'limit' => $limit, 'countryLists' => $countryLists, 'catInfo' => $catInfo, 'subCatInfo' => $subCatInfo, 'catListSlugs' => $catListSlugs, 'mysavegigs' => $mysavegigs, 'olftitle' => $olftitle]);
+        if (!session()->has('user_id')){
+        $subcategories = DB::table('categories')->where(['status'=>1])->where('parent_id',  $category_id)->select(['id','parent_id','name'])->get();  
+         }   
+        // echo "<pre>";
+        // print_r($subcategories);
+        // echo "</pre>";
+        // die;
+        return view('gigs.listing', ['title' => $pageTitle, 'allrecords' => $allrecords, 'catList' => $catList, 'gigcatlist' => $gigcatlist, 'page' => $page, 'limit' => $limit, 'countryLists' => $countryLists, 'catInfo' => $catInfo, 'subCatInfo' => $subCatInfo, 'catListSlugs' => $catListSlugs, 'mysavegigs' => $mysavegigs, 'olftitle' => $olftitle,'subcategories' => $subcategories]);
     }
 
     public function listing1(Request $request, $catslug = null, $subcatslug = null) {

@@ -163,98 +163,47 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                        <a class="nav-link dropdown-toggle subcat" href="#" id="navbarDropdown"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             Services Options
                                         </a>
                                         <ul class="dropdown-menu scroll">
                                             <div class="container con-bt ">
-                                                <div class="headding"><b>Website type</b> </div>
+                                                <?php if(isset($catInfo) && !empty($catInfo)): ?>
+                                                    <div class="headding"><b><?php echo e($catInfo->name); ?></b> </div>
+                                                <?php else: ?>
+                                                    Refine Result
+                                                <?php endif; ?>
                                                 <li class="dropdown menu-item-5194 aligned-left con-size">
                                                     <div class="flex-parent-element">
-                                                        <div class="flex-child-element magenta">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">E-Commerce</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-child-element green">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Business promotion</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown menu-item-5194 aligned-left con-size">
-                                                    <div class="flex-parent-element">
-                                                        <div class="flex-child-element magenta">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Product & service
-                                                                    marketing</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-child-element green">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Blog</label>
-                                                            </div>
+                                                        <div class="flex-child-element magenta" id="subcat">
+                                                         <input type="hidden" for="subcat" class="cat" name="cat" value="1">
+                                                        <?php if(!session()->has('user_id')): ?>
+                                                            <?php if($subcategories): ?>
+                                                                <?php $__currentLoopData = $subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                    <div class="form-check form-check-inline col-4">
+                                                                        <input class="form-check-input categories"
+                                                                            type="checkbox" id="test<?php echo e($cat->id); ?>"
+                                                                            value="<?php echo e($cat->id); ?>" name="categories">
+                                                                        <label class="form-check-label"
+                                                                            for="test<?php echo e($cat->id); ?>"><?php echo $cat->name; ?></label>
+                                                                    </div>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php endif; ?>
+                                                            <?php endif; ?>
                                                         </div>
                                                     </div>
+                                                    <div class="show-more" style="cursor: pointer;">(Show More)</div>
                                                 </li>
                                             </div>
                                             <div class="container con-bt">
-                                                <div class="headding"><b>Platform & tool</b> </div>
-                                                <li class="dropdown menu-item-5194 aligned-left con-size">
-                                                    <div class="flex-parent-element">
-                                                        <div class="flex-child-element magenta">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Wordpress</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-child-element green">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Figma</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown menu-item-5194 aligned-left con-size">
-                                                    <div class="flex-parent-element">
-                                                        <div class="flex-child-element magenta">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Adobe Photoshop</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-child-element green">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Adobe XD</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                <div class="form-group row">
+                                                    <button type="reset" value="Apply"
+                                                        class="btn-submit btn-sm w-25 btn btn-reset "
+                                                        onclick="resetfilter();" style="margin-right: 200px;">Clear
+                                                        All</button>
+                                                </div>
                                             </div>
                                         </ul>
                                     </li>
@@ -265,50 +214,7 @@
                                             Seller Details
                                         </a>
                                         <ul class="dropdown-menu scroll">
-                                            <div class="container con-bt">
-                                                <div class="headding"><b> Seller Level</b> </div>
-                                                <li class="dropdown menu-item-5194 aligned-left con-size">
-                                                    <div class="flex-parent-element">
-                                                        <div class="flex-child-element magenta">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label" for="inlineCheckbox1">Top
-                                                                    Rated
-                                                                    Seller</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-child-element green">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Lavel Two</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown menu-item-5194 aligned-left con-size">
-                                                    <div class="flex-parent-element">
-                                                        <div class="flex-child-element magenta">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label"
-                                                                    for="inlineCheckbox1">Lavel One</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-child-element green">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="inlineCheckbox1" value="option1">
-                                                                <label class="form-check-label" for="inlineCheckbox1">New
-                                                                    Seller</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </div>
+                                            
                                             <div class="container con-bt">
                                                 <div class="headding"><b>Seller Speaks</b> </div>
                                                 <?php global $searchLanguageArray; ?>
@@ -465,9 +371,9 @@
                                                 <div class="row items-wrapper-grid" data-rows="2">
                                                     <div class="item-service col-md-4 col-lg-4 col-xl-auto col-12">
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input deltimesub" type="checkbox"
-                                                                id="cheak-input" name="subcategory_id">
-                                                            <label class="form-check-label" for="cheak-input">Online
+                                                            <input class="form-check-input online_user" type="checkbox"
+                                                                id="online_user" name="seller_status" value="Online">
+                                                            <label class="form-check-label" for="online_user">Online
                                                                 sellers</label>
                                                         </div>
                                                     </div>
@@ -545,6 +451,15 @@
             $(".deltime").click('change', function(event) {
                 updateresult();
             });
+            $(".categories").click('change', function(event) {
+                updateresult();
+            });
+            $(".online_user").click('change', function(event) {
+                updateresult();
+            });
+            $(".subcat").click('change', function(event) {
+                updateresult();
+            });
             $(".deltimesub").click('change', function(event) {
                 updateresult();
             });
@@ -596,6 +511,7 @@
                 },
                 success: function(result) {
                     $('#loadgigs').html(result);
+                    $('#subcat').html(result);
                 }
             });
         }
@@ -603,6 +519,24 @@
         function clearfilter() {
             window.location.href = window.location.protocol;
         }
+
+        function resetfilter() {
+            $('input:checkbox').removeAttr('checked');
+            updateresult();
+           
+        }
+
+    </script>
+    <script>
+        $(".show-more").click(function() {
+            if ($(".text").hasClass("show-more-height")) {
+                $(this).text("(Show Less)");
+            } else {
+                $(this).text("(Show More)");
+            }
+
+            $(".text").toggleClass("show-more-height");
+        });
     </script>
 <?php $__env->stopSection(); ?>
 
