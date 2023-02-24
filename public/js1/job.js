@@ -604,7 +604,7 @@
                                 },
                                 dataType: 'json',
                                 success: function (json) {
-                                    console.log(json);
+                                    // console.log(json);
                                     $this.closest('.twitter-typeahead').removeClass('loading');
                                     $this.closest('.has-suggestion').removeClass('active');
                                     return processAsync(json);
@@ -619,7 +619,7 @@
                             ].join('\n'),
                             suggestion: function (data) {
 
-                                console.log(data);
+                                // console.log(data);
                                 
                                     return '<a href="" class="media autocompleate-media">\
                                     <div class="media-left media-middle">\

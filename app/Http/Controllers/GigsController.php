@@ -617,13 +617,14 @@ class GigsController extends Controller {
        
         if ($catslug) {
             $catInfo = Category::where('slug', $catslug)->first();
+            
             if (empty($catInfo)) {
                 return Redirect::to('gigs');
             } else {
                 $category_id = $catInfo->id;
                 $query = $query->where('category_id', $catInfo->id);
             }
-        }
+        }   
         //echo '<pre>';print_r($catInfo);exit;
 
         $subCatInfo = array();
@@ -688,8 +689,6 @@ class GigsController extends Controller {
                     $qc = $qc->where('id', '>', 0);
                 });
             }
-        
-            
         
         
         
@@ -794,7 +793,7 @@ class GigsController extends Controller {
         $allrecords = $query->paginate($limit, ['*'], 'page', $page);       
 //        echo '<pre>';print_r($allrecords);exit;
         if ($request->ajax()) {
-            
+
             return view('elements.gigs.listing', ['allrecords' => $allrecords, 'page' => $page, 'mysavegigs' => $mysavegigs, 'isajax' => 1]);
         }
 

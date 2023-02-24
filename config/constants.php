@@ -10,7 +10,8 @@ if (!isset($_SESSION['Config']['language'])) {
 
 define('SITE_TITLE', $siteSetting->site_title);
 define('TITLE_FOR_LAYOUT', ' :: ' . SITE_TITLE);
-define('HTTP_PATH', 'https://biznaaz.com');
+// define('HTTP_PATH', 'https://biznaaz.com');
+define('HTTP_PATH', 'http://localhost/biznaaz');
 define("BASE_PATH", $_SERVER['DOCUMENT_ROOT']);
 define('MAIL_FROM', 'smtp@biznaaz.com');
 define('CURR', '$');

@@ -571,7 +571,7 @@
                 },
                 success: function(result) {
                     $('#loadgigs').html(result);
-                    $('#subcat').html(result);
+                    
                 }
             });
         }
