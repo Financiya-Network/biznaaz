@@ -592,8 +592,7 @@ class GigsController extends Controller {
         $query = $query->where('basic_price', '!=', 0);
         $query = $query->where('pause', 1);
         $query = $query->whereNull('type_gig');
-        
-        
+         
         
         $avlusers = [];
         
@@ -610,14 +609,12 @@ class GigsController extends Controller {
         
         $str = implode(',', $avlusers);
         $query = $query->whereIn('user_id', explode(",", $str)); 
-
         $mysavegigs = $this->getSavedGigs();
         $olftitle = '';
         $catInfo = array();
        
         if ($catslug) {
             $catInfo = Category::where('slug', $catslug)->first();
-            
             if (empty($catInfo)) {
                 return Redirect::to('gigs');
             } else {
@@ -752,6 +749,13 @@ class GigsController extends Controller {
                 $q->where('subcategory_id', $categories_id);
             });
         }
+        if ($request->has('allcategories') && $request->get('allcategories') != ''){
+            $allcategories_id = $request->get('allcategories');
+            $q = Gig::where('category_id',$allcategories_id)->first(); 
+            $query = $query->whereHas('Category', function($q) use ($allcategories_id){
+                $q->where('category_id', $allcategories_id);
+            });
+        }
 
         if ($request->has('seller_status') && $request->get('seller_status') != ''){
             $seller_status = $request->get('seller_status');
@@ -790,10 +794,9 @@ class GigsController extends Controller {
 
         $limit = 16;
 
-        $allrecords = $query->paginate($limit, ['*'], 'page', $page);       
+        $allrecords = $query->paginate($limit, ['*'], 'page', $page);      
 //        echo '<pre>';print_r($allrecords);exit;
         if ($request->ajax()) {
-
             return view('elements.gigs.listing', ['allrecords' => $allrecords, 'page' => $page, 'mysavegigs' => $mysavegigs, 'isajax' => 1]);
         }
 
@@ -843,13 +846,14 @@ class GigsController extends Controller {
         //print_r($catList);exit;
         $countryLists = DB::table('countries')->where('status', 1)->orderBy('name', 'ASC')->pluck('name', 'id')->all();
         if (!session()->has('user_id')){
-        $subcategories = DB::table('categories')->where(['status'=>1])->where('parent_id',  $category_id)->select(['id','parent_id','name'])->get();  
-         }   
-        // echo "<pre>";
-        // print_r($subcategories);
-        // echo "</pre>";
-        // die;
-        return view('gigs.listing', ['title' => $pageTitle, 'allrecords' => $allrecords, 'catList' => $catList, 'gigcatlist' => $gigcatlist, 'page' => $page, 'limit' => $limit, 'countryLists' => $countryLists, 'catInfo' => $catInfo, 'subCatInfo' => $subCatInfo, 'catListSlugs' => $catListSlugs, 'mysavegigs' => $mysavegigs, 'olftitle' => $olftitle,'subcategories' => $subcategories]);
+            $subcategories = DB::table('categories')->where(['status'=>1])->where('parent_id',  $category_id)->select(['id','parent_id','name'])->get(); 
+            
+            return view('gigs.listing', ['title' => $pageTitle, 'allrecords' => $allrecords, 'catList' => $catList, 'gigcatlist' => $gigcatlist, 'page' => $page, 'limit' => $limit, 'countryLists' => $countryLists, 'catInfo' => $catInfo, 'subCatInfo' => $subCatInfo, 'catListSlugs' => $catListSlugs, 'mysavegigs' => $mysavegigs, 'olftitle' => $olftitle,'subcategories' => $subcategories]);
+         }else{  
+            $categories = Db::table('categories')->where(['parent_id'=>0])->select(['id','parent_id','name'])->get();
+          
+            return view('gigs.listing', ['title' => $pageTitle, 'allrecords' => $allrecords, 'catList' => $catList, 'gigcatlist' => $gigcatlist, 'page' => $page, 'limit' => $limit, 'countryLists' => $countryLists, 'catInfo' => $catInfo, 'subCatInfo' => $subCatInfo, 'catListSlugs' => $catListSlugs, 'mysavegigs' => $mysavegigs, 'olftitle' => $olftitle, 'categories' => $categories]);
+         }
     }
 
     public function listing1(Request $request, $catslug = null, $subcatslug = null) {
@@ -1162,16 +1166,14 @@ class GigsController extends Controller {
     public function myofferedgig() {
         $pageTitle = 'My Offered Gigs';
 
-        $allrecords = Gig::where('user_id', Session::get('user_id'))->where('type_gig', 'offer')->orderBy('id', 'DESC')->get();
+        $allrecords = Gig::where('  ', Session::get('user_id'))->where('type_gig', 'offer')->orderBy('id', 'DESC')->get();
 
         return view('gigs.myofferedgig', ['title' => $pageTitle, 'allrecords' => $allrecords]);
     }
 
-    public function detail(Request $request, $slug = null) {
+    public function detail(Request $request, $slug = null , $catslug = null) {
         $pageTitle = 'View Gig Detail';
-
         $recordInfo = Gig::where('slug', $slug)->first();
-        
         if(isset($recordInfo->id)){
             $gigCount = DB::table('myorders')->where('gig_id', $recordInfo->id)->where('status', 1)->count();
             //echo '<pre>';print_r($recordInfo->Category);exit;
@@ -1182,7 +1184,61 @@ class GigsController extends Controller {
             if (isset($recordInfo->User->slug)) {
                 $userInfo = User::where('slug', $recordInfo->User->slug)->first();
             }
+            if (isset($recordInfo)) {             
+                $gigcatlist = DB::table('gigs')
+                            ->join('images', 'gigs.id', '=', 'images.gig_id')
+                            ->join('users', 'gigs.user_id', '=', 'users.id')
+                            ->select('gigs.*','images.name','users.*')     
+                            ->get();
+                            
+            }
+
+            $pageTitle = $recordInfo->title;
     
+            $query = new Review();
+            $query = $query->with('Myorder');
+            $query = $query->where('status', 1);
+    
+            $gig_id = $recordInfo->id;
+            $query = $query->whereHas('Myorder', function($q) use ($gig_id) {
+                $q->where('gig_id', $gig_id)->where('as_a', 'seller');
+            });
+    
+            $gigreviews = $query->orderBy('id', 'DESC')->limit(10)->get();
+    
+            $date1 = date('Y-m-d', strtotime("-30 days"));
+            $sellingOrders = DB::table('myorders')
+                    ->select('seller_id', 'id', DB::raw('sum(total_amount) as total_sum'))
+                    ->where('seller_id', '=', Session::get('user_id'))
+                    ->where('created_at', '>=', $date1)
+                    ->get();
+    
+            $mysavegigs = $this->getSavedGigs();
+          
+            $topRatedInfo = DB::table('reviews')->where(['otheruser_id' => Session::get('user_id')])->where('rating', '>', 4)->pluck(DB::raw('count(*) as total'), 'id')->all();
+        
+            return view('gigs.detail', ['gigCount' => $gigCount, 'title' => $pageTitle, 'recordInfo' => $recordInfo, 'userInfo' => $userInfo, 'topRatedInfo' => $topRatedInfo, 'sellingOrders' => $sellingOrders, 'gigreviews' => $gigreviews,'gigcatlist' => $gigcatlist, 'mysavegigs' => $mysavegigs]);
+        }else{
+            Session::flash('error_message', "Gig not found!");
+            return Redirect::to('gigs');
+        }
+            
+    }
+    public function detail1(Request $request, $slug = null) {
+        $pageTitle = 'View Gig Detail';
+        $recordInfo = Gig::where('slug', $slug)->first();
+        if(isset($recordInfo->id)){
+            $gigCount = DB::table('myorders')->where('gig_id', $recordInfo->id)->where('status', 1)->count();
+            //echo '<pre>';print_r($recordInfo->Category);exit;
+            if (empty($recordInfo)) {
+                return Redirect::to('gigs/management');
+            }
+            $userInfo = array();
+            if (isset($recordInfo->User->slug)) {
+                $userInfo = User::where('slug', $recordInfo->User->slug)->first();
+            }
+
+   
             $pageTitle = $recordInfo->title;
     
             $query = new Review();
@@ -1204,7 +1260,10 @@ class GigsController extends Controller {
                     ->get();
     
             $topRatedInfo = DB::table('reviews')->where(['otheruser_id' => Session::get('user_id')])->where('rating', '>', 4)->pluck(DB::raw('count(*) as total'), 'id')->all();
-    
+            // echo "<pre>";
+            // print_r($userInfo);
+            // echo "</pre>";
+            // die;
             return view('gigs.detail', ['gigCount' => $gigCount, 'title' => $pageTitle, 'recordInfo' => $recordInfo, 'userInfo' => $userInfo, 'topRatedInfo' => $topRatedInfo, 'sellingOrders' => $sellingOrders, 'gigreviews' => $gigreviews]);
         }else{
             Session::flash('error_message', "Gig not found!");
@@ -1212,7 +1271,6 @@ class GigsController extends Controller {
         }
             
     }
-    
     public function addwaitlist(Request $request) {
         
         $user_id = $request->get('user_id');

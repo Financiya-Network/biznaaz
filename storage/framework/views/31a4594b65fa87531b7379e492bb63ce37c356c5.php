@@ -178,23 +178,67 @@
                                                 <li class="dropdown menu-item-5194 aligned-left con-size">
                                                     <div class="flex-parent-element">
                                                         <div class="flex-child-element magenta" id="subcat">
-                                                         <input type="hidden" for="subcat" class="cat" name="cat" value="1">
-                                                        <?php if(!session()->has('user_id')): ?>
-                                                            <?php if($subcategories): ?>
-                                                                <?php $__currentLoopData = $subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                    <div class="form-check form-check-inline col-4">
-                                                                        <input class="form-check-input categories"
-                                                                            type="checkbox" id="test<?php echo e($cat->id); ?>"
-                                                                            value="<?php echo e($cat->id); ?>" name="categories">
-                                                                        <label class="form-check-label"
-                                                                            for="test<?php echo e($cat->id); ?>"><?php echo $cat->name; ?></label>
+                                                            <input type="hidden" for="subcat" class="cat"
+                                                                name="cat" value="1">
+
+                                                            <?php if(!session()->has('user_id')): ?>
+                                                                <?php if($subcategories): ?>
+                                                                    <div class="text_1 show-more-height">
+                                                                        <div class="text-section">
+                                                                            <div class="row">
+                                                                                <?php $__currentLoopData = $subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                    <div
+                                                                                        class="col-md-6 col-11 mx-auto px-4 mt-2">
+                                                                                        <div
+                                                                                            class="form-check form-check-inline col-4">
+                                                                                            <input
+                                                                                                class="form-check-input categories"
+                                                                                                type="checkbox"
+                                                                                                id="test<?php echo e($cat->id); ?>"
+                                                                                                value="<?php echo e($cat->id); ?>"
+                                                                                                name="categories">
+                                                                                            <label class="form-check-label"
+                                                                                                for="test<?php echo e($cat->id); ?>"><?php echo $cat->name; ?></label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                    <div class="show-more">(Show More)</div>
+                                                                <?php endif; ?>
                                                             <?php endif; ?>
+                                                            <?php if(session()->has('user_id')): ?>
+                                                                <?php if($categories): ?>
+                                                                    <div class="text_1 show-more-height">
+                                                                        <div class="text-section">
+                                                                            <div class="row">
+                                                                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                    <div
+                                                                                        class="col-md-6 col-11 mx-auto px-4 mt-2">
+                                                                                        <div
+                                                                                            class="form-check form-check-inline col-4">
+                                                                                            <input
+                                                                                                class="form-check-input allcategories"
+                                                                                                type="checkbox"
+                                                                                                id="test<?php echo e($cat->id); ?>"
+                                                                                                value="<?php echo e($cat->id); ?>"
+                                                                                                name="allcategories">
+                                                                                            <label class="form-check-label"
+                                                                                                for="test<?php echo e($cat->id); ?>"><?php echo $cat->name; ?></label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="show-more">(Show More)</div>
+                                                                <?php endif; ?>
                                                             <?php endif; ?>
+
                                                         </div>
                                                     </div>
-                                                    <div class="show-more" style="cursor: pointer;">(Show More)</div>
+                                                    
                                                 </li>
                                             </div>
                                             <div class="container con-bt">
@@ -454,6 +498,9 @@
             $(".categories").click('change', function(event) {
                 updateresult();
             });
+            $(".allcategories").click('change', function(event) {
+                updateresult();
+            });
             $(".online_user").click('change', function(event) {
                 updateresult();
             });
@@ -511,7 +558,7 @@
                 },
                 success: function(result) {
                     $('#loadgigs').html(result);
-                    
+
                 }
             });
         }
@@ -523,21 +570,47 @@
         function resetfilter() {
             $('input:checkbox').removeAttr('checked');
             updateresult();
-           
-        }
 
+        }
     </script>
     <script>
         $(".show-more").click(function() {
-            if ($(".text").hasClass("show-more-height")) {
+            if ($(".text_1").hasClass("show-more-height")) {
                 $(this).text("(Show Less)");
             } else {
                 $(this).text("(Show More)");
             }
 
-            $(".text").toggleClass("show-more-height");
+            $(".text_1").toggleClass("show-more-height");
         });
     </script>
+    <style>
+        .text_1 {
+            margin-bottom: 5px;
+            position: relative;
+            display: block;
+            height: 450px;
+        }
+
+        .show-more {
+            color: #777;
+            position: relative;
+            font-size: 12px;
+            padding-top: 0;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .show-more:hover {
+            color: #1779dd;
+        }
+
+        .show-more-height {
+            height: 190px;
+            overflow: hidden;
+            width: 100%;
+        }
+    </style>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

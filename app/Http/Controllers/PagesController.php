@@ -34,6 +34,10 @@ class PagesController extends Controller {
             ]);
 
             $name = $request->get('name');
+            echo "<pre>";
+            print_r($name);
+            echo "</pre>";
+            die;
             $email = $request->get('email');
             $contact = $request->get('contact');
             $message = nl2br($request->get('message'));

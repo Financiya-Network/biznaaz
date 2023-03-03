@@ -560,13 +560,16 @@ class UsersController extends Controller {
         $mygigs  = Gig::where(['user_id' => Session::get('user_id')])->orderBy('id', 'DESC')->limit(5)->get();
 
         $users = Message::where('sender_id', Session::get('user_id'))->orWhere('receiver_id', Session::get('user_id'))->orderBy('id', 'ASC')->get();
-       
         $userValue = array();
         $userData = array();
         
         if ($users) { 
             $i = 0;
             foreach ($users as $user) { 
+                echo "<pre>";
+                print_r(123);
+                echo "</pre>";
+                die;
                 $userData[$i]['id'] = $user->id;
                 $userData[$i]['message'] = $user->message;
                 if ($user->sender_id == Session::get('user_id') && $user->Receiver) {       
@@ -589,7 +592,6 @@ class UsersController extends Controller {
                 $i++;
             }
         }
-
         return view('users.dashboard', ['title' => $pageTitle, 'recordInfo' => $recordInfo, 'userData' => $userValue, 'skillsList' => $skillsList, 'countryLists' => $countryLists, 'qualificationsLists' => $qualificationsLists, 'latestservices' => $latestservices, 'myorders' => $myorders, 'mygigs' => $mygigs]);
     }
     public function dashboard1() {
@@ -797,6 +799,7 @@ class UsersController extends Controller {
     }
 
     public function publicprofile($slug) {
+       
         $recordInfo = User::where('slug', $slug)->first();
         if (!$recordInfo) {
             return Redirect::to('dashboard');
@@ -818,7 +821,7 @@ class UsersController extends Controller {
             ->get();
 
         $topRatedInfo = DB::table('reviews')->where(['otheruser_id' => Session::get('user_id')])->where('rating', '>', 4)->pluck(DB::raw('count(*) as total'), 'id')->all();
-
+        
         return view('users.publicprofile', ['title' => $pageTitle, 'recordInfo' => $recordInfo, 'topRatedInfo' => $topRatedInfo, 'sellingOrders' => $sellingOrders, 'skillsList' => $skillsList, 'countryLists' => $countryLists, 'qualificationsLists' => $qualificationsLists, 'mygigs' => $mygigs, 'myreviews' => $myreviews, 'mysavegigs' => $mysavegigs]);
     }
 

@@ -107,15 +107,15 @@
                                                     data-widget_type="apus_element_service_search_form.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="widget-listing-search-form   horizontal">
-                                                           {{ Form::open(['url' => url('gigs'), 'method' => 'post', 'class' => 'searchform form-search filter-listing-form', 'id' => 'searchform']) }}
+                                                            {{ Form::open(['url' => url('gigs'), 'method' => 'post', 'class' => 'searchform form-search filter-listing-form', 'id' => 'searchform']) }}
                                                             <meta name="csrf-token" content="{{ csrf_token() }}">
                                                             <div class="search-form-inner">
                                                                 <div class="main-inner clearfix">
                                                                     <div class="content-main-inner">
                                                                         <div
                                                                             class="row row-20 align-items-center list-fileds">
-                                                                            <div class="item-column col-12 col-md-6 col-lg-6  has-icon"
-                                                                               >
+                                                                            <div
+                                                                                class="item-column col-12 col-md-6 col-lg-6  has-icon">
                                                                                 <div class="form-group form-group-title  ">
                                                                                     <div
                                                                                         class="form-group-inner inner has-icon">
@@ -387,9 +387,9 @@
                                                                             </a>
                                                                             <!--
 
-                               --><a id="slider-1-slide-1-layer-1" class="rs-layer rs-pxl-1" href=""
-                                                                                target="_self" data-type="image"
-                                                                                data-rsp_ch="on"
+                                                           --><a id="slider-1-slide-1-layer-1" class="rs-layer rs-pxl-1"
+                                                                                href="" target="_self"
+                                                                                data-type="image" data-rsp_ch="on"
                                                                                 data-xy="xo:525px,525px,375px,217px;yo:397px,397px,247px,169px;"
                                                                                 data-text="w:normal;s:20,20,20,13;l:0,0,0,17;"
                                                                                 data-dim="w:368px,368px,368px,300px;h:170px,170px,170px,139px;"
@@ -407,7 +407,7 @@
                                                                             </a>
                                                                             <!--
 
-                               --><a id="slider-1-slide-1-layer-2" class="rs-layer rs-pxl-1"
+                                                           --><a id="slider-1-slide-1-layer-2" class="rs-layer rs-pxl-1"
                                                                                 href="https://demoapus1.com/freeio/freelancer/"
                                                                                 target="_self" data-type="image"
                                                                                 data-rsp_ch="on"
@@ -427,7 +427,7 @@
                                                                                     data-no-retina>
                                                                             </a>
                                                                             <!--
-                        -->
+                                                    -->
                                                                         </rs-slide>
                                                                     </rs-slides>
                                                                 </rs-module>
@@ -682,14 +682,15 @@
                                                                                         data-img="" data-logo="">
                                                                                         <div class="position-relative">
                                                                                             <div class="service-image">
-                                                                                                <a href="">
+                                                                                                <a
+                                                                                                    href="{{ URL::to('gigs/' . $cat->slug) }}">
                                                                                                     <div
                                                                                                         class="image-wrapper">
                                                                                                         {{ HTML::image('public/files/categories/full/' . $cat->home_image, SITE_TITLE, ['style' => 'width:400px;height:260px']) }}
                                                                                                     </div>
                                                                                                 </a>
                                                                                             </div>
-                                                                                            <a href="javascript:void(0)"
+                                                                                            {{-- <a href="javascript:void(0)"
                                                                                                 class="btn-add-service-favorite"
                                                                                                 data-service_id="5556"
                                                                                                 data-nonce="65b95b3098"
@@ -698,7 +699,7 @@
                                                                                                 <i
                                                                                                     class="flaticon-like"></i>
                                                                                                 <span>Save</span>
-                                                                                            </a>
+                                                                                            </a> --}}
                                                                                         </div>
 
                                                                                         <div class="service-information">
@@ -713,14 +714,14 @@
                                                                                             </h2>
                                                                                             {{-- <h3>{!! $cat->name !!}</h3> --}}
 
-                                                                                            <div class="rating-reviews">
+                                                                                            {{-- <div class="rating-reviews">
                                                                                                 <i class="fa fa-star"></i>
                                                                                                 <span
                                                                                                     class="rating">4.5</span>
                                                                                                 <span class="text">(2
                                                                                                     Reviews)</span>
-                                                                                            </div>
-                                                                                            <div
+                                                                                            </div> --}}
+                                                                                            {{-- <div
                                                                                                 class="info-bottom d-flex align-items-center">
                                                                                                 <div
                                                                                                     class="service-author">
@@ -754,7 +755,7 @@
                                                                                                                         class="woocommerce-Price-currencySymbol">&#36;</span>128</bdi></span></span>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                            </div>
+                                                                                            </div> --}}
                                                                                         </div>
                                                                                     </article><!-- #post-## -->
                                                                                 </div>
@@ -1073,20 +1074,18 @@
                                                         <div class="widget-freelancers carousel ">
                                                             <div class="top-widget-info d-md-flex align-items-end">
                                                                 <div class="inner-left">
-                                                                    <h2 class="widget-title">Highest Rated
-                                                                        Freelancers
-                                                                    </h2>
+                                                                    <h2 class="widget-title">Freelancers</h2>
                                                                     <div class="des">Lorem ipsum dolor sit
                                                                         amet,
                                                                         consectetur.</div>
                                                                 </div>
-                                                                <div class="view_more ms-auto">
+                                                                {{-- <div class="view_more ms-auto">
                                                                     <a href=""
                                                                         class="btn btn-small btn-theme-rgba10 radius-50">
                                                                         All Freelancers<i
                                                                             class="flaticon-right-up next"></i>
                                                                     </a>
-                                                                </div>
+                                                                </div> --}}
                                                             </div>
                                                             <div class="widget-content">
                                                                 <div class="slick-carousel " data-items="4"
@@ -1099,98 +1098,139 @@
                                                                     data-pagination="true" data-nav="false"
                                                                     data-rows="1" data-infinite="true"
                                                                     data-autoplay="true">
-                                                                    <div class="item">
-                                                                        <article id="post-4100"
-                                                                            class="map-item freelancer-card post-4100 freelancer type-freelancer status-publish has-post-thumbnail hentry location-new-york freelancer_category-digital-marketing freelancer_category-graphics-design freelancer_tag-design-writing freelancer_tag-html5 freelancer_tag-prototyping"
-                                                                            data-latitude="" data-longitude=""
-                                                                            data-img="https://demoapus1.com/freeio/wp-content/uploads/2022/10/12-150x150.jpg">
-                                                                            <div class="freelancer-item position-relative">
-                                                                                <div
-                                                                                    class="freelancer-logo d-flex align-items-center">
-                                                                                    <a href="">
-                                                                                        <img width="150" height="150"
-                                                                                            src="https://demoapus1.com/freeio/wp-content/uploads/2022/10/12-150x150.jpg"
-                                                                                            class="attachment-thumbnail size-thumbnail wp-post-image"
-                                                                                            alt=""
-                                                                                            decoding="async"
-                                                                                            loading="lazy"
-                                                                                            srcset="https://demoapus1.com/freeio/wp-content/uploads/2022/10/12-150x150.jpg 150w, https://demoapus1.com/freeio/wp-content/uploads/2022/10/12-300x300.jpg 300w, https://demoapus1.com/freeio/wp-content/uploads/2022/10/12-410x410.jpg 410w, https://demoapus1.com/freeio/wp-content/uploads/2022/10/12.jpg 420w"
-                                                                                            sizes="(max-width: 150px) 100vw, 150px" />
-                                                                                    </a>
-
-                                                                                </div>
-                                                                                <a href="javascript:void(0)"
-                                                                                    class="btn-add-freelancer-favorite"
-                                                                                    data-freelancer_id="4100"
-                                                                                    data-nonce="ec30db77ea"
-                                                                                    data-toggle="tooltip"
-                                                                                    title="Add Favorite">
-                                                                                    <i class="flaticon-like"></i>
-                                                                                    <span>Save</span>
-                                                                                </a>
-                                                                                <div class="inner-bottom">
-                                                                                    <div class="text-center">
-                                                                                        <h2 class="freelancer-title">
-                                                                                            <a href=""
-                                                                                                rel="bookmark">
-                                                                                                Agent Pakulla </a>
-                                                                                        </h2>
-
-                                                                                        <div class="freelancer-job">
-                                                                                            Nursing Assistant </div>
-                                                                                        <div class="rating-reviews">
-                                                                                            <i class="fa fa-star"></i>
-                                                                                            <span
-                                                                                                class="rating text-link">4.0</span>
-                                                                                            <span class="text">(1
-                                                                                                Review)</span>
-                                                                                        </div>
-
-                                                                                        <div class="freelancer-tags">
-                                                                                            <a class="tag-freelancer"
-                                                                                                href="">Design
-                                                                                                Writing</a>
-                                                                                            <a class="tag-freelancer"
-                                                                                                href="https://demoapus1.com/freeio/freelancer-tag/html5/">HTML5</a>
-
-                                                                                            <span
-                                                                                                class="count-more-tags">+1</span>
-
-                                                                                        </div>
-                                                                                    </div>
+                                                                    @foreach ($userinfo as $allrecord)
+                                                                        @if (isset($allrecord))
+                                                                            <div class="item">
+                                                                                <article id="post-4100"
+                                                                                    class="map-item freelancer-card post-4100 freelancer type-freelancer status-publish has-post-thumbnail hentry location-new-york freelancer_category-digital-marketing freelancer_category-graphics-design freelancer_tag-design-writing freelancer_tag-html5 freelancer_tag-prototyping"
+                                                                                    data-latitude="" data-longitude=""
+                                                                                    data-img="https://demoapus1.com/freeio/wp-content/uploads/2022/10/12-150x150.jpg">
                                                                                     <div
-                                                                                        class="freelancer-metas d-flex align-items-center">
-                                                                                        <div
-                                                                                            class="freelancer-location with-title">
-                                                                                            <strong>Location:</strong>
-                                                                                            <a
-                                                                                                href="https://demoapus1.com/freeio/location/new-york/">New
-                                                                                                York</a>
-                                                                                        </div>
-                                                                                        <div
-                                                                                            class="freelancer-salary with-title">
-                                                                                            <strong>Rate:</strong>
-                                                                                            <span><span
-                                                                                                    class="woocommerce-Price-amount amount"><bdi><span
-                                                                                                            class="woocommerce-Price-currencySymbol">&#36;</span>60</bdi></span>
-                                                                                                - <span
-                                                                                                    class="woocommerce-Price-amount amount"><bdi><span
-                                                                                                            class="woocommerce-Price-currencySymbol">&#36;</span>65</bdi></span>
-                                                                                                / hr</span>
-                                                                                        </div>
-                                                                                    </div>
+                                                                                        class="freelancer-item position-relative">
 
-                                                                                    <div class="freelancer-link">
-                                                                                        <a href=""
-                                                                                            class="btn btn-theme-rgba10 w-100 radius-sm">View
-                                                                                            Profile <i
-                                                                                                class="next flaticon-right-up"></i></a>
+                                                                                        <div
+                                                                                            class="freelancer-logo d-flex align-items-center">
+                                                                                            @if ($allrecord->profile_image)
+                                                                                                <a
+                                                                                                    href="{{ URL::to('public-profile/' . $allrecord->slug) }}">
+                                                                                                    {{ HTML::image(PROFILE_SMALL_DISPLAY_PATH . $allrecord->profile_image, SITE_TITLE, ['id' => 'pimage']) }}
+                                                                                                </a>
+                                                                                            @else
+                                                                                                <a
+                                                                                                    href="{{ URL::to('public-profile/' . $allrecord->slug) }}">{{ HTML::image('public/img/front/user-img.png', SITE_TITLE, ['id' => 'pimage']) }}</a>
+                                                                                            @endif
+                                                                                        </div>
+                                                                                        {{-- <a href="javascript:void(0)"
+                                                                                            class="btn-add-freelancer-favorite"
+                                                                                            data-freelancer_id="4100"
+                                                                                            data-nonce="ec30db77ea"
+                                                                                            data-toggle="tooltip"
+                                                                                            title="Add Favorite">
+                                                                                            <i class="flaticon-like"></i>
+                                                                                            <span>Save</span>
+                                                                                        </a> --}}
+                                                                                        <div class="inner-bottom">
+                                                                                            <div class="text-center">
+                                                                                                <h2
+                                                                                                    class="freelancer-title">
+                                                                                                    <a href="{{ URL::to('public-profile/' . $allrecord->slug) }}"
+                                                                                                        rel="bookmark">
+                                                                                                        {{ $allrecord->first_name }}
+                                                                                                        {{ $allrecord->last_name }}</a>
+                                                                                                </h2>
+
+                                                                                                <div
+                                                                                                    class="freelancer-job">
+                                                                                                    <?php if ($allrecord->user_status == 'Online') {
+                                                                                                     ?>
+                                                                                                    <div
+                                                                                                        class="div_status is-online">
+                                                                                                        <i class="fa fa-circle"
+                                                                                                            style="font-size: 10px;"></i>
+                                                                                                        <?php echo $allrecord->user_status; ?>
+                                                                                                    </div>
+                                                                                                    <?php    }?>
+                                                                                                    <?php if ($allrecord->user_status == 'Offline') { ?>
+                                                                                                    <div
+                                                                                                        class="div_status is-offline">
+                                                                                                        <i class="fa fa-circle"
+                                                                                                            style="font-size: 10px;"></i>
+                                                                                                        <?php echo $allrecord->user_status; ?>
+                                                                                                    </div>
+                                                                                                    <?php   } ?>
+                                                                                                    {{-- {{ $allrecord->user_status }} --}}
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="rating-reviews">
+                                                                                                    <i
+                                                                                                        class="fa fa-star"></i>
+                                                                                                    <span
+                                                                                                        class="rating text-link">
+                                                                                                        {{ $allrecord->average_rating }}</span>
+                                                                                                    <span
+                                                                                                        class="text">({{ $allrecord->total_review }}
+                                                                                                        Review)</span>
+                                                                                                </div>
+
+                                                                                                {{-- <div
+                                                                                                    class="freelancer-tags">
+                                                                                                            <a class="tag-freelancer" 
+                                                                                                                href="">{!! $allrecord->description !!}</a>
+                                                                                                       
+                                                                                                   
+                                                                                                    <span
+                                                                                                        class="count-more-tags">+1</span>
+
+                                                                                                </div> --}}
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="freelancer-metas d-flex align-items-center">
+                                                                                                <div
+                                                                                                    class="freelancer-location with-title">
+                                                                                                    <strong>Location:</strong>
+                                                                                                    <a
+                                                                                                        href="">{{ $allrecord->city }}</a>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="freelancer-salary with-title">
+                                                                                                    <strong>
+                                                                                                        Linked
+                                                                                                        Accounts</strong>
+                                                                                                    <span>
+                                                                                                        <ul
+                                                                                                            class="linked-acc">
+                                                                                                            @if ($allrecord->facebook_id)
+                                                                                                                <li>
+                                                                                                                    <i class='fab fa-facebook-f'
+                                                                                                                        style='color:#2338cc'></i><span>
+                                                                                                                        Facebook</span>
+                                                                                                                </li>
+                                                                                                            @endif
+                                                                                                            @if ($allrecord->google_id)
+                                                                                                                <li>
+                                                                                                                    <i
+                                                                                                                        class="fab fa-google-plus-g"></i>
+                                                                                                                    <span>Google</span>
+                                                                                                                </li>
+                                                                                                            @endif
+                                                                                                        </ul>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="freelancer-link">
+                                                                                                <a href="{{ URL::to('public-profile/' . $allrecord->slug) }}"
+                                                                                                    class="btn btn-theme-rgba10 w-100 radius-sm">View
+                                                                                                    Profile <i
+                                                                                                        class="next flaticon-right-up"></i></a>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
+                                                                                </article><!-- #post-## -->
                                                                             </div>
-                                                                        </article><!-- #post-## -->
-                                                                    </div>
-                                                                    <div class="item">
+                                                                        @endif
+                                                                    @endforeach
+                                                                    {{-- <div class="item">
                                                                         <article id="post-4099"
                                                                             class="map-item freelancer-card post-4099 freelancer type-freelancer status-publish has-post-thumbnail hentry location-los-angeles freelancer_category-music-audio freelancer_tag-animation freelancer_tag-creative freelancer_tag-figma"
                                                                             data-latitude="" data-longitude=""
@@ -1819,7 +1859,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </article><!-- #post-## -->
-                                                                    </div>
+                                                                    </div> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1860,8 +1900,7 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9140835 elementor-invisible"
                                                             data-id="9140835" data-element_type="column"
                                                             data-settings="{&quot;animation&quot;:&quot;slide-up&quot;}">
-                                                            <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
+                                                            <div class="elementor-widget-wrap elementor-element-populated">
                                                                 <div class="elementor-element elementor-element-9a94ded elementor-widget elementor-widget-heading"
                                                                     data-id="9a94ded" data-element_type="widget"
                                                                     data-widget_type="heading.default">
@@ -1882,8 +1921,7 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-0577e93 elementor-invisible"
                                                             data-id="0577e93" data-element_type="column"
                                                             data-settings="{&quot;animation&quot;:&quot;slide-up&quot;,&quot;animation_delay&quot;:200}">
-                                                            <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
+                                                            <div class="elementor-widget-wrap elementor-element-populated">
                                                                 <div class="elementor-element elementor-element-fc4a5b0 elementor-widget elementor-widget-heading"
                                                                     data-id="fc4a5b0" data-element_type="widget"
                                                                     data-widget_type="heading.default">
@@ -1906,8 +1944,7 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-0a01fe7 elementor-invisible"
                                                             data-id="0a01fe7" data-element_type="column"
                                                             data-settings="{&quot;animation&quot;:&quot;slide-up&quot;,&quot;animation_delay&quot;:400}">
-                                                            <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
+                                                            <div class="elementor-widget-wrap elementor-element-populated">
                                                                 <div class="elementor-element elementor-element-8ca5034 elementor-widget elementor-widget-heading"
                                                                     data-id="8ca5034" data-element_type="widget"
                                                                     data-widget_type="heading.default">
@@ -1942,8 +1979,8 @@
 
                                                             <div class="slick-carousel testimonial-main " data-items="1"
                                                                 data-large="1" data-medium="1" data-small="1"
-                                                                data-smallest="1" data-pagination="true"
-                                                                data-nav="false" data-rows="1" data-infinite="true">
+                                                                data-smallest="1" data-pagination="true" data-nav="false"
+                                                                data-rows="1" data-infinite="true">
                                                                 @foreach ($testimonils as $allrecord)
                                                                     <div class="item">
 

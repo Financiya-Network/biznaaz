@@ -171,7 +171,7 @@
   }
   
   .form-control:focus {
-    outline: 1px solid var(--freeio-second-color);
+    /* outline: 1px solid var(--freeio-second-color); */
   }
   
   ol ol, ol ul,
@@ -17215,7 +17215,7 @@
   }
   
   .accordion-item-faq .accordion-button:not(.collapsed) {
-    background: #F1FCFA;
+    background: #1fbec638;
   }
   
   .accordion-item-faq .accordion-button.collapsed:before {
@@ -17241,7 +17241,7 @@
   }
   
   .accordion-item-faq .accordion-collapse.collapsing, .accordion-item-faq .accordion-collapse.show {
-    background: #F1FCFA;
+    background: #1fbec638;
   }
   
   .accordion-item-faq .accordion-collapse .accordion-body {
@@ -17920,9 +17920,15 @@
     }
     .sidebar-service .sidebar .widget, .sidebar-service .apus-sidebar .widget {
       padding: 1.875rem;
+       
+    }
+    .widget_1{
+      height: 350px  !important;
     }
   }
+
   
+
   @media (min-width: 1430px) {
     .content-service-detail .list-content-service.col-lg-8 {
       width: 72%;
@@ -21565,6 +21571,9 @@
   @media (min-width: 1460px) {
     .container {
       max-width: 1430px;
+    }
+    .big_dashboard{
+        margin-top: 100px;
     }
     .main-blog {
       width: 72%;

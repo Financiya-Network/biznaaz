@@ -1,0 +1,2251 @@
+<!doctype html>
+<html>
+
+<head>
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+
+
+
+<title>Loader Download - PHP Encoder, protection, installer and performance tools from ionCube</title>
+
+
+
+
+
+<meta name="description" content="Secure and license your PHP scripts with the ionCube PHP Encoder 12.0. Secure valuable code with bytecode compilation, encryption and licensing capabilities.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link type="text/css" rel="stylesheet" href="/assets/css/vendor.min.css" />
+
+<link type="text/css" rel="stylesheet" href="/styles-bs3.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="/assets/js/vendor.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/assets/js/core.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <link href="/notifications_cbox.css" rel="stylesheet" type="text/css">
+      
+
+
+      <script>
+        $(function() {
+            $( "#accordion" ).accordion({
+                collapsible: true,
+                active: 2
+            });
+        });
+    </script>
+      
+
+
+<!-- Global site tag (gtag.js) - Google Ads: 1072433099 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1072433099"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1072433099');
+  gtag('config', 'UA-502641-1');
+</script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+
+
+
+
+    
+<nav class="navbar navbar-default navbar-fixed-top" style="border-radius:0px;">
+    <div class="container-fluid">
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            <div class="navbar-button visible-xs" style="float: right; margin-right:8px;">
+                <a href="/purchase.php" class="btn btn-success" style=""><span style="color: white; font-size:15px">Purchase</span></a>
+            </div>
+
+            
+            <div class="navbar-left col-xs-3" style="padding: 5px 5px 5px 0px">
+                <a href="/"><img class="brand-image" src="/images/logo_text/ioncube_logo_720.png" height="38" ></a>
+            </div>
+            
+                
+            
+        </div>
+        
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav md-shrink p-0" style="">
+                                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+                    <ul class="dropdown-menu top-level-menu" role="menu">
+                        
+                        <li class="dropdown dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" tabindex="-1" >PHP Encoder</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/php_encoder.php">Details</a></li>
+                                <li><a href="/php_encoder.php?page=pricing">Pricing</a></li>
+                                <li><a href="/encoder_eval_download.php">Free Trial</a></li>
+                                <li><a href="/purchase.php">Purchase</a></li>
+                                                                    <li class="divider"></li>
+                                    <li><a href="/online_encoder.php">Online Encoder Service</a></li>
+                                                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" tabindex="-1" >Package Foundry</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/ipf/">Details</a></li>
+                                <li><a href="/ipf/eval_download.php">Free Trial</a></li>
+                                <li><a href="/purchase.php">Purchase</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" tabindex="-1" >Bundler</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/bundler/">Details</a></li>
+                                <li><a href="/bundler/eval_download.php">Free Trial</a></li>
+                                <li><a href="/purchase.php">Purchase</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" tabindex="-1" target="ic24">ionCube24</a>
+                            <ul class="dropdown-menu">
+                                <li><a id="ic24menu" href="https://ioncube24.com" target="ic24"><i>Realtime website<br>intrusion protection<br>and error reporting</i></a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/loaders.php">Loaders</a></li>
+                    </ul>
+                </li>
+
+                					
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pricing<span class="caret"></span></a>
+                        <ul class="dropdown-menu top-level-menu">
+                            <li><a href="/php_encoder.php?page=pricing">PHP Encoder</a></li>
+                            <li><a href="/ipf/">Package Foundry</a></li>
+                            <li><a href="/bundler/">Bundler</a></li>
+                        </ul>
+                    </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support<span class="caret"></span></a>
+                    <ul class="dropdown-menu top-level-menu">
+
+                                                    <li><a href="/contact.php">Contact Us</a></li>
+                                                
+                        <li><a href="/faq.php">FAQ</a></li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="https://www.ioncube.com/sa_encoder.php?page=support">Support Plans</a></li>
+                        <li><a href="https://support.ioncube.com" target="ioncube-support">Helpdesk</a></li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="https://blog.ioncube.com" target="ioncube-blog">Blog</a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right nav-login p-0">
+                                    <div class="navbar-button hidden-xs">
+                        <li><a href="/purchase.php" class="btn btn-success" style=""><span style="color: white; font-size:16px">Purchase</span></a></li>
+                    </div>
+
+                                            <li><a href="/news.php">News</a></li>
+		                                <li><a href="/login_page.php" class="top-level">Login</a></li>
+                            </ul>
+        </div> 
+    </div> 
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="app">
+	<script type="text/javascript">
+
+var ad_in_view = window.innerWidth >= 992;
+ic24_loaders_ad_impression(ad_in_view ? 1 : 0);
+
+var resize_id;
+$(window).resize(function() {
+clearTimeout(resize_id);
+resize_id = setTimeout(doneResizing, 500);
+});
+
+function doneResizing() {
+ad_in_view_now = window.innerWidth >= 992;
+
+if (ad_in_view_now != ad_in_view) {
+ic24_loaders_ad_impression(ad_in_view_now ? 1 : 0);
+ad_in_view = ad_in_view_now;
+}
+}
+
+function recordClick() {
+ic24_loaders_ad_click();
+return true;
+}
+
+</script>
+
+
+<div id="body_legacy" class="body_legacy container-fluid">
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Loaders for ionCube Secured Files</h1>
+        </div>
+    </div>
+    
+    <div class="row loader-top">
+        <div class="col-md-9" style="padding-right: 20px">
+
+<p>
+The ionCube PHP Encoder is a widely used tool that allows developers to protect their PHP files with powerful encryption
+and security features. To use ionCube-encoded
+files on a web server, the ionCube Loader must be installed and made available to PHP. This can be done by adding a single line
+to the PHP configuration file (php.ini).
+</p>
+<p>
+The ionCube Loader is available for many 32 and 64 bit x86 based operating systems, as well as some Arm and other architectures.
+Windows non-TS Loaders should be used on a Windows system where PHP is built with thread safety disabled.
+</p>
+<p>
+If you need Loaders for other platforms, please contact us. Note that the 32-bit and 64-bit Linux Loaders are compatible with 
+all major Linux distributions, including CentOS, SuSE, Debian, and RedHat.
+</p>
+<p>
+To make the installation process easier, we offer an automated Installer and Wizard. However, if you prefer, you can also follow the manual instructions provided.
+</p>
+<p>
+In summary, ionCube Loaders are an essential component for using ionCube-encoded PHP files on your web server. With the right
+Loader installed, you can easily integrate ionCube into your PHP environment and start using its powerful encryption 
+and security features.
+</p>
+
+
+
+
+            
+            
+        </div>
+        
+        
+        <div class="col-md-3 loader-subscribe text-right visible-lg">
+            <button type="button" class="btn btn-success btn-lg subscribe_cbox">Subscribe for Loader Updates</button>
+        </div>
+        
+        <div class="col-md-3 loader-subscribe text-right visible-md">
+            <button type="button" class="btn btn-success subscribe_cbox">Subscribe for Loader Updates</button>
+        </div>
+        
+        
+        <div class="col-md-3 loader-subscribe hidden-md hidden-lg">
+            <button type="button" class="btn btn-success subscribe_cbox">Subscribe for Loader Updates</button>
+        </div>
+        
+    </div>
+    
+        
+    <div class="row loader-divided">
+        <div ic24ra="loader_wizard" class="col-md-6">
+            <h3 style="font-size: 98%;">
+                        Installing with the Loader Wizard <i>(recommended)</i>
+                        </h3>
+            
+            <p class="nomargin"></p>
+            
+                        <p>
+                It is recommended to install a Loader using help from the Loader Wizard. The Wizard is a PHP script that when installed on a web server
+                can give guidance specific to that machine, including which Loader file is required and what to add to the php.ini file.
+            </p>
+                        
+            <p>
+                Download the Loader Wizard: <a href="/loader-wizard/loader-wizard.zip" class="cbox_iframe" >ZIP archive</a> or <a href="/loader-wizard/loader-wizard.tgz" class="cbox_iframe" >tar.gz (.tgz) archive</a>
+            </p>
+            
+            <p>
+                To use the Wizard:
+                <ol>
+                    <li> install the script into your web space</li>
+                    <li> launch the script in your browser</li>
+                </ol>
+                
+                The Wizard will give guidance on selection and installation of the correct Loader package.
+            </p>
+        </div>
+        
+        
+        <div class="col-md-6">
+            <h3 style="font-size: 98%;">
+            Manual Install - Which Download Do I Need?
+            </h3>
+            <p class="nomargin"></p>
+            
+            <p>
+                Loaders are available for many different platforms. Pick a Loader package based on your operating system and whether the PHP installation is 32 or 64 bit. If you are unsure of the server platform (e.g. Linux or FreeBSD) and whether PHP is 32 or 64 bit, your hosting company should be able to tell you.
+                The Wizard script should also detect this correctly if you use it.
+            </p>
+        </div>
+    </div>
+    
+    
+    
+    <h3>Loader Packages</h3>
+    
+    <p>
+        <img src="/images/ionCube24v2_40width.png"> Linux Loaders also include support for vulnerability protection and PHP error reporting via the <a id="ic24LP" href="https://ioncube24.com" target="ic24">ionCube24</a> platform.
+    </p>
+    
+    <h3> Loader Downloads API </h3>
+    <p>
+        Are you a hoster or package maintainer and would like API access to historical releases? <a target="support" href="https://support.ioncube.com">Contact us</a> and let us know.
+    </p>
+
+
+    
+
+    
+    <h3>Production Loaders</h3>
+    <p class="nomargin"></p>
+    
+        
+    
+    
+    <div class="row">
+        <div class="col-md-7 col-lg-7">
+            <table ic24ra="loaders_table" class="loader_download">
+                <thead bgcolor="#d0d0d0">
+                    <tr>
+                        <th> OS/Platform </th>
+                        <th colspan="2"> Packages </th>
+                        <th> Version </th>
+                        <th> Release Date </th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                                        <tr>
+                        <td>Linux (32 bits) &nbsp;&nbsp;<a href="https://ioncube24.com" target="ic24"><img alt="Includes ionCube 24 support" title="Includes ionCube 24 support" src="/images/ionCube24v2_40width.png"></a></td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Linux (64 bits) &nbsp;&nbsp;<a href="https://ioncube24.com" target="ic24"><img alt="Includes ionCube 24 support" title="Includes ionCube 24 support" src="/images/ionCube24v2_40width.png"></a></td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Linux Armv7l<br>(e.g. Raspberry Pi2) (armv7l 32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_armv7l.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_armv7l.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Linux ARM64 (aarch64 64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_aarch64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_aarch64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC9 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc9_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc9_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC9 (Non-TS) (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc9_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc9_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC11 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc11_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc11_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC11 (Non-TS) (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc11_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc11_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC11 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc11_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc11_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC11 (Non-TS) (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc11_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc11_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC14 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc14_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc14_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC14 (Non-TS) (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc14_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc14_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC14 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc14_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc14_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC14 (Non-TS) (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc14_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc14_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC15 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc15_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc15_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC15 (Non-TS) (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc15_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc15_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC15 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc15_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc15_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC15 (Non-TS) (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc15_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc15_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC16 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc16_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc16_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC16 (Non-TS) (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc16_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc16_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC16 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc16_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc16_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Windows VC16 (Non-TS) (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc16_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc16_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 6 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_6_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_6_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 6 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_6_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_6_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 7 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_7_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_7_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 7 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_7_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_7_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 8 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_8_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_8_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 8 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_8_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_8_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 9 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_9_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_9_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 9 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_9_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_9_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 11 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_11_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_11_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>FreeBSD 11 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_11_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_11_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>OpenBSD 4.5 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_ope_4.5_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_ope_4.5_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>OpenBSD 4.6 (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_ope_4.6_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_ope_4.6_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>OpenBSD 4.7 (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_ope_4.7_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_ope_4.7_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>macOS (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_mac_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_mac_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>macOS (64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_mac_x86-64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_mac_x86-64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>macOS ARM M1 (arm64 64 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_dar_arm64.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_dar_arm64.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                        <tr>
+                        <td>Solaris (32 bits) </td>
+                        <td>
+                            <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_sun_x86.tar.gz">tar.gz</a>
+                        </td>
+                        <td>
+                            <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_sun_x86.zip">zip</a>
+                        </td>
+                        <td>
+                            12.0.5
+                        </td>
+                        <td>
+                            2022-12-22
+                                                    </td>
+                    </tr>
+                                    </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+    
+    <br>
+    
+    <div id="accordion">
+        <h3>Recent Loader Changes</h3>
+        <div>
+            <table class="loaders-rc-table">
+                <tr>
+                    <td>
+                        2022-12-22
+                    </td>
+                    <td>
+                        12.0.5
+                    </td>
+                    <td>
+                        Fix for not finding files in PHP 8.1 due to not defaulting back to 
+                        the current working directory.  Fix for crashes occurring due to 
+                        the include/require of non-existent files with PHP 8.1.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2022-12-09
+                    </td>
+                    <td>
+                        12.0.4
+                    </td>
+                    <td>
+                        Fix for a failure with ioncube_read_file for PHP before 8.1 where the second parameter was used.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2022-12-02
+                    </td>
+                    <td>
+                        12.0.3
+                    </td>
+                    <td>
+This corrects a bug with the 32-bit Loaders which could cause a crash.  
+This release also fixes a bug with constants in the Windows Loaders.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2022-09-09
+                    </td>
+                    <td>
+                        12.0.2
+                    </td>
+                    <td>
+                        Fixes for bugs to accompany the release of the 12.0.2 Encoder.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2022-08-16
+                    </td>
+                    <td>
+                        12.0.1
+                    </td>
+                    <td>
+                        PHP 7.4 and 8.1 loaders for ARM M1-based Macs.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2022-08-12
+                    </td>
+                    <td>
+                        12.0.1
+                    </td>
+                    <td>
+                        New loaders including those for PHP 8.1 that can run files produced by the PHP 8.1 V12 Encoders.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2022-01-12
+                    </td>
+                    <td>
+                        11.0.1
+                    </td>
+                    <td>
+                        Fix for an issue where for classes implementing the Countable interface the count() method 
+                        might not be executable.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2022-01-07
+                    </td>
+                    <td>
+                        11.0.1-beta for macOS M1
+                    </td>
+                    <td>
+                         The Apple M1 architecture is now supported, with an initial release of beta Loader version 11.0.1 for PHP 7.4.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2021-10-22
+                    </td>
+                    <td>
+                        11.0.0
+                    </td>
+                    <td>
+                         Update for PHP 7.4 encoding with the forthcoming version 11 ionCube PHP Encoder.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-11-24
+                    </td>
+                    <td>
+                        10.4.5
+                    </td>
+                    <td>
+                        Fix for an issue with constant expressions involving some unary and binary operators on PHP 7.4.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-10-02
+                    </td>
+                    <td>
+                        10.4.4
+                    </td>
+                    <td>
+                        Fix for a memory leak with class declarations in the PHP 7.0-7.4 Loaders.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-09-08
+                    </td>
+                    <td>
+                        10.4.3
+                    </td>
+                    <td>
+                        Fix for a regression in the 10.4.2 PHP 7.4 Loader which could lead to a zend_mm_heap corrupted error with WHMCS.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-09-01
+                    </td>
+                    <td>
+                        10.4.2
+                    </td>
+                    <td>
+                        Fix for an issue with the PHP 7.4 Loader where calling unserialize can result in a crash if the 
+                        serialized value contains a class that uses traits with properties.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-07-13
+                    </td>
+                    <td>
+                        10.4.1
+                    </td>
+                    <td>
+                        Fix for parent classes sometimes not being found in the PHP 7.4 Loader.
+                        Fix for incorrect errors arising when a class implemented an abstract method through a trait in the PHP 7.4 Loader.
+                        Corrected build for Aarch64 PHP 7.4 loaders.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-06-29
+                    </td>
+                    <td>
+                        10.4.0
+                    </td>
+                    <td>
+                        Loaders for PHP 7.4. These will run files produced by the PHP 7.1 and 7.2 encoders.
+                        Fix for an issue with the encoded_paths feature in Windows.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-02-28
+                    </td>
+                    <td>
+                        10.4.0 beta 2
+                    </td>
+                    <td>
+                        Second beta release of PHP 7.4 Loaders for Linux. These now run both 7.1- and 7.2-encoded files but do not support IC24.
+                        These beta loaders should not be used in a production environment.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2020-02-27
+                    </td>
+                    <td>
+                        10.4.0 beta
+                    </td>
+                    <td>
+                        Beta release of PHP 7.4 Loaders for Linux. At present these only run 7.2-encoded files and
+                        should not be used in a production environment.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2019-10-11
+                    </td>
+                    <td>
+                        10.3.9
+                    </td>
+                    <td>
+                        Fix for an issue in the PHP 7.3 Loader which could cause OPcache to be disabled on unencoded files.
+                        Fix for an issue in the PHP 7.2 and 7.3 Loaders which could give a spurious warning message if a 
+                        parameter of a method with a null value overrides a method with a nullable type.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2019-08-23
+                    </td>
+                    <td>
+                        10.3.8
+                    </td>
+                    <td>
+                        Fix for a possible crash in the PHP 7.3 Loader when OPcache was also enabled.
+                        Fix for PHP error exceptions not being caught in the PHP 7 Loaders.
+                        Fixes for PHP issues 71980, 75396 and 75786.
+                        Fix for an incorrect call order with certain combinations of foreach, finally and exception in the PHP 7.1 Loader.
+                        Fix for incorrect line numbers being reported for undefined array index errors.
+                        Fix for a potential memory leak with the encoded paths feature of the Loader.
+                        IC24: Minor bug fixes, improvements and support for future features. Upgrading to the 10.3.8 Loader is particularly recommended for IC24 users.
+                        New  5.4 and 7.2 Loaders custom built for IBM for ppc64le.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2019-06-25
+                    </td>
+                    <td>
+                        10.3.7
+                    </td>
+                    <td>
+                        Fix for a potential segmentation fault in the 10.3.5 and 10.3.6 Loaders when including a large file defining an array.
+                        The Loader version now can be obtained using phpversion("ionCube Loader").
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2019-06-18
+                    </td>
+                    <td>
+                        10.3.6
+                    </td>
+                    <td>
+                        Fix for an issue in the PHP 7.3 Loader where a case within a switch could be triggered even though the
+                        variable in the switch was undefined.
+                        Fix for filepaths shown in debug_backtrace and similar functions being incorrect in some cases in
+                        the 10.3.5 Loaders.
+                        Fix for possible segmentation faults in the 10.3.5 Loaders occurring with include file protection.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2019-06-04
+                    </td>
+                    <td>
+                        10.3.5
+                    </td>
+                    <td>
+                        The ionCube Loader now has its own section in the phpinfo() output. 
+                        That will include IC24 settings where relevant.
+                        Fix for some memory leaks in PHP 5.6-7.3, particularly when including files in a loop.
+                        For undefined variables in assignments, correction to ensure that the line numbers in error messages
+                        are not mangled when line number obfuscation is not in place.
+                        Fix to ensure that the loader will accept large property values that were accepted by the Encoder.
+                        Fix to ensure that external encoding keys set at runtime using ini_set would be found.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        2019-04-07
+                    </td>
+                    <td>
+                        10.3.4
+                    </td>
+                    <td>
+                        This updates Linux x86 32/64 bit Loders only, and fixes
+			corruption of the HTTP_HOST server variable if it includes
+			a port number, e.g. somedomain.com:1081. There is no change for other platforms
+			other than the version number for consistency.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        2019-04-05
+                    </td>
+                    <td>
+                        10.3.3
+                    </td>
+                    <td>
+                        Fix for callback files not being called from bundled encoding files.<br>
+                        Added AArch64 (ARM64) as a new standard platform.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        2019-01-02
+                    </td>
+                    <td>
+                        10.3.2
+                    </td>
+                    <td>
+                        Fix for a potential issue with the corruption of included file paths, particularly on Windows.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        2018-12-28
+                    </td>
+                    <td>
+                        10.3.1
+                    </td>
+                    <td>
+                        Fix for potential issue running code on PHP 7.1 and 7.2.
+                        Enhancement to ionCube 24 support.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        2018-12-21
+                    </td>
+                    <td>
+                        10.3.0
+                    </td>
+                    <td>
+                        Loaders for PHP 7.3.
+                        Fix for an issue with dynamic properties of classes in PHP 7.1 and 7.2 which are updated using an "op assign" such as "+=".
+                        Improvements, enhancements and support for future ionCube 24 features. All ionCube 24 users are strongly encouraged to update to this version.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        2018-11-13
+                    </td>
+                    <td>
+                        10.3.0-beta
+                    </td>
+                    <td>
+                        Beta ionCube Loaders for PHP 7.3 on Linux and FreeBSD 11. Those can be used with the release candidate (RC) versions of PHP 7.3.0 on Linux and FreeBSD 11.
+                        They can run files encoded with the version 10 PHP 7.1 and 7.2 Encoders.
+                        As with PHP 7.3.0 RC versions themselves, these loaders should <strong>not</strong> be used in a production environment.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-11-08
+                    </td>
+                    <td>
+                        10.2.7 (includes changes for 10.2.6)
+                    </td>
+                    <td>
+                        Fix for potential fault with thread-safe PHP 7 on Windows.
+                        Fixes for ionCube24 support if using thread safe PHP on Linux and with code calling move_uploaded_file() from PHP 7.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-09-28
+                    </td>
+                    <td>
+                        10.2.5
+                    </td>
+                    <td>
+                        Fix for an issue with PHP 5.4, 5.5 and 5.6 encoding where a silence operator at the
+                        start of an assignment including object instantiation may cause a segfault.
+                        Fix for an issue in PHP 7.1 and 7.2 where the values of generator parameters may
+                        not be found if a generator is closed and then later opened again.
+                        Fix corresponding to that for PHP bug 76534 (https://bugs.php.net/bug.php?id=76534).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-07-27
+                    </td>
+                    <td>
+                        10.2.4
+                    </td>
+                    <td>
+                        Added FreeBSD 11, both 32 and 64 bit, as new standard platforms.
+                        IC24: Fix for a possible crash in PHP 7 when an attempt is made to open a file on a path in the
+                        trusted include paths list and the file does not actually exist.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-07-18
+                    </td>
+                    <td>
+                        10.2.3
+                    </td>
+                    <td>
+                        Fix for possible memory leak with closures in the PHP 7.0-7.2 loaders.
+                        Fix for obfuscated versions of built-in functions not being found in thread-safe PHP 7.0-7.2.
+                        Fix for possible invalid memory access when a generator is unset or otherwise terminates prematurely in PHP 7.1 and 7.2.
+                        Fix for possible segmentation fault when running PHP 5.0-encoded files on 5.4-5.6.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-06-22
+                    </td>
+                    <td>
+                        10.2.2
+                    </td>
+                    <td>
+                        Fix for a crash that could occur when using cloned objects in PHP versions prior to 7.0.
+                        Fix for a crash occurring when using dynamic key functions with arguments for PHP versions prior to 7.0.
+                        Fix for a crash that could occur when using the allow-reflection options (not including the allow-reflection-all option).
+                        Fix for a crash that could occur for dynamically defined functions (such as defined within if-statements) in PHP 7.0-7.2.
+                        Correction for memory leaks occurring as a result of method calls in the PHP 7.0-7.2 Loaders.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-05-03
+                    </td>
+                    <td>
+                        10.2.1
+                    </td>
+                    <td>
+                        Fix for a crash that could occur if there was a mismatch between a parent method signature and a child method signature.
+                        Improvements to memory consumption.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-03-07
+                    </td>
+                    <td>
+                        10.2.0
+                    </td>
+                    <td>
+                        Loaders for PHP 7.2 encoding produced by the new 10.2 Encoders.
+                        Fix for an issue in the PHP 7.1 and 7.2 Loaders whereby a return type could cause referenced parameters to break.
+                        Fix corresponding to the fix for PHP bug 69676 (https://bugs.php.net/bug.php?id=69676).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2018-01-17
+                    </td>
+                    <td>
+                        10.1.1
+                    </td>
+                    <td>
+                        Fix for a fault in the PHP 7.0 Loader that could occur where a function was called with more arguments than in its definition.<br>
+                        Changes made corresponding to the fix for PHP bug number 74862 for PHP versions 7.1.13 and PHP 7.2.1.<br>
+                        Improved error message when the user is attempting to run a 5.6 or earlier encoded script on PHP 7.1 or later.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-12-14
+                    </td>
+                    <td>
+                        10.1.0
+                    </td>
+                    <td>
+                        Loaders for PHP 7.2.<br>
+                        Support for bundled encodings, a feature that will be included in a minor update of the version 10 Encoder.<br>
+                        Improvements to error messages produced when a 7.1-encoded file is read by a Loader for an earlier version of PHP.<br>
+                        Fix for an issue whereby private methods could be wrongly overridden with inheritance and dynamic decoding.<br>
+                        IC24: Notices plus strict and deprecated warnings are no longer reported if they are masked by @ or the error
+                        reporting level.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-11-01
+                    </td>
+                    <td>
+                        10.0.4
+                    </td>
+                    <td>
+                        Fix for issue in PHP 5.5 and 5.6 where a crash could occur under certain conditions.
+                        IC24 improvements.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-09-26
+                    </td>
+                    <td>
+                        10.0.3
+                    </td>
+                    <td>
+                        Fix for issue in PHP 7.1 where getting the default values of parameters can randomly fail.
+                        Fix for issue in PHP 7.1 where an array value could be assigned to the next element where the array has
+                        "holes" i.e. numeric indexes of the array that do not have values.
+                        Fix for issue in PHP 7.1 where a call to a stored procedure can lead to an incorrect "unbuffered queries are active" error.
+                        Improvement to the error message produced by the PHP 7.1 Loader when encountering a file not produced by the PHP 7.1 Encoder.
+                        IC24: New ic24.sec.initial_state ini option to configure whether security is enabled or not upon cache creation.
+                        IC24: New ic24.sec.initial_action ini option to determine how new and modified files should be treated when about to execute.
+                        IC24: New ic24.sec.initial_notify ini option to flag whether a notification should be generated when execution is attempted
+                        of a new or modified file.
+                        Other IC24 improvements.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-09-11
+                    </td>
+                    <td>
+                        10.0.2
+                    </td>
+                    <td>
+                        Fix for issue where, with the PHP 7.0 and 7.1 Loaders, reading unencoded files on
+                        Windows could crash.
+                        Fix for issue with the PHP 7.1 Loader where a crash may occur when running a function
+                        to generate a dynamic key.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-08-31
+                    </td>
+                    <td>
+                        10.0.1
+                    </td>
+                    <td>
+                        Fix for issue where a primary script with an external key that is obtained via a
+                        URL will fail.
+                        Fix for issue where, if an external key is set in two separate
+                        license files with the same property but different values, then decoding will fail.
+                        Fix for issue where  setting encoded paths could lead to segmentation faults in
+                        some cases on PHP 7.0 and 7.1.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-08-02
+                    </td>
+                    <td>
+                        10.0.0
+                    </td>
+                    <td>
+                        Loader 10.0.0 released.
+                        These are loaders to run files produced by the forthcoming version 10 ionCube PHP Encoder.
+                        Included are loaders for PHP 7.1. Those will only run files produced by
+                        the version 10 encoder for PHP 7.1.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-05-24
+                    </td>
+                    <td>
+                        6.1.0
+                    </td>
+                    <td>
+                        Loader 6.1.0 released.
+                        Fix for issue related to use of include file protection combined with a callback file.
+                        Fix for issue where setting encoded paths can lead to segmentation faults on PHP 7 in some cases.
+                        IC24: Support for the ioncube24 part of the Loader on PHP 7.0
+                        IC24: Switch to a single cache file.
+                        IC24: Internal changes to support future features and enhancements.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2017-01-26
+                    </td>
+                    <td>
+                        6.0.9
+                    </td>
+                    <td>
+                        Loader 6.0.9 released which fixes an issue where, in PHP 7.0, an "Unsupported constant expression" error
+                        occurs rather than the correct execution of the script.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-12-15
+                    </td>
+                    <td>
+                        6.0.8
+                    </td>
+                    <td>
+                        Loader 6.0.8 released which fixes an issue where, in PHP 7.0,
+                        a dynamic key on a method could wrongly lead to a call from that method to a private method being prevented.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-12-02
+                    </td>
+                    <td>
+                        6.0.7
+                    </td>
+                    <td>
+                        Fix for three issues.
+                        Firstly, for the incorrect registration of certain Loader ini settings.
+                        Secondly, for the getFileName reflection API function sometimes producing a crash in the PHP 7 Loader.
+                        Lastly, for a build issue with the PHP 5.2 and below loaders.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-10-24
+                    </td>
+                    <td>
+                        6.0.6
+                    </td>
+                    <td>
+                        Loader 6.0.6 has been released to complement upcoming Encoder release 9.0.4. The new Encoder and Loader
+                        provide a fix for PHP 5.6 encoding where instances of __DIR__ and __FILE__ were not converted
+                        properly to the location of the encoded file at runtime.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-10-07
+                    </td>
+                    <td>
+                        6.0.5
+                    </td>
+                    <td>
+                        Fix for an issue with the PHP 7 Loader where nested encapsulated strings may cause a fault.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-09-23
+                    </td>
+                    <td>
+                        6.0.4
+                    </td>
+                    <td>
+                        Fix for an issue with the PHP 7 Loader where, if a conditionally defined function was protected by a dynamic key,
+                        then the dynamic key may not be found.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-09-19
+                    </td>
+                    <td>
+                        6.0.3
+                    </td>
+                    <td>
+                        Fix for issue with the PHP 7 Loader if, in the original 5.6 code, a function parameter
+                        had the form <pre>($param)</pre> i.e. a variable with an extra pair of brackets around it.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-09-16
+                    </td>
+                    <td>
+                        6.0.2
+                    </td>
+                    <td>
+                        Fix for possible crash with obfuscated functions on PHP 7.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-09-15
+                    </td>
+                    <td>
+                        6.0.1
+                    </td>
+                    <td>
+                        Support for PHP 7. The new PHP 7 ionCube Loaders will run files produced by the
+                        version 9 PHP 5.6 Encoder.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2016-03-22
+                    </td>
+                    <td>
+                        5.1.2
+                    </td>
+                    <td>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Fix for potential issue with over 3000 cache entries.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        2016-02-07
+                    </td>
+                    <td>
+                        5.1.1
+                    </td>
+                    <td>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> New feature for realtime reporting of PHP errors and uncaught exceptions to ionCube24.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        2016-01-26
+                    </td>
+                    <td>
+                        5.0.23
+                    </td>
+                    <td>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Resolve link issue with some Linux setups.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        2016-01-20
+                    </td>
+                    <td>
+                        5.0.22
+                    </td>
+                    <td>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Added missing dependency on Linux rt library.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        2016-01-19
+                    </td>
+                    <td>
+                        5.0.21
+                    </td>
+                    <td>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Fix for possible incorrect behaviour when accessing a server from the ionCube24
+                        interface when ionCube24 is fully activated.
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Fix for potential issue with large cache sizes.
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                    <td nowrap>
+                        
+                        2016-01-16
+                    </td>
+                    <td>
+                        5.0.20
+                    </td>
+                    <td>
+                        Fix for potential issue with obfuscation of unqualified function names used within a namespace.<br>
+                        PDF User Guide now included.
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Fix for issue with symlinks used within a trusted include path.<br>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Enhanced healing when PHP is unstable.<br>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> php.ini option to block or allow scripts via stdin.<br>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Ability to protect only the domains configured within the ionCube24 interface rather than all domains.<br>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td nowrap>
+                        2015-10-19
+                    </td>
+                    <td>
+                        5.0.19
+                    </td>
+                    <td>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> update to avoid potential unnecessary notification.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        2015-9-14
+                    </td>
+                    <td>
+                        5.0.18
+                    </td>
+                    <td>
+                        Fix for possible false alert of a new file being blocked with <a href="https://ioncube24.com" target="ic24">ionCube24</a>.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-9-9
+                    </td>
+                    <td>
+                        5.0.17
+                    </td>
+                    <td>
+                        Fix for issue with 64-bit Windows loaders.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-8-27
+                    </td>
+                    <td>
+                        5.0.16
+                    </td>
+                    <td>
+                        Fix for rare <a href="https://ioncube24.com" target="ic24">ionCube24</a> issue preventing interaction with the ionCube24 control panel on some systems.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-8-19
+                    </td>
+                    <td>
+                        5.0.15
+                    </td>
+                    <td>
+                        Corrected handling for PHP 5.6 magic method, <code>__debugInfo</code>.<br>
+                        Fix for memory corruption issue for thread-safe PHP when running unencoded files.<br>
+                        Improvement in handling of empty arrays in PHP 5.6 with pre-5.6 encoded files.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-7-29
+                    </td>
+                    <td>
+                        5.0.14
+                    </td>
+                    <td>
+                        Fix for issue with previous release.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-7-28
+                    </td>
+                    <td>
+                        5.0.13
+                    </td>
+                    <td>
+                        New <a href="https://ioncube24.com" target="ic24">ionCube24</a> php.ini option <code>ic24.sec.trusted_include_paths</code> for trusting dynamically created include files (see User Guide for details) plus enhancement for processing pre 5.6 encoded files on PHP 5.6.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-7-13
+                    </td>
+                    <td>
+                        5.0.12
+                    </td>
+                    <td>
+                        Fix for problem caused by a large number of network aliases on a system.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        
+                    </td>
+                    <td>
+                        5.0.11
+                    </td>
+                    <td>
+                        No release.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td nowrap>
+                        
+                        2015-6-22
+                    </td>
+                    <td>
+                        5.0.10
+                    </td>
+                    <td>
+                        Fix for an undefined symbol occurring with the PHP 5.3 Loaders.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-6-19
+                    </td>
+                    <td>
+                        5.0.9
+                    </td>
+                    <td>
+                        Fix for issue where if a reference variable was used as a non-referenced lexical variable in a closure then memory corruption would occur.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-6-16
+                    </td>
+                    <td>
+                        5.0.8
+                    </td>
+                    <td>
+                        Fix for issue calling <code>ioncube_server_data()</code> or <code>ioncube_write_file()</code> from a function producing a dynamic key.<br>
+                        Fix for problem sending <a href="https://ioncube24.com" target="ic24">ionCube24</a> notifications with some configurations. <br>
+                        Internal changes related to future ionCube 24 features.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-5-22
+                    </td>
+                    <td>
+                        5.0.7
+                    </td>
+                    <td>
+                        Workaround for an issue that prevented the Loader starting when XCache is installed. <br>
+                        Fix for possible crash if a corrupt license is processed.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-5-18
+                    </td>
+                    <td>
+                        5.0.6
+                    </td>
+                    <td>
+                        Fix for <a href="https://ioncube24.com" target="ic24">ionCube24</a> notifications not being delivered with PHP 5.6 (Linux only).
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-5-15
+                    </td>
+                    <td>
+                        5.0.5
+                    </td>
+                    <td>
+                        Fix for failure in Windows 64 bit Loader. <br>
+                        Fix for Windows Loader not recognising PHP 5.6 encoded files from Encoder 9.0.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-5-8
+                    </td>
+                    <td>
+                        5.0.4
+                    </td>
+                    <td>
+                        Fix for potentially excessive memory usage. Updating recommended.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        2015-5-4
+                    </td>
+                    <td>
+                        5.0.3 (Linux)
+                    </td>
+                    <td>
+                        <a href="https://ioncube24.com" target="ic24">ionCube24</a> Trustpoint is now enabled by default and set to the current time when first initialising ionCube 24 on a server.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        2015-5-2
+                    </td>
+                    <td>
+                        5.0.2
+                    </td>
+                    <td>
+                        minor update in version 9 support.
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>
+                        
+                        
+                    </td>
+                    <td>
+                        5.0.1
+                    </td>
+                    <td>
+                        No release.
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td nowrap>
+                        2015-4-27
+                    </td>
+                    <td>
+                        5.0.0
+                    </td>
+                    <td>
+                        support for running files produced by the ionCube version 9 PHP Encoder.
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <br>
+    
+    <h3>IBM Power Systems</h3>
+    <p class="nomargin"></p>
+    <p>The older archive, version 6.0.9, includes ionCube Loaders for PHP 5.6 and PHP 7.0 only.</p>
+    <p>The newer archive, version 10.3.8, includes ionCube Loaders for PHP 5.4 and PHP 7.2 only.</p>
+    <table class="loader_download" cellspacing="1" cellpadding="10">
+        <thead bgcolor="#d0d0d0">
+            <tr>
+                <th> OS/Platform </th>
+                <th colspan="2"> Packages </th>
+                <th> Version </th>
+                <th> Release Date </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Linux ppc64el for PHP 5.6 &amp; 7.0</td>
+                <td>
+                    <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_ppc64le.tar.gz">tar.gz</a>
+                </td>
+                <td>
+                    <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_ppc64le.zip">zip</a>
+                </td>
+                <td>
+                    6.0.9
+                </td>
+                <td>
+                    2017-03-13
+                </td>
+            </tr>
+            <tr>
+                <td>Linux ppc64el for PHP 5.4 &amp; 7.2</td>
+                <td>
+                    <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_ppc64le_10.3.8.tar.gz">tar.gz</a>
+                </td>
+                <td>
+                    <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_ppc64le_10.3.8.zip">zip</a>
+                </td>
+                <td>
+                    10.3.8
+                </td>
+                <td>
+                    2019-08-07
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <br>
+    
+    
+    <h3>Legacy Loader Packages</h3>
+    <p class="nomargin"></p>
+    
+    <p>Please note: The following packages are no longer being maintained are provided for legacy use.</p>
+    
+    <table class="loader_download" cellspacing="1" cellpadding="10">
+        <thead bgcolor="#d0d0d0">
+            <tr>
+                <th> OS/Platform </th>
+                <th colspan="2"> Packages </th>
+                <th> Version </th>
+                <th> Release Date </th>
+            </tr>
+        </thead>
+        
+        <tbody>
+                        <tr>
+                <td>Windows VC6 (32 bits) </td>
+                <td>
+                    <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc6_x86.tar.gz">tar.gz</a>
+                </td>
+                <td>
+                    <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc6_x86.zip">zip</a>
+                </td>
+                <td>
+                    4.0.7
+                </td>
+                <td>
+                    2011-2-21
+                </td>
+            </tr>
+                        <tr>
+                <td>Windows VC6 (Non-TS) (32 bits) </td>
+                <td>
+                    <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc6_x86.tar.gz">tar.gz</a>
+                </td>
+                <td>
+                    <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc6_x86.zip">zip</a>
+                </td>
+                <td>
+                    4.0.7
+                </td>
+                <td>
+                    2011-2-21
+                </td>
+            </tr>
+                        <tr>
+                <td>FreeBSD 4 (32 bits) </td>
+                <td>
+                    <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_4_x86.tar.gz">tar.gz</a>
+                </td>
+                <td>
+                    <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_fre_4_x86.zip">zip</a>
+                </td>
+                <td>
+                    4.4.4
+                </td>
+                <td>
+                    2013-10-15
+                </td>
+            </tr>
+                        <tr>
+                <td>Solaris (sparc 32 bits) </td>
+                <td>
+                    <a class="cbox_iframe" download="" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_sun_sparc.tar.gz">tar.gz</a>
+                </td>
+                <td>
+                    <a class="cbox_iframe" href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_sun_sparc.zip">zip</a>
+                </td>
+                <td>
+                    4.0.10
+                </td>
+                <td>
+                    2011-8-16
+                </td>
+            </tr>
+                    </tbody>
+    </table>
+        <br>
+</div>
+
+</div>
+
+<script language="JavaScript" type="text/javascript" src="/assets/js/vue.min.js"></script>
+
+
+
+<footer>
+	<table border="0" cellpadding="5" cellspacing="0" width="100%">
+		<tbody>
+			<tr align="center">
+				<td class="footer">
+
+				
+					<p>
+						<a href="/company.php">About ionCube</a>
+						&nbsp;|&nbsp;
+
+													<a href="/news.php">News</a>
+							&nbsp;|&nbsp;
+							<a href="/jobs">Jobs</a>
+							&nbsp;|&nbsp;
+							<a href="/affiliates.php">Partners</a>
+							&nbsp;|&nbsp;
+												
+													<a href="/consultancy.php">Consultancy</a>
+							&nbsp;|&nbsp;
+												
+						<a href="/tnc.php">Terms and Conditions</a>
+						&nbsp;|&nbsp;
+						<a href="/pp.php">Privacy &amp; Cookies Policy</a>
+						&nbsp;|&nbsp;
+						<a href="/thanks.php">Acknowledgements</a>
+
+						
+					
+					<p>
+
+						Copyright 2002-2023 ionCube Ltd. VAT GB-814942816.&nbsp;&nbsp;All rights reserved. ionCube and the ionCube logo are registered trademarks of ionCube Ltd.
+						<br>
+						Prices exclude VAT. VAT is applied if purchasing from the UK or from the European Union by a non-business customer. The shopping cart will show any VAT due based on your country before the purchase is finalized.
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</footer>
+
+	<a href="/bot_trap.php" class="invisible">click</a>  
+
+
+
+
+
+
+
+<script type="text/javascript">
+var google_tag_params = { }
+</script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1072433099;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+var google_conversion_format = 3;
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072433099/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('l6oov', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l6oov&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l6oov&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+</noscript>
+
+
+<script type="text/javascript">
+function addScript(p) {
+  var element = document.createElement("script");
+  element.src = p;
+  document.body.appendChild(element);
+}
+
+function fetchJS() {
+addScript("/js/lazy.js");
+//addScript("/js/plugins/qtip2/jquery.qtip.min.js");
+//addScript("/js/plugins/prettyPhoto/js/jquery.prettyPhoto.js");
+//addScript("/js/colorbox/1.5.5/jquery.colorbox-min.js");
+}
+
+if (window.addEventListener)
+  window.addEventListener("load", fetchJS, false);
+else if (window.attachEvent)
+  window.attachEvent("onload", fetchJS);
+else 
+  window.onload = fetchJS;
+</script>
+</body></html>
+

@@ -416,34 +416,25 @@
                                                                                         <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-080ab5d"
                                                                                             data-id="080ab5d"
                                                                                             data-element_type="column">
-                                                                                            <div
-                                                                                                class="elementor-widget-wrap elementor-element-populated">
+                                                                                            <div class="elementor-widget-wrap elementor-element-populated">
                                                                                                 <div class="elementor-element elementor-element-c563a07 elementor-widget elementor-widget-apus_element_nav_menu"
                                                                                                     data-id="c563a07"
                                                                                                     data-element_type="widget"
                                                                                                     data-widget_type="apus_element_nav_menu.default">
-                                                                                                    <div
-                                                                                                        class="elementor-widget-container">
-                                                                                                        <div
-                                                                                                            class="widget-nav-menu no-margin widget  ">
-
-                                                                                                            <h2
-                                                                                                                class="widget-title">
-                                                                                                                Top Jobs
-                                                                                                            </h2>
-
-                                                                                                            <div
-                                                                                                                class="widget-content">
-                                                                                                                <div
-                                                                                                                    class="menu-top-jobs-container">
+                                                                                                    <div class="elementor-widget-container">
+                                                                                                        <div class="widget-nav-menu no-margin widget  ">
+                                                                                                            <h2 class="widget-title">Top Jobs </h2>
+                                                                                                            <div class="widget-content">
+                                                                                                                <div class="menu-top-jobs-container">
                                                                                                                     <?php if(isset($globalSubCategories[$cat->id])): ?>
                                                                                                                         <ul id="menu-top-jobs"
                                                                                                                             class="menu">
                                                                                                                             <?php $__currentLoopData = $globalSubCategories[$cat->id]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                                                                                 <li id="menu-item-4338"
                                                                                                                                     class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-4338">
-                                                                                                                                    <a
-                                                                                                                                        href="<?php echo e(URL::to('gigs/' . $cat->slug . '/' . $subCat->slug)); ?>"><?php echo $subCat->name; ?></a>
+                                                                                                                                    <a href="<?php echo e(URL::to('gigs/' . $cat->slug . '/' . $subCat->slug)); ?>"><?php echo $subCat->name; ?>
+
+                                                                                                                                    </a>
                                                                                                                                 </li>
                                                                                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                                                                         </ul>

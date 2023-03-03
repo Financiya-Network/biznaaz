@@ -208,15 +208,20 @@ class HomesController extends Controller {
         $gigcatlist = $query->orderBy('id', 'DESC')->limit(10)->get();
         $mysavegigs = $this->getSavedGigs();
         $recentCompletedlist  = Myorder::with('Gig')->whereHas('Gig', function($q){$q->where('title', '!=', '')->whereHas('Category', function($q1){$q1->where('id', '>', 0); }); })->where('status', 2)->orderBy('id', 'ASC')->limit(16)->get();
+        $userinfo = DB::table('users')->where('status',1)->get();
         if(Session::get('user_id')){
             $bannerList = Banner::where('type', 'logged_user')->get();
             $loginuser = User::where(['id'=>Session::get('user_id')])->first();
             return view('homes.loginindex', ['title' => $pageTitle, 'loginuser'=>$loginuser, 'gigcatlist'=>$gigcatlist, 'bannerList' => $bannerList, 'mysavegigs'=>$mysavegigs, 'recentCompletedlist'=>$recentCompletedlist]);
         }else{
             
+            // echo "<pre>";
+            // print_r($userinfo);
+            // echo "</pre>";
+            // die;
             $bannerList = Banner::where('type', 'visitor')->get();
             $testimonils = DB::table('testimonials')->where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();
-            return view('homes.index1', ['title' => $pageTitle, 'fixheader'=>1, 'gigcatlist'=>$gigcatlist, 'bannerList' => $bannerList, 'mysavegigs'=>$mysavegigs, 'recentCompletedlist'=>$recentCompletedlist, 'testimonils'=>$testimonils]);     
+            return view('homes.index1', ['title' => $pageTitle, 'fixheader'=>1, 'gigcatlist'=>$gigcatlist, 'bannerList' => $bannerList, 'mysavegigs'=>$mysavegigs, 'recentCompletedlist'=>$recentCompletedlist, 'testimonils'=>$testimonils, 'userinfo' => $userinfo]);     
         }
         
      }
